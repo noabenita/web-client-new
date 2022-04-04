@@ -1,0 +1,49 @@
+* {
+    font-family: "Montserrat", sans-serif
+}
+
+
+.w3-row-padding img {
+    margin-bottom: 12px
+}
+
+.bgimg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('photo.jpg');
+    min-height: 100%;
+}
+
+#headDec{
+    margin-left: 800px;
+    margin-right: 200px;
+}
+
+#put1{
+    width: -600px;
+    height: 30px;
+    margin-right: 200px;
+    margin-left: 800px;
+    margin-top: 10px;
+}
+#center {
+    margin-left: 40%;
+}
+
+#mainImage {
+    width: 40%;
+}
+
+.w3-button{
+    margin-bottom: 50px;
+}
+#home {
+    padding: 128px 16px;
+}
+
+#poweredBy {
+    margin: -24px;
+    margin-top: 400px;
+    margin-left: 400px;
+}
