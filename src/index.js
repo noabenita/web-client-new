@@ -21,12 +21,23 @@ import LoginPage from './loginPage/LoginPage';
 import reportWebVitals from './reportWebVitals';
 import SignUpPage from './signUpPage/SignUpPage';
 
+class User{
+  constructor(username, nickname, img, password, confirmpassword){
+    this.UserName = username;
+    this.Nickname = nickname;
+    this.Img = img;
+    this.Password = password;
+    this.ConfirmPassword = confirmpassword;
+  }
+}
+
+const dataStracture= [new User('or', 'orush', 'photo.jpg', 12345, 12345)];
 
 ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter>
             <Routes>
-              <Route path="/" element ={<LoginPage />}>
+              <Route path="/" element ={<LoginPage db={dataStracture}/>}>
               </Route>
               <Route path="/SignUpPage" element ={<SignUpPage />}>
               </Route>
