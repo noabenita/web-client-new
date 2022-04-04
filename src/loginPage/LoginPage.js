@@ -1,16 +1,18 @@
 
 import { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import './LoginPage.css';
 import {useState} from 'react';
+import ChatPage from '../chatPage/ChatPage';
 
 
 
 function LoginPage({db}) {
     const [usersArray,setUserArray] = useState({username:'', password:''});
+    var nav = useNavigate();
         function ifSubmit() {
             if(db.find((e) => e.UserName == usersArray.username && e.Password == usersArray.password)) {
-                alert('succsess');
+                nav("/ChatPage");
             } else {
                 alert('failed');
             }
@@ -49,13 +51,9 @@ function LoginPage({db}) {
                     </label>
                 </div>
 
-                            
-                {/* <div className ="w3-light-grey w3-center w3-medium" id = "loginPageHeadline">
-                    Login              
-                </div> */}
                 
                 
-                <div container id="put1">
+                <div id="loginInfo">
                 <form >
                     <label>               
                         <input type="text" name="username" className='w3-container w3-xlarge' onChange={ifChange} placeholder='Username'  />
@@ -63,7 +61,7 @@ function LoginPage({db}) {
                 </form>
                 </div>
 
-                <div id="put1">
+                <div id="loginInfo">
                 <form>
                     <label>               
                         <input type="password" name="password" className='w3-container w3-xlarge' onChange={ifChange} placeholder='Password'  />
