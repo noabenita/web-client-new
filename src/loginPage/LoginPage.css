@@ -41,14 +41,13 @@
 
 }
 #button2 {
-    margin-left: 5px;
-    
+    margin-left: 5px;  
     margin-top: 20px;
    
 }
 
 #poweredBy {
-    margin-left: -180px;
+    margin: center;
 }
 
 #loginPageHeadline {
