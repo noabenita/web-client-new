@@ -1,25 +1,36 @@
 import logo from './logo.svg';
 import './App.css';
 
+
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const dataStracture= [
+    {
+      userName = 'or',
+      password = '1234'
+    },
+    {
+      userName = 'noa',
+      password = '1234'
+    },
+    {
+      userName = 'niv',
+      password = '1234'
+    },
+    {
+      userName = 'dvir',
+      password = '1234'
+    }
+  ]
+
+  //check input
+
+  return (<div className = "App.js"></div>){
+    // if = username+pass in DS -> go to chat page
+    // else -> stay in login or go to signin page 
+
+
+  }
 }
 
 export default App;
