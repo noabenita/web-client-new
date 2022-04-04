@@ -21,7 +21,7 @@
 }
 
 #mainImage {
-    width: 38%;
+    width: 40%;
 }
 
 #home {
@@ -35,15 +35,18 @@
 }
 
 #button1 {
-    margin-left: 950px;
-   
-    margin-top: 20px;
+    margin-left: 1070px;
+    margin-right: 350px;
+    margin-top: 10px;
 
 }
 #button2 {
-    margin-left: 5px;  
-    margin-top: 20px;
-   
+    z-index: 2;
+    position: absolute;
+    margin-left: 950px;
+    margin-top: 10px;
+    
+    
 }
 
 #poweredBy {
@@ -54,9 +57,7 @@
     width:1000px;
     height: 30px;
     margin-left:550px ;
-    margin-top:20px ;
- 
- 
+    margin-top:20px;
 }
 
 
@@ -66,7 +67,6 @@
     margin-left:600px ;
     margin-top:20px ;
     margin-bottom:20px ;
-  
     text-align:center;
 }
 
