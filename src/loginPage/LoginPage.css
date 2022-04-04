@@ -1,0 +1,74 @@
+* {
+    font-family: "Montserrat", sans-serif
+}
+
+
+
+.bgimg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('photo.jpg');
+    min-height: 100%;
+}
+
+#headDec{
+    margin-left: 600px;
+    margin-right: 200px;
+}
+#center {
+    margin-left: 40%;
+}
+
+#mainImage {
+    width: 38%;
+}
+
+#home {
+    padding: 128px 16px;
+}
+
+#showPassword {
+    margin-left: 620px;
+    margin-top: 50px;
+   
+}
+
+#button1 {
+    margin-left: 950px;
+   
+    margin-top: 20px;
+
+}
+#button2 {
+    margin-left: 5px;
+    
+    margin-top: 20px;
+   
+}
+
+#poweredBy {
+    margin-left: -180px;
+}
+
+#loginPageHeadline {
+    width:1000px;
+    height: 30px;
+    margin-left:550px ;
+    margin-top:20px ;
+ 
+ 
+}
+
+
+#put1 {
+    width:-600px;
+    height: 30px;
+    margin-left:20px ;
+    margin-top:20px ;
+    margin-bottom:20px ;
+  
+    text-align:center;
+}
+
+
