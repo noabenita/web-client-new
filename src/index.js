@@ -1,18 +1,3 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import LoginPage from './loginPage/LoginPage';
-// import reportWebVitals from './reportWebVitals';
-
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <LoginPage />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
-// reportWebVitals();
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
@@ -20,6 +5,19 @@ import ChatPage from './chatPage/ChatPage';
 import LoginPage from './loginPage/LoginPage';
 import reportWebVitals from './reportWebVitals';
 import SignUpPage from './signUpPage/SignUpPage';
+
+
+class User{
+    constructor(username, nickname, img, password, confirmpassword){
+      this.UserName = username;
+      this.Nickname = nickname;
+      this.Img = img;
+      this.Password = password;
+      this.ConfirmPassword = confirmpassword;
+    }
+}
+
+const dataStracture= [new User('or', 'orush', 'photo.jpg', 12345, 12345)];
 
 
 ReactDOM.render(

@@ -24,7 +24,6 @@ function App() {
   ]
 
   //check input
-
   return (<div className = "App.js"></div>){
     // if = username+pass in DS -> go to chat page
     // else -> stay in login or go to signin page 

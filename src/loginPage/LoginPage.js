@@ -7,8 +7,6 @@ import './LoginPage.css';
 
 class LoginPage extends Component {
     render() {
-        
-    
         return ( 
             <>  
             <nav id="mainImage" className="w3-sidebar w3-hide-medium w3-hide-small">
