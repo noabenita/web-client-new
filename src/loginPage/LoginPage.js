@@ -10,7 +10,7 @@ function LoginPage({db}) {
     const [usersArray,setUserArray] = useState({username:'', password:''});
         function ifSubmit() {
             if(db.find((e) => e.UserName == usersArray.username && e.Password == usersArray.password)) {
-                <Link to="/ChatPage">Sign In</Link>
+                alert('succsess');
             } else {
                 alert('failed');
             }
@@ -56,7 +56,7 @@ function LoginPage({db}) {
                 
                 
                 <div container id="put1">
-                <form method='POST'>
+                <form >
                     <label>               
                         <input type="text" name="username" className='w3-container w3-xlarge' onChange={ifChange} placeholder='Username'  />
                     </label>
