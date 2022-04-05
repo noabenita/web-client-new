@@ -2,17 +2,16 @@ import {Link, useNavigate} from 'react-router-dom';
 import './SignUpPage.css';
 import { useState } from "react";
 import { findByAltText } from '@testing-library/react';
-// import LoginPage from './loginPage/LoginPage';
+import User from '../index';
 
-
-function SignUpPage({db, User}) {
+function SignUpPage({db}) {
   const [createUser, setCreateUser]= useState({username:'', nickname:'', img:'', password:'', confirmpassword:''});
   var nav = useNavigate();
 
 // add new user to DB
 function ifSubmit(){
   if (chackEmpty() && validatePassword() && passwordConfirmation() && ifExist()){
-    //  db.add_item(new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword));
+     db.push(new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword));
     alert("seccessss");
     // nav("/LoginPage");
   }
@@ -43,6 +42,7 @@ function chackEmpty(){
   }
 }
 
+// check validation of confirm password
 function passwordConfirmation(){
   if (!(createUser.confirmpassword == createUser.password)){
     alert ("Password do not match");
@@ -50,7 +50,7 @@ function passwordConfirmation(){
   }
   return true;
 }
-// check validation of confirm password
+
 function ifChange(event){
   const {name, value} = event.target;
   setCreateUser({
