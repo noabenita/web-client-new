@@ -66,7 +66,6 @@ function LoginPage({db}) {
                 </form>
             </div>
                 
-                
             <form onSubmit={ifSubmit}> 
                 <button className='w3-button w3-center w3-light-grey w3-padding-large' type='submit' id='button2'>
                     Sign In

@@ -13,7 +13,23 @@ class User{
     this.Img = img;
     this.Password = password;
     this.ConfirmPassword = confirmpassword;
+    this.chats = [];
   }
+}
+
+class Chat{
+  constructor(){
+    this.messages=[];
+  }
+}
+
+class Message {
+  constructor(time, data, flag){
+    this.time = time;
+    this.data = data;
+    this.flag = flag; // 1 - if i send , 0- else
+  }
+
 }
 
 const dataStracture= [new User('or', 'orush', 'photo.jpg', 12345, 12345)];
@@ -36,5 +52,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-export default User;
 reportWebVitals();
+export default User - Chat - Message;
