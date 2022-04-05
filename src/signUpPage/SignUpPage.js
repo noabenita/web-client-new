@@ -2,10 +2,9 @@ import {Link, useNavigate} from 'react-router-dom';
 import './SignUpPage.css';
 import { useState } from "react";
 import { findByAltText } from '@testing-library/react';
-// import LoginPage from './loginPage/LoginPage';
+import User from '../index';
 
-
-function SignUpPage({db, User}) {
+function SignUpPage({db}) {
   const [createUser, setCreateUser]= useState({username:'', nickname:'', img:'', password:'', confirmpassword:''});
   var nav = useNavigate();
 
