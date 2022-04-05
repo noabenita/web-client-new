@@ -24,9 +24,11 @@ ReactDOM.render(
             <Routes>
               <Route path="/" element ={<LoginPage db={dataStracture}/>}>
               </Route>
-              <Route path="/SignUpPage" element ={<SignUpPage />}>
+              <Route path="/LoginPage" element ={<LoginPage db={dataStracture}/>}>
               </Route>
-              <Route path="/ChatPage" element ={<ChatPage />}>
+              <Route path="/SignUpPage" element ={<SignUpPage db={dataStracture}/>}>
+              </Route>
+              <Route path="/ChatPage" element ={<ChatPage db={dataStracture}/>}>
               </Route>
             </Routes>
         </BrowserRouter>  

@@ -1,4 +1,3 @@
-
 import { Component } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import './LoginPage.css';
@@ -29,7 +28,7 @@ function LoginPage({db}) {
         
     return ( 
         <>  
-        <form onSubmit={ifSubmit}> 
+       
             <nav id="mainImage" className="w3-sidebar w3-hide-medium w3-hide-small">
                 <div className="bgimg" ></div>               
             </nav>
@@ -71,16 +70,19 @@ function LoginPage({db}) {
             </div>
                 
                 
+            <form onSubmit={ifSubmit}> 
+                <button className='w3-button w3-center w3-light-grey w3-padding-large' type='submit' id='button2'>
+                    Sign In
+                </button>   
+            </form>
 
-            <p>
+            <p >
                 <button className='w3-button w3-center w3-light-grey w3-padding-large' type='submit' id='button1'>
                     <Link to="/SignUpPage">Sign Up</Link>
                 </button>
-                <button className='w3-button w3-light-grey w3-padding-large' type='submit' id='button2'>
-                    Sign In
-                </button>
             </p>
-                
+
+   
             <p>
                 <footer
                     id="poweredBy"
@@ -90,7 +92,7 @@ function LoginPage({db}) {
                     </p>
                 </footer>
             </p>
-        </form>
+        
                     
         </>
     );
