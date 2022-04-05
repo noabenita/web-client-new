@@ -1,8 +1,76 @@
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import './SignUpPage.css';
+import { useState } from "react";
+import { findByAltText } from '@testing-library/react';
+// import LoginPage from './loginPage/LoginPage';
 
-function SignUpPage() {
-  
+
+function SignUpPage({db, User}) {
+  const [createUser, setCreateUser]= useState({username:'', nickname:'', img:'', password:'', confirmpassword:''});
+  var nav = useNavigate();
+
+// add new user to DB
+function ifSubmit(){
+  if (chackEmpty() && validatePassword() && passwordConfirmation() && ifExist()){
+    //  db.add_item(new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword));
+    alert("seccessss");
+    // nav("/LoginPage");
+  }
+  else {
+    alert("delll");
+  }
+}
+
+// check if user is already exist
+function ifExist(){
+  if(db.find((e) => e.UserName == createUser.username)){
+    alert("Username is already exist");
+    return false;
+  } else {
+    return true;
+  }
+}
+
+// check empty fields
+function chackEmpty(){
+  if (((createUser.username.length == 0) || (createUser.nickname.length == 0) || (createUser.img.length == 0) ||
+  (createUser.password.length == 0) || (createUser.confirmpassword.length == 0))){ 
+    alert("Please fill all fields");
+    return false;
+  }
+  else{
+     return true; 
+  }
+}
+
+function passwordConfirmation(){
+  if (!(createUser.confirmpassword == createUser.password)){
+    alert ("Password do not match");
+    return false;
+  }
+  return true;
+}
+// check validation of confirm password
+function ifChange(event){
+  const {name, value} = event.target;
+  setCreateUser({
+    ...createUser,
+    [name]:value
+  })
+}
+
+// validation of password
+function validatePassword(){
+  if ((/[a-z]/.test(createUser.password)) && (/[A-Z]/.test(createUser.password))
+   && (/[0-9]/.test(createUser.password)) && (createUser.password.length >= 8)){
+     return true;
+  }
+  else {
+    alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters");
+    return false;
+  }
+}
+
   return(
     <div className='container'>
       <div className='row'>
@@ -11,7 +79,7 @@ function SignUpPage() {
           <nav id="mainImage" className="w3-sidebar w3-hide-medium w3-hide-small">
             <div className="bgimg" >/</div>
           </nav>
-        </div>
+        </div> 
 
         <div className='col'>
           <div id = "headDec">
@@ -27,38 +95,38 @@ function SignUpPage() {
             <form action="/action_page.php" target="_blank">
               <p>
                 <label>
-                  <input className="w3-input w3-padding-16 w3-border" type="text" placeholder="Username" />
+                  <input className="w3-input w3-padding-16 w3-border" name="username" type="text" 
+                  placeholder="Username" onChange={ifChange} />
                 </label>
               </p>
               <p>
                 <input
                   className="w3-input w3-padding-16 w3-border"
-                  type="text"
+                  type="text" name = "nickname" onChange={ifChange}
                   placeholder="NickName" />
               </p>
               <label>Select Image : </label>
-              <input type="file" name="image" />
+              <input type="file" onChange={ifChange} name="img" />
             </form>
             <p>
               <input
-                className="w3-input w3-padding-16 w3-border"
-                type="password"
+                className="w3-input w3-padding-16 w3-border" name="password"
+                type="password" onChange={ifChange}
                 placeholder="Password" />
             </p>
             <p>
               <input
-                className="w3-input w3-padding-16 w3-border"
-                type="password"
+                className="w3-input w3-padding-16 w3-border" name="confirmpassword"
+                type="password" onChange={ifChange}
                 placeholder="Confirm Password"/>
             </p>
-            <p>
+            <form onSubmit={ifSubmit}>
               <button className='w3-button w3-light-grey w3-padding-large' type='submit'>
-                <Link to="/ChatPage">Sign In</Link>
+                Sign In
               </button>
-            </p>
-            {/* End Contact Section */}
+            </form>
+            {/* End Contact Section*/}
           </div>
-
           {/* Footer */}
           <footer
               id="poweredBy"

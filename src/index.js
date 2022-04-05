@@ -1,18 +1,3 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import LoginPage from './loginPage/LoginPage';
-// import reportWebVitals from './reportWebVitals';
-
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <LoginPage />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
-// reportWebVitals();
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
@@ -39,9 +24,11 @@ ReactDOM.render(
             <Routes>
               <Route path="/" element ={<LoginPage db={dataStracture}/>}>
               </Route>
-              <Route path="/SignUpPage" element ={<SignUpPage />}>
+              <Route path="/LoginPage" element ={<LoginPage db={dataStracture}/>}>
               </Route>
-              <Route path="/ChatPage" element ={<ChatPage />}>
+              <Route path="/SignUpPage" element ={<SignUpPage db={dataStracture}/>}>
+              </Route>
+              <Route path="/ChatPage" element ={<ChatPage db={dataStracture}/>}>
               </Route>
             </Routes>
         </BrowserRouter>  
