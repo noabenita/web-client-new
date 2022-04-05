@@ -4,6 +4,7 @@ import { useState } from "react";
 import { findByAltText } from '@testing-library/react';
 import User from '../index';
 
+
 function SignUpPage({db}) {
   const [createUser, setCreateUser]= useState({username:'', nickname:'', img:'', password:'', confirmpassword:''});
   var nav = useNavigate();
@@ -11,12 +12,10 @@ function SignUpPage({db}) {
 // add new user to DB
 function ifSubmit(){
   if (chackEmpty() && validatePassword() && passwordConfirmation() && ifExist()){
-     db.push(new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword));
-    alert("seccessss");
-    // nav("/LoginPage");
-  }
-  else {
-    alert("delll");
+    var newUser = new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword);
+    db.push(newUser);
+    alert("Login successfully");
+    nav("/LoginPage");
   }
 }
 

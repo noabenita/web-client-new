@@ -36,5 +36,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-reportWebVitals();
 export default User;
+reportWebVitals();
