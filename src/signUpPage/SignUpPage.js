@@ -12,7 +12,7 @@ function SignUpPage({db, User}) {
 // add new user to DB
 function ifSubmit(){
   if (chackEmpty() && validatePassword() && passwordConfirmation() && ifExist()){
-    //  db.add_item(new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword));
+     db.push(new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword));
     alert("seccessss");
     // nav("/LoginPage");
   }
@@ -43,6 +43,7 @@ function chackEmpty(){
   }
 }
 
+// check validation of confirm password
 function passwordConfirmation(){
   if (!(createUser.confirmpassword == createUser.password)){
     alert ("Password do not match");
@@ -50,7 +51,7 @@ function passwordConfirmation(){
   }
   return true;
 }
-// check validation of confirm password
+
 function ifChange(event){
   const {name, value} = event.target;
   setCreateUser({

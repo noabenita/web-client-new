@@ -28,8 +28,7 @@ function LoginPage({db}) {
     }
         
     return ( 
-        <>  
-       
+        <>        
             <nav id="mainImage" className="w3-sidebar w3-hide-medium w3-hide-small">
                 <div className="bgimg" ></div>               
             </nav>
@@ -43,16 +42,13 @@ function LoginPage({db}) {
                 </header>
             </div>
 
-
             <div container id = "loginPageHeadline">
                 <label>
                     <div className ="w3-light-grey w3-container w3-center w3-large" > 
                         Login
                     </div>            
                 </label>
-            </div>
-
-                
+            </div>        
                 
             <div id="loginInfo">
                 <form >
@@ -82,9 +78,6 @@ function LoginPage({db}) {
                     <Link to="/SignUpPage">Sign Up</Link>
                 </button>
             </p>
-
-                        
-                  
                 
             <p>
                 <footer
