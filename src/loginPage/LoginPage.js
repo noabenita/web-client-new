@@ -82,10 +82,6 @@ function LoginPage({db}) {
                     <Link to="/SignUpPage">Sign Up</Link>
                 </button>
             </p>
-
-                        
-                  
-                
             <p>
                 <footer
                     id="poweredBy"
@@ -94,9 +90,7 @@ function LoginPage({db}) {
                         Powered by <a>Or Nasri &amp; Noa Benita</a>
                     </p>
                 </footer>
-            </p>
-        
-                    
+            </p>  
         </>
     );
     
