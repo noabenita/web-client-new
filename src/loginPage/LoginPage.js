@@ -1,3 +1,4 @@
+
 import { Component } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import './LoginPage.css';
@@ -82,7 +83,9 @@ function LoginPage({db}) {
                 </button>
             </p>
 
-   
+                        
+                  
+                
             <p>
                 <footer
                     id="poweredBy"
