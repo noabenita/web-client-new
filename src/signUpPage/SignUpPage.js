@@ -14,7 +14,6 @@ function ifSubmit(){
   if (chackEmpty() && validatePassword() && passwordConfirmation() && ifExist()){
     var newUser = new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword);
     db.push(newUser);
-    alert("Login successfully");
     nav("/LoginPage");
   }
 }

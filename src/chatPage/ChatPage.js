@@ -1,9 +1,27 @@
 import './ChatPage.css';
 import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-function ChatPage(){
+import User from '../index';
+import {useState} from 'react';
 
+
+
+function ChatPage({db, lg}){
+  const [messageArray,setMessageArray] = useState({username:'', password:''});
+
+  function ifChange1(event){
+    const {name, value} = event.target;
+    setMessageArray({
+        ...messageArray,
+        [name]:value
+    })
+  }
+  function ifSubmit1(){
+    alert(lg);
+   
+  }
     return (
+      
       // <>
       /* Sidebar with image */
       /* <nav id="mainImage" className="w3-sidebar w3-hide-medium w3-hide-small">
@@ -29,10 +47,8 @@ function ChatPage(){
       </div> */ 
     /* </>     */
 <>
-  <link
-    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    rel="stylesheet"
-  />
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
   <div className="container">
     <div className="row clearfix">
       <div className="col-lg-12">
@@ -50,7 +66,9 @@ function ChatPage(){
                     />
                   </div>
                   <div className="myName">
-                    <h6 className="m-b-0">Aiden Chavez</h6>
+                   <h6 className="m-b-0">  me 
+                          {/* <pre onChange={ifChange1} /> */}
+                      </h6>
                   </div>
                 </div>
             <div className="input-group1">
@@ -232,14 +250,20 @@ function ChatPage(){
               <div className="input-group mb-0">
                 <div className="input-group-prepend">
                   <span className="input-group-text">
-                    <i className="fa fa-send" />
+                    <form onSubmit={ifSubmit1}>
+                    <button className="fa fa-send" type='submit'/>
+                    </form>
                   </span>
                 </div>
+                <form>
+                  <label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control" onChange={ifChange1}
                   placeholder="Enter text here..."
                 />
+                 </label>
+                </form>
               </div>
             </div>
           </div>
