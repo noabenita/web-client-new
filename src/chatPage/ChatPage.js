@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 function ChatPage(){
 
+  
+
     return (
       // <>
       /* Sidebar with image */
@@ -35,10 +37,11 @@ function ChatPage(){
   />
   <div className="container">
     <div className="row clearfix">
-      <div className="col-lg-12">
-        <div className="card chat-app">
-          <div id="plist" className="people-list">
-          <div className="col-lg-6 chat-list">
+      <div className="col-lg-12 ">
+        <div className="card chat-app ">
+          <div id="plist" className="people-list ">
+            <div container className='box w3-border w3-padding-32'>
+              <div className="col-lg-5 chat-list">
                   <div className='myPic'
                     href="javascript:void(0);"
                     data-toggle="modal"
@@ -49,15 +52,18 @@ function ChatPage(){
                       alt="avatar"
                     />
                   </div>
-                  <div className="myName">
+                  <div className="myName ">
                     <h6 className="m-b-0">Aiden Chavez</h6>
                   </div>
-                </div>
+                  
+              </div>
+            </div>
             <div className="input-group1">
               <div className="input-group-prepend">
                 <span className="input-group-text">
                   <i className="fa fa-user-circle" />
                 </span>
+
               </div>
               
              
@@ -229,17 +235,29 @@ function ChatPage(){
             </div>
             {/* message box */}
             <div className="chat-message clearfix">
-              <div className="input-group mb-0">
+            
                 <div className="input-group-prepend">
-                  <span className="input-group-text">
-                    <i className="fa fa-send" />
-                  </span>
+                    <button className="fa fa-send" id='sendButton' type='submit' />        
                 </div>
+                <div border className='borderrr'>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control "
                   placeholder="Enter text here..."
                 />
+                </div>
+                <div className="container">
+                <button type="button" className="mark" >
+                  ☰
+                </button>
+                  <div class="dropdown">
+                    <ul>
+                      <li>Option 1</li>
+                      <li>Option 2</li>
+                      <li>Option 3</li>
+                      <li>Option 4</li>
+                    </ul>
+                  </div>
               </div>
             </div>
           </div>

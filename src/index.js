@@ -6,6 +6,9 @@ import LoginPage from './loginPage/LoginPage';
 import reportWebVitals from './reportWebVitals';
 import SignUpPage from './signUpPage/SignUpPage';
 
+
+
+
 class User{
   constructor(username, nickname, img, password, confirmpassword){
     this.UserName = username;
@@ -32,6 +35,7 @@ class Message {
 
 }
 
+
 const dataStracture= [new User('or', 'orush', 'photo.jpg', 12345, 12345)];
 
 ReactDOM.render(
@@ -53,4 +57,4 @@ ReactDOM.render(
 );
 
 reportWebVitals();
-export default User - Chat - Message;
+export default User

@@ -9,66 +9,66 @@ function SignUpPage({db}) {
   const [createUser, setCreateUser]= useState({username:'', nickname:'', img:'', password:'', confirmpassword:''});
   var nav = useNavigate();
 
-// add new user to DB
-function ifSubmit(){
-  if (chackEmpty() && validatePassword() && passwordConfirmation() && ifExist()){
-    var newUser = new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword);
-    db.push(newUser);
-    alert("Login successfully");
-    nav("/LoginPage");
+  // add new user to DB
+  function ifSubmit(){
+    if (chackEmpty() && validatePassword() && passwordConfirmation() && ifExist()){
+      var newUser = new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword);
+      db.push(newUser);
+      alert("Login successfully");
+      nav("/LoginPage");
+    }
   }
-}
 
-// check if user is already exist
-function ifExist(){
-  if(db.find((e) => e.UserName == createUser.username)){
-    alert("Username is already exist");
-    return false;
-  } else {
+  // check if user is already exist
+  function ifExist(){
+    if(db.find((e) => e.UserName == createUser.username)){
+      alert("Username is already exist");
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  // check empty fields
+  function chackEmpty(){
+    if (((createUser.username.length == 0) || (createUser.nickname.length == 0) || (createUser.img.length == 0) ||
+    (createUser.password.length == 0) || (createUser.confirmpassword.length == 0))){ 
+      alert("Please fill all fields");
+      return false;
+    }
+    else{
+      return true; 
+    }
+  }
+
+  // check validation of confirm password
+  function passwordConfirmation(){
+    if (!(createUser.confirmpassword == createUser.password)){
+      alert ("Password do not match");
+      return false;
+    }
     return true;
   }
-}
 
-// check empty fields
-function chackEmpty(){
-  if (((createUser.username.length == 0) || (createUser.nickname.length == 0) || (createUser.img.length == 0) ||
-  (createUser.password.length == 0) || (createUser.confirmpassword.length == 0))){ 
-    alert("Please fill all fields");
-    return false;
+  function ifChange(event){
+    const {name, value} = event.target;
+    setCreateUser({
+      ...createUser,
+      [name]:value
+    })
   }
-  else{
-     return true; 
-  }
-}
 
-// check validation of confirm password
-function passwordConfirmation(){
-  if (!(createUser.confirmpassword == createUser.password)){
-    alert ("Password do not match");
-    return false;
+  // validation of password
+  function validatePassword(){
+    if ((/[a-z]/.test(createUser.password)) && (/[A-Z]/.test(createUser.password))
+    && (/[0-9]/.test(createUser.password)) && (createUser.password.length >= 8)){
+      return true;
+    }
+    else {
+      alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters");
+      return false;
+    }
   }
-  return true;
-}
-
-function ifChange(event){
-  const {name, value} = event.target;
-  setCreateUser({
-    ...createUser,
-    [name]:value
-  })
-}
-
-// validation of password
-function validatePassword(){
-  if ((/[a-z]/.test(createUser.password)) && (/[A-Z]/.test(createUser.password))
-   && (/[0-9]/.test(createUser.password)) && (createUser.password.length >= 8)){
-     return true;
-  }
-  else {
-    alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters");
-    return false;
-  }
-}
 
   return(
     <div className='container'>
