@@ -4,22 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import User from '../index';
 import {useState} from 'react';
 
+  
 
-
-function ChatPage({db, lg}){
-  const [messageArray,setMessageArray] = useState({username:'', password:''});
-
-  function ifChange1(event){
-    const {name, value} = event.target;
-    setMessageArray({
-        ...messageArray,
-        [name]:value
-    })
-  }
-  function ifSubmit1(){
-    alert(lg);
-   
-  }
     return (
       
       // <>
@@ -51,10 +37,11 @@ function ChatPage({db, lg}){
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
   <div className="container">
     <div className="row clearfix">
-      <div className="col-lg-12">
-        <div className="card chat-app">
-          <div id="plist" className="people-list">
-          <div className="col-lg-6 chat-list">
+      <div className="col-lg-12 ">
+        <div className="card chat-app ">
+          <div id="plist" className="people-list ">
+            <div container className='box w3-border w3-padding-32'>
+              <div className="col-lg-5 chat-list">
                   <div className='myPic'
                     href="javascript:void(0);"
                     data-toggle="modal"
@@ -70,12 +57,15 @@ function ChatPage({db, lg}){
                           {/* <pre onChange={ifChange1} /> */}
                       </h6>
                   </div>
-                </div>
+                  
+              </div>
+            </div>
             <div className="input-group1">
               <div className="input-group-prepend">
                 <span className="input-group-text">
                   <i className="fa fa-user-circle" />
                 </span>
+
               </div>
               
              
@@ -247,23 +237,29 @@ function ChatPage({db, lg}){
             </div>
             {/* message box */}
             <div className="chat-message clearfix">
-              <div className="input-group mb-0">
+            
                 <div className="input-group-prepend">
-                  <span className="input-group-text">
-                    <form onSubmit={ifSubmit1}>
-                    <button className="fa fa-send" type='submit'/>
-                    </form>
-                  </span>
+                    <button className="fa fa-send" id='sendButton' type='submit' />        
                 </div>
-                <form>
-                  <label>
+                <div border className='borderrr'>
                 <input
                   type="text"
-                  className="form-control" onChange={ifChange1}
+                  className="form-control "
                   placeholder="Enter text here..."
                 />
-                 </label>
-                </form>
+                </div>
+                <div className="container">
+                <button type="button" className="mark" >
+                  ☰
+                </button>
+                  <div class="dropdown">
+                    <ul>
+                      <li>Option 1</li>
+                      <li>Option 2</li>
+                      <li>Option 3</li>
+                      <li>Option 4</li>
+                    </ul>
+                  </div>
               </div>
             </div>
           </div>

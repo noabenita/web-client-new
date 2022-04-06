@@ -6,6 +6,9 @@ import LoginPage from './loginPage/LoginPage';
 import reportWebVitals from './reportWebVitals';
 import SignUpPage from './signUpPage/SignUpPage';
 
+
+
+
 class User{
   constructor(username, nickname, img, password, confirmpassword, online){
     this.UserName = username;
@@ -66,5 +69,4 @@ ReactDOM.render(
 );
 
 reportWebVitals();
-export default User;
-
+export default User
