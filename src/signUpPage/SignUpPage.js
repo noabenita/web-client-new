@@ -80,7 +80,7 @@ function SignUpPage({db}) {
           </nav>
         </div> 
 
-        <div className='col'>
+        <div className='col1'>
           <div id = "headDec">
             {/* Header */}
             <header className="w3-container w3-center" id="home">
@@ -90,49 +90,50 @@ function SignUpPage({db}) {
               <p> Fast, Simple and Secure Messaging.</p>
             </header>
           </div>
-          <div id ='put1'>
+
+          <div className = "signupPageHeadline w3-container w3-light-grey w3-center w3-opacity">
+                <label>
+                    <div className =" SignUpText w3-center w3-large" > 
+                        SignUp
+                    </div>            
+                </label>
+            </div>
+
+          <div id ='put'>
             <form action="/action_page.php" target="_blank">
               <p>
-                <label>
-                  <input className="w3-input w3-padding-16 w3-border" name="username" type="text" 
+                  <input className="w3-input w3-padding-16 w3-border" type="text" name="username" 
                   placeholder="Username" onChange={ifChange} />
-                </label>
               </p>
               <p>
                 <input
-                  className="w3-input w3-padding-16 w3-border"
-                  type="text" name = "nickname" onChange={ifChange}
-                  placeholder="NickName" />
+                  className="w3-input w3-padding-16 w3-border" type="text" name ="nickname"
+                  placeholder="NickName"  onChange={ifChange} />
               </p>
               <label>Select Image : </label>
-              <input type="file" onChange={ifChange} name="img" />
+              <input className="addImage" type="file" onChange={ifChange} name="img" />
             </form>
             <p>
-              <input
-                className="w3-input w3-padding-16 w3-border" name="password"
-                type="password" onChange={ifChange}
-                placeholder="Password" />
+              <input className="w3-input w3-padding-16 w3-border" name="password" type="password"
+                placeholder="Password"  onChange={ifChange} />
             </p>
             <p>
-              <input
-                className="w3-input w3-padding-16 w3-border" name="confirmpassword"
-                type="password" onChange={ifChange}
-                placeholder="Confirm Password"/>
+              <input className="w3-input w3-padding-16 w3-border" name="confirmpassword" type="password"                
+                placeholder="Confirm Password" onChange={ifChange}/>
             </p>
             <form onSubmit={ifSubmit}>
               <button className='w3-button w3-light-grey w3-padding-large' type='submit'>
-                Sign In
+                Sign Up
               </button>
             </form>
             {/* End Contact Section*/}
           </div>
           {/* Footer */}
           <footer
-              id="poweredBy"
-              className=" w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge ">
-            <p className="w3-medium ">
+              id="poweredBy" className=" w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge ">
+              <p className="w3-medium">
               Powered by <a>Or Nasri &amp; Noa Benita</a>
-            </p>
+              </p>
             {/* End footer */}
           </footer>
         </div>  

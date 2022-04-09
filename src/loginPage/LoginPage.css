@@ -2,70 +2,64 @@
     font-family: "Montserrat", sans-serif
 }
 
-
-
 .bgimg {
+    width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('photo.jpg');
+    margin-left:0%;
     min-height: 100%;
 }
 
-#headDec{
-    margin-left: 600px;
-    margin-right: 200px;
-}
-#center {
-    margin-left: 40%;
+.onChat{
+    margin-top: 0%;
+    margin-left: 26%;
+    margin-right: -4%;
 }
 
-#mainImage {
-    width: 40%;
-}
-
-#home {
-    padding: 128px 16px;
-}
-
-#showPassword {
-    margin-left: 620px;
-    margin-top: 50px;
-   
+.secHeadLine{
+    margin-top: 0%;
+    margin-left: 26%;
+    margin-right: -4%;
 }
 
 #button1 {
-    margin-left: 1070px;
-    margin-right: 350px;
-    margin-top: 10px;
+    margin-left: 70%;
+    margin-top: 1%;
 
 }
+
 #button2 {
     z-index: 2;
     position: absolute;
-    margin-left: 950px;
-    margin-top: 10px;
-    
-    
+    margin-left: 62%;
+    margin-top: 1%;    
 }
 
-#poweredBy {
-    margin: center;
+
+
+.poweredBy {
+    margin-right: -40%;
+    margin-bottom: -2%;
 }
 
-#loginPageHeadline {
-    width:100%;
-    height: 30px;
-    margin-left:950px ;
-    margin-top:20px;
+.loginPageHeadline {
+    margin-bottom: 3%;
+    margin-top: -2.5%;
+    margin-right: -10%;  
 }
 
+.loginText {
+    margin-right: -490%;
+}
 
 #loginInfo {
     width:auto;
     height: 30%;
     margin-left: 40%;
     text-align:center;
+    margin-top: 0.5%;
 }
 
 

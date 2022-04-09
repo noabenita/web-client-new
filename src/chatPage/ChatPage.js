@@ -1,23 +1,23 @@
 import './ChatPage.css';
 import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
+
+
 function ChatPage(){
 
-  
-
     return (
-      // <>
-      /* Sidebar with image */
-      /* <nav id="mainImage" className="w3-sidebar w3-hide-medium w3-hide-small">
+      <>
+      
+       <nav id="mainImage" className="w3-sidebar w3-hide-small">
         <div className="bgimg" ></div>
-      </nav> */
-      /* semi Transperent Screen*/
-      /* <div id="semiTrans" className=" w3-hide-medium w3-hide-small" ></div>
-      {/* powered by*/
-      /* <div className="poweredBy">
+      </nav>
+      
+       <div  className="semiTrans w3-hide-medium w3-hide-small" ></div>
+     
+       <div className="poweredBy">
           {" "}
           <pre>Powered by Or Nasri &amp; Noa Benita </pre>
-      </div>
+    </div>
         
       <div id="button">
       <p>
@@ -28,9 +28,8 @@ function ChatPage(){
                <Link to="/">Logout</Link>
             </button>
       </p>
-      </div> */ 
-    /* </>     */
-<>
+      </div> 
+
   <link
     href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     rel="stylesheet"
@@ -38,7 +37,7 @@ function ChatPage(){
   <div className="container">
     <div className="row clearfix">
       <div className="col-lg-12 ">
-        <div className="card chat-app ">
+        <div className="card chat-app  ">
           <div id="plist" className="people-list ">
             <div container className='box w3-border w3-padding-32'>
               <div className="col-lg-5 chat-list">
@@ -52,8 +51,8 @@ function ChatPage(){
                       alt="avatar"
                     />
                   </div>
-                  <div className="myName ">
-                    <h6 className="m-b-0">Aiden Chavez</h6>
+                  <div className="myName">
+                    <h6 className="m-b-0 w3-large">Aiden Chavez</h6>
                   </div>
                   
               </div>
@@ -61,7 +60,7 @@ function ChatPage(){
             <div className="input-group1">
               <div className="input-group-prepend">
                 <span className="input-group-text">
-                  <i className="fa fa-user-circle" />
+                  <button className="addCon fa fa-user-circle" />
                 </span>
 
               </div>
@@ -69,7 +68,7 @@ function ChatPage(){
              
             </div>
             
-            <ul className="list-unstyled chat-list mt-2 mb-0">
+            <ul className="list-unstyled chat-list mt-2 mb-0 w3-border">
               <li className="clearfix">
                 <img
                   src="https://bootdey.com/img/Content/avatar/avatar1.png"
@@ -170,32 +169,7 @@ function ChatPage(){
                     <small>Last seen: 2 hours ago</small>
                   </div>
                 </div>
-                <div className="col-lg-6 hidden-sm text-right">
-                  <a
-                    href="javascript:void(0);"
-                    className="btn btn-outline-secondary"
-                  >
-                    <i className="fa fa-camera" />
-                  </a>
-                  <a
-                    href="javascript:void(0);"
-                    className="btn btn-outline-primary"
-                  >
-                    <i className="fa fa-image" />
-                  </a>
-                  <a
-                    href="javascript:void(0);"
-                    className="btn btn-outline-info"
-                  >
-                    <i className="fa fa-cogs" />
-                  </a>
-                  <a
-                    href="javascript:void(0);"
-                    className="btn btn-outline-warning"
-                  >
-                    <i className="fa fa-question" />
-                  </a>
-                </div>
+                
               </div>
             </div>
             {/* maessages */}
@@ -240,23 +214,22 @@ function ChatPage(){
                     <button className="fa fa-send" id='sendButton' type='submit' />        
                 </div>
                 <div border className='borderrr'>
-                <input
-                  type="text"
-                  className="form-control "
-                  placeholder="Enter text here..."
-                />
+                <form action="/action_page.php" target="_blank">
+                  <p>
+                      <input className="form-control w3-input" type="text" name="username" 
+                      placeholder="Enter text here..."/>
+                  </p>
+                </form>   
                 </div>
-                <div className="container">
-                <button type="button" className="mark" >
-                  ☰
-                </button>
-                  <div class="dropdown">
-                    <ul>
-                      <li>Option 1</li>
-                      <li>Option 2</li>
-                      <li>Option 3</li>
-                      <li>Option 4</li>
-                    </ul>
+                <div class="dropdown">
+                  <button class="btn btn-secondary fa fa-paperclip w3-xlarge" type="button" id="dropdownMenuButton" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  </button>
+
+                  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">                
+                    <button className="fa fa-picture-o icons"></button>               
+                    <button className="fa fa-video-camera icons"></button>
+                    <button className="fa fa-microphone icons"></button>
                   </div>
               </div>
             </div>

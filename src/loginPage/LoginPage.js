@@ -35,16 +35,16 @@ function LoginPage({db}) {
 
             <div id="headDec">
                 <header className="w3-container w3-center" id="home">
-                    <h1 className="w3-jumbo">
+                    <h1 className="onChat w3-jumbo">
                         <b>O-N Chat</b>
                     </h1>
-                    <p> Fast, Simple and Secure Messaging.</p>
+                    <p className="secHeadLine"> Fast, Simple and Secure Messaging.</p>
                 </header>
             </div>
 
-            <div container id = "loginPageHeadline">
+            <div className = "loginPageHeadline  w3-container w3-light-grey w3-center w3-opacity">
                 <label>
-                    <div className ="w3-light-grey w3-container w3-center w3-large" > 
+                    <div className =" loginText w3-light-grey w3-container w3-center w3-large" > 
                         Login
                     </div>            
                 </label>
@@ -60,7 +60,7 @@ function LoginPage({db}) {
 
             <div id="loginInfo">
                 <form>
-                    <label>               
+                    <label>      
                         <input type="password" name="password" className='w3-container w3-xlarge' onChange={ifChange} placeholder='Password'  />
                     </label>
                 </form>
@@ -78,13 +78,13 @@ function LoginPage({db}) {
                 </button>
             </p>
             <p>
-                <footer
-                    id="poweredBy"
-                    className=" w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge ">
-                    <p className="w3-medium">
-                        Powered by <a>Or Nasri &amp; Noa Benita</a>
-                    </p>
-                </footer>
+            <footer
+              className="poweredBy w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge ">
+              <p className="w3-medium">
+              Powered by <a>Or Nasri &amp; Noa Benita</a>
+              </p>
+            {/* End footer */}
+          </footer>
             </p>  
         </>
     );
