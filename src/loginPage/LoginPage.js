@@ -7,16 +7,20 @@ import ChatPage from '../chatPage/ChatPage';
 
 
 
-function LoginPage({db}) {
+function LoginPage({db, current}) {
+    console.log(db.lenght);
     const [usersArray,setUserArray] = useState({username:'', password:''});
     var nav = useNavigate();
     
-    function ifSubmit() {
+    function ifSubmit(x) {
         if(db.find((e) => e.UserName == usersArray.username && e.Password == usersArray.password)) {
+            current.nowOnline = usersArray.username;   
             nav("/ChatPage");
         } else {
-            alert('failed');
+            alert('username or password is incorrect');
+            x.preventDefault();
         }
+       
     }
         
     function ifChange(event) {
@@ -67,17 +71,17 @@ function LoginPage({db}) {
             </div>
                 
             <form onSubmit={ifSubmit}> 
-                <button className='w3-button w3-center w3-light-grey w3-padding-large' type='submit' id='button2'>
+                <button className='w3-button w3-center w3-light-grey w3-padding-large' id='button2'>
                     Sign In
                 </button>   
             </form>
 
             <p >
-                <button className='w3-button w3-center w3-light-grey w3-padding-large' type='submit' id='button1'>
+                <button className='w3-button w3-center w3-light-grey w3-padding-large' id='button1'>
                     <Link to="/SignUpPage">Sign Up</Link>
                 </button>
             </p>
-            <p>
+           
             <footer
               className="poweredBy w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge ">
               <p className="w3-medium">
@@ -85,7 +89,7 @@ function LoginPage({db}) {
               </p>
             {/* End footer */}
           </footer>
-            </p>  
+           
         </>
     );
     

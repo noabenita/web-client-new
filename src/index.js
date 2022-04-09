@@ -36,19 +36,22 @@ class Message {
 }
 
 
-const dataStracture= [new User('or', 'orush', 'photo.jpg', 12345, 12345)];
+
+const currentUser = {nowOnline:"null"}; 
+
+const dataStracture= [new User(null)];
 
 ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter>
             <Routes>
-              <Route path="/" element ={<LoginPage db={dataStracture}/>}>
+              <Route path="/" element ={<LoginPage db={dataStracture} current={currentUser}/>}>
               </Route>
-              <Route path="/LoginPage" element ={<LoginPage db={dataStracture}/>}>
+              <Route path="/LoginPage" element ={<LoginPage db={dataStracture}  current={currentUser}/>}>
               </Route>
-              <Route path="/SignUpPage" element ={<SignUpPage db={dataStracture}/>}>
+              <Route path="/SignUpPage" element ={<SignUpPage db={dataStracture}  current={currentUser}/>}>
               </Route>
-              <Route path="/ChatPage" element ={<ChatPage db={dataStracture}/>}>
+              <Route path="/ChatPage" element ={<ChatPage db={dataStracture} current={currentUser}/>}>
               </Route>
             </Routes>
         </BrowserRouter>  

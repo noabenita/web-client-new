@@ -9,21 +9,44 @@ function SignUpPage({db}) {
   const [createUser, setCreateUser]= useState({username:'', nickname:'', img:'', password:'', confirmpassword:''});
   var nav = useNavigate();
 
+
   // add new user to DB
-  function ifSubmit(){
-    if (chackEmpty() && validatePassword() && passwordConfirmation() && ifExist()){
-      var newUser = new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword);
-      db.push(newUser);
-      alert("Login successfully");
-      nav("/LoginPage");
+  function ifSubmit(x){
+    if (chackEmpty()) {
+      if (validatePassword()){
+        if (passwordConfirmation()){
+          if (ifExist()){
+            var newUser = new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword);
+            db.push(newUser);
+            nav("/LoginPage");
+          }
+          else{
+            alert("Username is already exist");
+            x.preventDefault();
+          }
+        }
+        else{
+          alert ("Password do not match");
+          x.preventDefault();
+        }
+      }
+      else{
+        alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters");
+        x.preventDefault();
+      }
     }
+    else{
+      alert("Please fill all fields");
+      x.preventDefault();
+    }
+
   }
+  
 
   // check if user is already exist
   function ifExist(){
     if(db.find((e) => e.UserName == createUser.username)){
-      alert("Username is already exist");
-      return false;
+      return false;     
     } else {
       return true;
     }
@@ -33,7 +56,6 @@ function SignUpPage({db}) {
   function chackEmpty(){
     if (((createUser.username.length == 0) || (createUser.nickname.length == 0) || (createUser.img.length == 0) ||
     (createUser.password.length == 0) || (createUser.confirmpassword.length == 0))){ 
-      alert("Please fill all fields");
       return false;
     }
     else{
@@ -44,7 +66,6 @@ function SignUpPage({db}) {
   // check validation of confirm password
   function passwordConfirmation(){
     if (!(createUser.confirmpassword == createUser.password)){
-      alert ("Password do not match");
       return false;
     }
     return true;
@@ -64,8 +85,7 @@ function SignUpPage({db}) {
     && (/[0-9]/.test(createUser.password)) && (createUser.password.length >= 8)){
       return true;
     }
-    else {
-      alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters");
+    else {      
       return false;
     }
   }
@@ -122,7 +142,7 @@ function SignUpPage({db}) {
                 placeholder="Confirm Password" onChange={ifChange}/>
             </p>
             <form onSubmit={ifSubmit}>
-              <button className='w3-button w3-light-grey w3-padding-large' type='submit'>
+              <button className='w3-button w3-light-grey w3-padding-large' >
                 Sign Up
               </button>
             </form>

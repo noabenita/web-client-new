@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
-function ChatPage(){
-
+function ChatPage({current}){
+ 
     return (
       <>
       
@@ -52,7 +52,7 @@ function ChatPage(){
                     />
                   </div>
                   <div className="myName">
-                    <h6 className="m-b-0 w3-large">Aiden Chavez</h6>
+                    <div className="m-b-0 w3-large">{current.nowOnline}</div>
                   </div>
                   
               </div>
@@ -82,19 +82,7 @@ function ChatPage(){
                   </div>
                 </div>
               </li>
-              <li className="clearfix active">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                  alt="avatar"
-                />
-                <div className="about">
-                  <div className="name">Aiden Chavez</div>
-                  <div className="status">
-                    {" "}
-                    <i className="fa fa-circle online" /> online{" "}
-                  </div>
-                </div>
-              </li>
+              
               <li className="clearfix">
                 <img
                   src="https://bootdey.com/img/Content/avatar/avatar3.png"
@@ -165,7 +153,7 @@ function ChatPage(){
                     />
                   </a>
                   <div className="chat-about">
-                    <h6 className="m-b-0">Aiden Chavez</h6>
+                    <h6 className="m-b-0">{current.nowOnline}</h6>
                     <small>Last seen: 2 hours ago</small>
                   </div>
                 </div>
@@ -209,7 +197,6 @@ function ChatPage(){
             </div>
             {/* message box */}
             <div className="chat-message clearfix">
-            
                 <div className="input-group-prepend">
                     <button className="fa fa-send" id='sendButton' type='submit' />        
                 </div>
@@ -226,10 +213,10 @@ function ChatPage(){
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   </button>
 
-                  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">                
-                    <button className="fa fa-picture-o icons"></button>               
-                    <button className="fa fa-video-camera icons"></button>
-                    <button className="fa fa-microphone icons"></button>
+                  <div className="dropdown-menu w3-light-grey" aria-labelledby="dropdownMenuButton">                
+                    <button className="fa fa-picture-o icons w3-light-grey"></button>               
+                    <button className="fa fa-video-camera icons w3-light-grey"></button>
+                    <button className="fa fa-microphone icons w3-light-grey"></button>
                   </div>
               </div>
             </div>
