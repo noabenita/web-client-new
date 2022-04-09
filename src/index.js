@@ -10,13 +10,12 @@ import SignUpPage from './signUpPage/SignUpPage';
 
 
 class User{
-  constructor(username, nickname, img, password, confirmpassword, online){
+  constructor(username, nickname, img, password, confirmpassword){
     this.UserName = username;
     this.Nickname = nickname;
     this.Img = img;
     this.Password = password;
     this.ConfirmPassword = confirmpassword;
-    this.online = online;
     this.chats = [];
   }
 }
@@ -36,31 +35,20 @@ class Message {
 
 }
 
-var loggedIn;
-
-function onLogin(user){
-  console.log(user);
-  loggedIn = user;
-}
-
-function getLogin(){
-  return loggedIn;
-}
 
 const dataStracture= [new User('or', 'orush', 'photo.jpg', 12345, 12345)];
-
 
 ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter>
             <Routes>
-              <Route path="/" element ={<LoginPage db={dataStracture} lg= {loggedIn} />}>
+              <Route path="/" element ={<LoginPage db={dataStracture}/>}>
               </Route>
-              <Route path="/LoginPage" element ={<LoginPage db={dataStracture} lg= {loggedIn}/>}>
+              <Route path="/LoginPage" element ={<LoginPage db={dataStracture}/>}>
               </Route>
               <Route path="/SignUpPage" element ={<SignUpPage db={dataStracture}/>}>
               </Route>
-              <Route path="/ChatPage" element ={<ChatPage db={dataStracture} lg= {loggedIn}/>}>
+              <Route path="/ChatPage" element ={<ChatPage db={dataStracture}/>}>
               </Route>
             </Routes>
         </BrowserRouter>  

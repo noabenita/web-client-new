@@ -6,21 +6,14 @@ import {useState} from 'react';
 import ChatPage from '../chatPage/ChatPage';
 
 
-function LoginPage({db, lg, ng}) {
+
+function LoginPage({db}) {
     const [usersArray,setUserArray] = useState({username:'', password:''});
     var nav = useNavigate();
     
     function ifSubmit() {
         if(db.find((e) => e.UserName == usersArray.username && e.Password == usersArray.password)) {
-            for (var i =0; i <db.length; i++) {
-                if(db[i].UserName == usersArray.username) {
-                    lg(db[i].UserName);
-                    // lg =Object.assign({}, db[i]);
-                    // lg = db[i].UserName;
-                    alert(ng);
-                    nav("/ChatPage");
-                }
-            }
+            nav("/ChatPage");
         } else {
             alert('failed');
         }
