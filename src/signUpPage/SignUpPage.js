@@ -9,14 +9,12 @@ function SignUpPage({db}) {
   const [createUser, setCreateUser]= useState({username:'', nickname:'', img:'', password:'', confirmpassword:''});
   var nav = useNavigate();
 
-  // add new user to DB
-  function ifSubmit(){
-    if (chackEmpty() && validatePassword() && passwordConfirmation() && ifExist()){
-      var newUser = new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword);
-      db.push(newUser);
-      alert("Login successfully");
-      nav("/LoginPage");
-    }
+// add new user to DB
+function ifSubmit(){
+  if (chackEmpty() && validatePassword() && passwordConfirmation() && ifExist()){
+    var newUser = new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword);
+    db.push(newUser);
+    nav("/LoginPage");
   }
 
   // check if user is already exist
