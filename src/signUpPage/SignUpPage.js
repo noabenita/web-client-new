@@ -1,7 +1,6 @@
 import {Link, useNavigate} from 'react-router-dom';
 import './SignUpPage.css';
 import { useState } from "react";
-import { findByAltText } from '@testing-library/react';
 import User from '../index';
 
 
@@ -13,30 +12,37 @@ function SignUpPage({db}) {
   // add new user to DB
   function ifSubmit(x){
     if (chackEmpty()) {
-      if (validatePassword()){
-        if (passwordConfirmation()){
-          if (ifExist()){
-            var newUser = new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword);
-            db.push(newUser);
-            nav("/LoginPage");
+      
+      if(createUser.img != ' '){
+        if (validatePassword()){
+          if (passwordConfirmation()){
+            if (ifExist()){
+              var newUser = new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword);
+              db.push(newUser);
+              nav("/LoginPage");
+            }
+            else{
+              alert("Username is already exist.");
+              x.preventDefault();
+            }
           }
           else{
-            alert("Username is already exist");
+            alert ("Passwords do not match.");
             x.preventDefault();
           }
         }
         else{
-          alert ("Password do not match");
+          alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters.");
           x.preventDefault();
         }
       }
-      else{
-        alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters");
+      else {
+        alert ("Image format do not match.");
         x.preventDefault();
       }
     }
     else{
-      alert("Please fill all fields");
+      alert("Please fill all fields.");
       x.preventDefault();
     }
 
@@ -60,6 +66,19 @@ function SignUpPage({db}) {
     }
     else{
       return true; 
+    }
+  }
+
+  function checkPhoto(e){
+    if (e.target.files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+      const {name, value} = e.target;
+      setCreateUser({
+        ...createUser,
+        [name]:value
+      })
+    }
+    else{
+      createUser.img =' ';
     }
   }
 
@@ -90,6 +109,8 @@ function SignUpPage({db}) {
     }
   }
 
+ 
+
   return(
     <div className='container'>
       <div className='row'>
@@ -113,7 +134,7 @@ function SignUpPage({db}) {
 
           <div className = "signupPageHeadline w3-container w3-light-grey w3-center w3-opacity">
                 <label>
-                    <div className =" SignUpText w3-center w3-large" > 
+                    <div className ="SignUpText w3-center w3-large" > 
                         SignUp
                     </div>            
                 </label>
@@ -131,7 +152,7 @@ function SignUpPage({db}) {
                   placeholder="NickName"  onChange={ifChange} />
               </p>
               <label>Select Image : </label>
-              <input className="addImage" type="file" onChange={ifChange} name="img" />
+              <input className="addImage" type="file" onChange={checkPhoto} name="img" />
             </form>
             <p>
               <input className="w3-input w3-padding-16 w3-border" name="password" type="password"

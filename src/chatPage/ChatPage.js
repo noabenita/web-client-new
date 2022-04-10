@@ -109,7 +109,7 @@ function ChatPage({db,current}){
                 <div className="input-group-prepend">
                     <button className="fa fa-send" id='sendButton' type='submit' />        
                 </div>
-                <div border className='borderrr'>
+                <div border className='borderOfSendLine'>
                 <form action="/action_page.php" target="_blank">
               <p>
                   <input className="form-control w3-input" type="text" name="username" 
@@ -124,10 +124,23 @@ function ChatPage({db,current}){
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   </button>
 
-                  <div className="dropdown-menu w3-light-grey" aria-labelledby="dropdownMenuButton">                
-                    <button className="fa fa-picture-o icons w3-light-grey"></button>               
-                    <button className="fa fa-video-camera icons w3-light-grey"></button>
-                    <button className="fa fa-microphone icons w3-light-grey"></button>
+                  <div className="dropdown-menu w3-light-grey" aria-labelledby="dropdownMenuButton">  
+                              
+                   <button  className='messegeTypes' >
+                    <input type="file" id="actual-btn" hidden/>
+                    <label className="fa fa-picture-o icons" for="actual-btn" ></label>
+                  </button>
+                  
+                  <button  className='messegeTypes' >
+                    <input type="file" id="actual-btn" hidden/>
+                    <label className="fa fa-video-camera icons" for="actual-btn"></label>
+                  </button>
+
+                  <button  className='messegeTypes' >
+                    <input type="file" id="actual-btn" hidden/>
+                    <label className="fa fa-microphone icons" for="actual-btn"></label>
+                  </button>
+                     
                   </div>
               </div>
             </div>

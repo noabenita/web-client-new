@@ -49,9 +49,9 @@ function LoginPage({db, current}) {
                 </header>
             </div>
 
-            <div className = "loginPageHeadline  w3-container w3-light-grey w3-center w3-opacity">
+            <div className = "loginPageHeadline w3-container w3-light-grey w3-center w3-opacity">
                 <label>
-                    <div className =" loginText w3-light-grey w3-container w3-center w3-large" > 
+                    <div className ="loginText w3-light-grey w3-container w3-center w3-large" > 
                         Login
                     </div>            
                 </label>
