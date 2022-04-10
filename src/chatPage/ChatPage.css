@@ -240,11 +240,16 @@ body{
 
 .chat .chat-history .other-message:after {
     border-bottom-color: #e8f1f3;
-    left: 93%
+    margin-left: 40%;
+    position: absolute;
+    z-index: 7;
 }
 
 .chat .chat-message {
-    padding: 2%;
+    border-bottom-color: #e8f1f3;
+    margin-left: 40%;
+    position: absolute;
+    z-index: 7;
 }
 
 .online, 
