@@ -11,6 +11,7 @@
 //          </li>
 //     );
 // }
+
 function Message({data, time, flag}){
     return(
          <li className="clearfix">

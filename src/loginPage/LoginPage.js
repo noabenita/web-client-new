@@ -1,9 +1,6 @@
-
-import { Component } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import './LoginPage.css';
 import {useState} from 'react';
-import ChatPage from '../chatPage/ChatPage';
 
 
 
@@ -13,8 +10,14 @@ function LoginPage({db, current}) {
     var nav = useNavigate();
     
     function ifSubmit(x) {
+        console.log(db);
         if(db.find((e) => e.UserName == usersArray.username && e.Password == usersArray.password)) {
-            current.nowOnline = usersArray.username;   
+            current.nowOnline = usersArray.username;
+            for (var i =0; i <db.length; i++) {
+                 if(db[i].UserName == current.nowOnline) {
+                    current ={nowOnline:db[i]};                    
+                }  
+            }
             nav("/ChatPage");
         } else {
             alert('username or password is incorrect');

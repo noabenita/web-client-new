@@ -10,36 +10,43 @@ import SignUpPage from './signUpPage/SignUpPage';
 
 
 class User{
-  constructor(username, nickname, img, password, confirmpassword){
+
+  constructor(username, nickname, img, password, confirmpassword, chats, friends){
     this.UserName = username;
     this.Nickname = nickname;
     this.Img = img;
     this.Password = password;
     this.ConfirmPassword = confirmpassword;
-    this.chats = [];
-  }
-}
-
-class Chat{
-  constructor(){
-    this.messages=[];
-  }
-}
-
-class Message {
-  constructor(time, data, flag){
-    this.time = time;
-    this.data = data;
-    this.flag = flag; // 1 - if i send , 0- else
+    this.Chats = chats;
+    this.Friends = friends;
   }
 
 }
 
+// class Chat{
+//   constructor(){
+//     this.messages=[];
+//   }
+// }
 
+// class Message {
+//   constructor(time, data, flag){
+//     this.time = time;
+//     this.data = data;
+//     this.flag = flag; // 1 - if i send , 0- else
+//   }
 
-const currentUser = {nowOnline:"null"}; 
+// }
 
-const dataStracture= [new User(null)];
+const currentUser = {nowOnline:null}; 
+
+const dataStracture= [new User('or', 'orush', "https://bootdey.com/img/Content/avatar/avatar3.png", 12345, 12345, 
+                    [{data:"hey",time: '12:10',flag:true},{data:"?",time: '12:15',flag:false},
+                     {data:"what",time: "12:17",flag:false}],
+                    [{friendName:"ron", img:"https://bootdey.com/img/Content/avatar/avatar2.png"},
+                     {friendName: "noa benita", img: "https://bootdey.com/img/Content/avatar/avatar3.png"}])]
+                     
+        
 
 ReactDOM.render(
   <React.StrictMode>

@@ -9,7 +9,6 @@ function ChatFriends({name, img}){
       <div className="name">{name}</div>
       <div className="status">
         {" "}
-        {/* <i className="fa fa-circle offline" /> left 7 mins ago{" "} */}
       </div>
     </div>
   </li>

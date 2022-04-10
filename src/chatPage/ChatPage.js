@@ -1,24 +1,24 @@
 import './ChatPage.css';
 import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import User from '../index';
-import {useState} from 'react';
 import Message from '../message/Message';
-import chats from '../DB';
-import friends from '../Friends';
 import ChatFriends from '../chatsFriends/ChatFriends';
+import MyChat from '../MyChat';
 
 
-function ChatPage({current}){
- 
-  const chatFriendsList = friends.map((frd, key)=>{
-    return <ChatFriends {... frd} key={key}/>
-  })
-
-  const messageList = chats.map((msg, key)=> {
-    return <Message{... msg} key={key}/>
+function ChatPage({db,current}){
+  // find user that login
+  const findMe = db.find((value)=> {
+    return(value.UserName == current.nowOnline)
   });
 
+  const chatFriendsList = findMe.Friends.map((frd, key)=>{
+    return <ChatFriends name= {frd.friendName} img = {frd.img} key={key}/>
+  })
+
+  const messageList = findMe.Chats.map((msg, key)=> {
+    return <Message data ={msg.data} time ={msg.time} flag={msg.flag} key={key}/>
+  })
 
     return (
       <>
@@ -44,7 +44,7 @@ function ChatPage({current}){
             </button>
       </p>
       </div> 
-
+{/* console.log(dictionary); */}
   <link
     href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     rel="stylesheet"
@@ -56,20 +56,8 @@ function ChatPage({current}){
           <div id="plist" className="people-list ">
             <div container className='box w3-border w3-padding-32'>
               <div className="col-lg-5 chat-list">
-                  <div className='myPic'
-                    href="javascript:void(0);"
-                    data-toggle="modal"
-                    data-target="#view_info"
-                  >
-                    <img
-                      src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                      alt="avatar"
-                    />
-                  </div>
-                  <div className="myName">
-                    <div className="m-b-0 w3-large">{current.nowOnline}</div>
-                  </div>
-                  
+                {/* details of the owner chat */}
+                  <MyChat image = {findMe.Img} name={findMe.Nickname}></MyChat>
               </div>
             </div>
             <div className="input-group1">
