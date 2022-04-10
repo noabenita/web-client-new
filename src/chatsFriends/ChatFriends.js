@@ -7,9 +7,9 @@ function ChatFriends({name, img}){
     />
     <div className="about">
       <div className="name">{name}</div>
-      <div className="status">
+      {/* <div className="status"> */}
         {" "}
-      </div>
+      {/* </div> */}
     </div>
   </li>
 

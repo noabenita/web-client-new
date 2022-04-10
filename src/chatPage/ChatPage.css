@@ -1,12 +1,4 @@
 
-/* * {
-    font-family: "Montserrat", sans-serif
-}
-
-.poweredBy {
-    margin: 680px;
-    position: fixed;
-}*/
 
 .bgimg {
     width: 100%;
@@ -97,13 +89,13 @@ body{
   
 }
 
-/*list of friends in chat*/
+/* /list of friends in chat/ */
 .people-list .chat-list li:hover {
     background: lightblue;
     cursor: pointer
 }
 
-/*current chat*/
+/* /current chat/ */
 .people-list .chat-list li.active {
     background: gray
 }
@@ -240,16 +232,11 @@ body{
 
 .chat .chat-history .other-message:after {
     border-bottom-color: #e8f1f3;
-    margin-left: 40%;
-    position: absolute;
-    z-index: 7;
+    left: 93%
 }
 
 .chat .chat-message {
-    border-bottom-color: #e8f1f3;
-    margin-left: 40%;
-    position: absolute;
-    z-index: 7;
+    padding: 2%;
 }
 
 .online, 
@@ -350,8 +337,6 @@ body{
     position: absolute;
     z-index: 7;
     margin-top: 3%;
-    
-    
 }
 
 
@@ -371,4 +356,3 @@ label{
     margin-left: 9%;
     background-color: #cbcccd;
 }
-

@@ -9,10 +9,9 @@ function Message({data, time, flag}){
                     {" "} {data} {" "}
             </div>
          </li>
-         );
-
+        );
     } else {
-    return(
+        return(
             <li className="clearfix">
              <div className="message-data text-right">
                  <span className="message-data-time-right"> <p>{time}</p> </span>
@@ -21,8 +20,8 @@ function Message({data, time, flag}){
                     {" "} {data} {" "}
             </div>
          </li>
-);    
+        );    
+    }
 }
 
-}
 export default Message
