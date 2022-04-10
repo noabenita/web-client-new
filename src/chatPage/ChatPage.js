@@ -202,12 +202,14 @@ function ChatPage({current}){
                 </div>
                 <div border className='borderrr'>
                 <form action="/action_page.php" target="_blank">
-                  <p>
-                      <input className="form-control w3-input" type="text" name="username" 
-                      placeholder="Enter text here..."/>
-                  </p>
-                </form>   
-                </div>
+              <p>
+                  <input className="form-control w3-input" type="text" name="username" 
+                  placeholder="Enter text here..." />
+              </p>
+              </form>
+              </div>
+                 
+                
                 <div class="dropdown">
                   <button class="btn btn-secondary fa fa-paperclip w3-xlarge" type="button" id="dropdownMenuButton" 
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
