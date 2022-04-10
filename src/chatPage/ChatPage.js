@@ -1,11 +1,25 @@
 import './ChatPage.css';
 import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
+import User from '../index';
+import {useState} from 'react';
+import Message from '../message/Message';
+import chats from '../DB';
+import friends from '../Friends';
+import ChatFriends from '../chatsFriends/ChatFriends';
 
 
 function ChatPage({current}){
+ 
+  const chatFriendsList = friends.map((frd, key)=>{
+    return <ChatFriends {... frd} key={key}/>
+  })
 
-   
+  const messageList = chats.map((msg, key)=> {
+    return <Message{... msg} key={key}/>
+  });
+
+
     return (
       <>
       
@@ -70,72 +84,7 @@ function ChatPage({current}){
             </div>
             
             <ul className="list-unstyled chat-list mt-2 mb-0 w3-border">
-              <li className="clearfix">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                  alt="avatar"
-                />
-                <div className="about">
-                  <div className="name">Vincent Porter</div>
-                  <div className="status">
-                    {" "}
-                    <i className="fa fa-circle offline" /> left 7 mins ago{" "}
-                  </div>
-                </div>
-              </li>
-              
-              <li className="clearfix">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                  alt="avatar"
-                />
-                <div className="about">
-                  <div className="name">Mike Thomas</div>
-                  <div className="status">
-                    {" "}
-                    <i className="fa fa-circle online" /> online{" "}
-                  </div>
-                </div>
-              </li>
-              <li className="clearfix">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                  alt="avatar"
-                />
-                <div className="about">
-                  <div className="name">Christian Kelly</div>
-                  <div className="status">
-                    {" "}
-                    <i className="fa fa-circle offline" /> left 10 hours ago{" "}
-                  </div>
-                </div>
-              </li>
-              <li className="clearfix">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar8.png"
-                  alt="avatar"
-                />
-                <div className="about">
-                  <div className="name">Monica Ward</div>
-                  <div className="status">
-                    {" "}
-                    <i className="fa fa-circle online" /> online{" "}
-                  </div>
-                </div>
-              </li>
-              <li className="clearfix">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                  alt="avatar"
-                />
-                <div className="about">
-                  <div className="name">Dean Henry</div>
-                  <div className="status">
-                    {" "}
-                    <i className="fa fa-circle offline" /> offline since Oct 28{" "}
-                  </div>
-                </div>
-              </li>
+            {chatFriendsList}
             </ul>
           </div>
           <div className="chat">
@@ -149,7 +98,7 @@ function ChatPage({current}){
                     data-target="#view_info"
                   >
                     <img
-                      src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                      src="https://bootdey.com/img/Content/avatar/avatar2.png"  // img of current chat
                       alt="avatar"
                     />
                   </a>
@@ -164,32 +113,7 @@ function ChatPage({current}){
             {/* maessages */}
             <div className="chat-history">
               <ul className="m-b-0">
-                <li className="clearfix">
-                  <div className="message-data text-right">
-                    <span className="message-data-time">10:10 AM, Today</span>
-                  </div>
-                  <div className="message other-message float-right">
-                    {" "}
-                    Hi Aiden, how are you? How is the project coming along?{" "}
-                  </div>
-                </li>
-                <li className="clearfix">
-                  <div className="message-data">
-                    <span className="message-data-time">10:12 AM, Today</span>
-                  </div>
-                  <div className="message my-message">
-                    Are we meeting today?
-                  </div>
-                </li>
-                <li className="clearfix">
-                  <div className="message-data">
-                    <span className="message-data-time">10:15 AM, Today</span>
-                  </div>
-                  <div className="message my-message">
-                    Project has been already finished and I have results to show
-                    you.
-                  </div>
-                </li>
+                {messageList}
               </ul>
             </div>
             {/* message box */}
@@ -237,9 +161,9 @@ function ChatPage({current}){
       </div>
     </div>
   </div>
-</>
+  </>
 
   );
 }
 
-export default ChatPage;
+export default ChatPage
