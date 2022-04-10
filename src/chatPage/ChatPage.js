@@ -18,37 +18,28 @@ function ChatPage({db,current}){
 
   const messageList = findMe.Chats.map((msg, key)=> {
     return <Message data ={msg.data} time ={msg.time} flag={msg.flag} key={key}/>
-  })
+  });
 
     return (
       <>
-      
        <nav id="mainImage" className="w3-sidebar w3-hide-small">
         <div className="bgimg" ></div>
       </nav>
       
        <div  className="semiTrans w3-hide-medium w3-hide-small" ></div>
      
-       <div className="poweredBy">
-          {" "}
+       <div className="poweredBy">{" "}
           <pre>Powered by Or Nasri &amp; Noa Benita </pre>
     </div>
         
       <div id="button">
-      <p>
-            <button
-              className="w3-button w3-light-grey w3-padding-small"
-              type="submit"
-            >
-               <Link to="/">Logout</Link>
-            </button>
-      </p>
+        <p>
+          <button className="w3-button w3-light-grey w3-padding-small" type="submit">
+            <Link to="/">Logout</Link>
+          </button>
+        </p>
       </div> 
-{/* console.log(dictionary); */}
-  <link
-    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
   <div className="container">
     <div className="row clearfix">
       <div className="col-lg-12 ">
@@ -65,12 +56,8 @@ function ChatPage({db,current}){
                 <span className="input-group-text">
                   <button className="addCon fa fa-user-circle" />
                 </span>
-
               </div>
-              
-             
-            </div>
-            
+            </div> 
             <ul className="list-unstyled chat-list mt-2 mb-0 w3-border">
             {chatFriendsList}
             </ul>
@@ -80,15 +67,9 @@ function ChatPage({db,current}){
               {/* right side - chat */}
               <div className="row">
                 <div className="col-lg-6">
-                  <a
-                    href="javascript:void(0);"
-                    data-toggle="modal"
-                    data-target="#view_info"
-                  >
-                    <img
-                      src="https://bootdey.com/img/Content/avatar/avatar2.png"  // img of current chat
-                      alt="avatar"
-                    />
+                  <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png"  // img of current chat
+                      alt="avatar"/>
                   </a>
                   <div className="chat-about">
                     <h6 className="m-b-0">{current.nowOnline}</h6>
