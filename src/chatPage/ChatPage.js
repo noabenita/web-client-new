@@ -120,9 +120,6 @@ function ChatPage({db,current}){
                     <button className="fa fa-send" id='sendButton' type='submit' />        
                   </div>
                 </div>
-                 
-                
-                
             </div>
           </div>
         </div>
