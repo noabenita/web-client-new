@@ -24,7 +24,6 @@ class Chat{
 }
 
 
-var loggedIn;
 
 const dataStracture= [{name:'or', nickname: 'orush', img:'photo.jpg', password: 12345, confirmPassword : 12345, 
                     chats: [{data:"hey",time: '12:10',flag:true},{data:"?",time: '12:15',flag:false}, {data:"what",time: "12:17",flag:false}],
@@ -34,13 +33,13 @@ ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter>
             <Routes>
-              <Route path="/" element ={<LoginPage db={dataStracture} lg= {loggedIn} />}>
+              <Route path="/" element ={<LoginPage db={dataStracture} current={currentUser}/>}>
               </Route>
-              <Route path="/LoginPage" element ={<LoginPage db={dataStracture} lg= {loggedIn}/>}>
+              <Route path="/LoginPage" element ={<LoginPage db={dataStracture}  current={currentUser}/>}>
               </Route>
-              <Route path="/SignUpPage" element ={<SignUpPage db={dataStracture}/>}>
+              <Route path="/SignUpPage" element ={<SignUpPage db={dataStracture}  current={currentUser}/>}>
               </Route>
-              <Route path="/ChatPage" element ={<ChatPage db={dataStracture} lg= {loggedIn}/>}>
+              <Route path="/ChatPage" element ={<ChatPage db={dataStracture} current={currentUser}/>}>
               </Route>
             </Routes>
         </BrowserRouter>  

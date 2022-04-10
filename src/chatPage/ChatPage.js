@@ -1,38 +1,43 @@
 import './ChatPage.css';
 import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import User from '../index';
-import {useState} from 'react';
-import Message from '../message/Message';
-import chats from '../DB';
-import friends from '../Friends';
-import ChatFriends from '../chatsFriends/ChatFriends';
 
 
-  
-function ChatPage({db, lg}) {
-  // var users=[{username: "Or", nickname:"or",password:"123A",img:null,chats:[]},
-  //             {username: "Noa", nickname:"noa",password:"123A",img:null,chats:[]}];
-  // users[0].chats[0] = {coontact: users[1].username, messages:[{data:"hey",date: '12:10',flag:true}, {data:"noo",date: "12:17",flag:false}]};
-  // users[1].chats[0] = {contact: users[0], messages:[]};
-  // users[0].chats[0].messages = [{data:"hey",date: new Date(),flag:true},{data:"noo",date: new Date(),flag:false}];
-  // users[1].chats[0].messages = [{data:"hey",date: new Date(),flag:false},{data:"noo",date: new Date(),flag:true}];
-
-  const chatFriendsList = friends.map((frd, key)=>{
-    return <ChatFriends {... frd} key={key}/>
-  })
-
-  const messageList = chats.map((msg, key)=> {
-    return <Message{... msg} key={key}/>
-  });
-
+function ChatPage({current}){
+ 
     return (
-  <>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+      <>
+      
+       <nav id="mainImage" className="w3-sidebar w3-hide-small">
+        <div className="bgimg" ></div>
+      </nav>
+      
+       <div  className="semiTrans w3-hide-medium w3-hide-small" ></div>
+     
+       <div className="poweredBy">
+          {" "}
+          <pre>Powered by Or Nasri &amp; Noa Benita </pre>
+    </div>
+        
+      <div id="button">
+      <p>
+            <button
+              className="w3-button w3-light-grey w3-padding-small"
+              type="submit"
+            >
+               <Link to="/">Logout</Link>
+            </button>
+      </p>
+      </div> 
+
+  <link
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
   <div className="container">
     <div className="row clearfix">
       <div className="col-lg-12 ">
-        <div className="card chat-app ">
+        <div className="card chat-app  ">
           <div id="plist" className="people-list ">
             <div container className='box w3-border w3-padding-32'>
               <div className="col-lg-5 chat-list">
@@ -47,9 +52,7 @@ function ChatPage({db, lg}) {
                     />
                   </div>
                   <div className="myName">
-                   <h6 className="m-b-0">  me 
-                          {/* <pre onChange={ifChange1} /> */}
-                      </h6>
+                    <div className="m-b-0 w3-large">{current.nowOnline}</div>
                   </div>
                   
               </div>
@@ -57,7 +60,7 @@ function ChatPage({db, lg}) {
             <div className="input-group1">
               <div className="input-group-prepend">
                 <span className="input-group-text">
-                  <i className="fa fa-user-circle" />
+                  <button className="addCon fa fa-user-circle" />
                 </span>
 
               </div>
@@ -65,8 +68,73 @@ function ChatPage({db, lg}) {
              
             </div>
             
-            <ul className="list-unstyled chat-list mt-2 mb-0">
-              {chatFriendsList}
+            <ul className="list-unstyled chat-list mt-2 mb-0 w3-border">
+              <li className="clearfix">
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                  alt="avatar"
+                />
+                <div className="about">
+                  <div className="name">Vincent Porter</div>
+                  <div className="status">
+                    {" "}
+                    <i className="fa fa-circle offline" /> left 7 mins ago{" "}
+                  </div>
+                </div>
+              </li>
+              
+              <li className="clearfix">
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar3.png"
+                  alt="avatar"
+                />
+                <div className="about">
+                  <div className="name">Mike Thomas</div>
+                  <div className="status">
+                    {" "}
+                    <i className="fa fa-circle online" /> online{" "}
+                  </div>
+                </div>
+              </li>
+              <li className="clearfix">
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                  alt="avatar"
+                />
+                <div className="about">
+                  <div className="name">Christian Kelly</div>
+                  <div className="status">
+                    {" "}
+                    <i className="fa fa-circle offline" /> left 10 hours ago{" "}
+                  </div>
+                </div>
+              </li>
+              <li className="clearfix">
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar8.png"
+                  alt="avatar"
+                />
+                <div className="about">
+                  <div className="name">Monica Ward</div>
+                  <div className="status">
+                    {" "}
+                    <i className="fa fa-circle online" /> online{" "}
+                  </div>
+                </div>
+              </li>
+              <li className="clearfix">
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar3.png"
+                  alt="avatar"
+                />
+                <div className="about">
+                  <div className="name">Dean Henry</div>
+                  <div className="status">
+                    {" "}
+                    <i className="fa fa-circle offline" /> offline since Oct 28{" "}
+                  </div>
+                </div>
+              </li>
             </ul>
           </div>
           <div className="chat">
@@ -85,12 +153,11 @@ function ChatPage({db, lg}) {
                     />
                   </a>
                   <div className="chat-about">
-                    {/* name of current chat */}
-                    <h6 className="m-b-0">Aiden Chavez</h6>
-                    {/* <small>Last seen: 2 hours ago</small> */}
+                    <h6 className="m-b-0">{current.nowOnline}</h6>
+                    <small>Last seen: 2 hours ago</small>
                   </div>
                 </div>
-                {/* buttons */}
+                
               </div>
             </div>
             {/* maessages */}
@@ -101,28 +168,28 @@ function ChatPage({db, lg}) {
             </div>
             {/* message box */}
             <div className="chat-message clearfix">
-            
                 <div className="input-group-prepend">
                     <button className="fa fa-send" id='sendButton' type='submit' />        
                 </div>
                 <div border className='borderrr'>
-                <input
-                  type="text"
-                  className="form-control "
-                  placeholder="Enter text here..."
-                />
-                </div>
-                <div className="container">
-                <button type="button" className="mark" >
-                  ☰
-                </button>
-                  <div class="dropdown">
-                    <ul>
-                      <li>Option 1</li>
-                      <li>Option 2</li>
-                      <li>Option 3</li>
-                      <li>Option 4</li>
-                    </ul>
+                <form action="/action_page.php" target="_blank">
+              <p>
+                  <input className="form-control w3-input" type="text" name="username" 
+                  placeholder="Enter text here..." />
+              </p>
+              </form>
+              </div>
+                 
+                
+                <div class="dropdown">
+                  <button class="btn btn-secondary fa fa-paperclip w3-xlarge" type="button" id="dropdownMenuButton" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  </button>
+
+                  <div className="dropdown-menu w3-light-grey" aria-labelledby="dropdownMenuButton">                
+                    <button className="fa fa-picture-o icons w3-light-grey"></button>               
+                    <button className="fa fa-video-camera icons w3-light-grey"></button>
+                    <button className="fa fa-microphone icons w3-light-grey"></button>
                   </div>
               </div>
             </div>

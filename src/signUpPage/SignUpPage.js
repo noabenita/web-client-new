@@ -9,19 +9,44 @@ function SignUpPage({db}) {
   const [createUser, setCreateUser]= useState({username:'', nickname:'', img:'', password:'', confirmpassword:''});
   var nav = useNavigate();
 
-// add new user to DB
-function ifSubmit(){
-  if (chackEmpty() && validatePassword() && passwordConfirmation() && ifExist()){
-    var newUser = new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword);
-    db.push(newUser);
-    nav("/LoginPage");
+
+  // add new user to DB
+  function ifSubmit(x){
+    if (chackEmpty()) {
+      if (validatePassword()){
+        if (passwordConfirmation()){
+          if (ifExist()){
+            var newUser = new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword);
+            db.push(newUser);
+            nav("/LoginPage");
+          }
+          else{
+            alert("Username is already exist");
+            x.preventDefault();
+          }
+        }
+        else{
+          alert ("Password do not match");
+          x.preventDefault();
+        }
+      }
+      else{
+        alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters");
+        x.preventDefault();
+      }
+    }
+    else{
+      alert("Please fill all fields");
+      x.preventDefault();
+    }
+
   }
+  
 
   // check if user is already exist
   function ifExist(){
     if(db.find((e) => e.UserName == createUser.username)){
-      alert("Username is already exist");
-      return false;
+      return false;     
     } else {
       return true;
     }
@@ -31,7 +56,6 @@ function ifSubmit(){
   function chackEmpty(){
     if (((createUser.username.length == 0) || (createUser.nickname.length == 0) || (createUser.img.length == 0) ||
     (createUser.password.length == 0) || (createUser.confirmpassword.length == 0))){ 
-      alert("Please fill all fields");
       return false;
     }
     else{
@@ -42,7 +66,6 @@ function ifSubmit(){
   // check validation of confirm password
   function passwordConfirmation(){
     if (!(createUser.confirmpassword == createUser.password)){
-      alert ("Password do not match");
       return false;
     }
     return true;
@@ -62,8 +85,7 @@ function ifSubmit(){
     && (/[0-9]/.test(createUser.password)) && (createUser.password.length >= 8)){
       return true;
     }
-    else {
-      alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters");
+    else {      
       return false;
     }
   }
@@ -78,7 +100,7 @@ function ifSubmit(){
           </nav>
         </div> 
 
-        <div className='col'>
+        <div className='col1'>
           <div id = "headDec">
             {/* Header */}
             <header className="w3-container w3-center" id="home">
@@ -88,49 +110,50 @@ function ifSubmit(){
               <p> Fast, Simple and Secure Messaging.</p>
             </header>
           </div>
-          <div id ='put1'>
+
+          <div className = "signupPageHeadline w3-container w3-light-grey w3-center w3-opacity">
+                <label>
+                    <div className =" SignUpText w3-center w3-large" > 
+                        SignUp
+                    </div>            
+                </label>
+            </div>
+
+          <div id ='put'>
             <form action="/action_page.php" target="_blank">
               <p>
-                <label>
-                  <input className="w3-input w3-padding-16 w3-border" name="username" type="text" 
+                  <input className="w3-input w3-padding-16 w3-border" type="text" name="username" 
                   placeholder="Username" onChange={ifChange} />
-                </label>
               </p>
               <p>
                 <input
-                  className="w3-input w3-padding-16 w3-border"
-                  type="text" name = "nickname" onChange={ifChange}
-                  placeholder="NickName" />
+                  className="w3-input w3-padding-16 w3-border" type="text" name ="nickname"
+                  placeholder="NickName"  onChange={ifChange} />
               </p>
               <label>Select Image : </label>
-              <input type="file" onChange={ifChange} name="img" />
+              <input className="addImage" type="file" onChange={ifChange} name="img" />
             </form>
             <p>
-              <input
-                className="w3-input w3-padding-16 w3-border" name="password"
-                type="password" onChange={ifChange}
-                placeholder="Password" />
+              <input className="w3-input w3-padding-16 w3-border" name="password" type="password"
+                placeholder="Password"  onChange={ifChange} />
             </p>
             <p>
-              <input
-                className="w3-input w3-padding-16 w3-border" name="confirmpassword"
-                type="password" onChange={ifChange}
-                placeholder="Confirm Password"/>
+              <input className="w3-input w3-padding-16 w3-border" name="confirmpassword" type="password"                
+                placeholder="Confirm Password" onChange={ifChange}/>
             </p>
             <form onSubmit={ifSubmit}>
-              <button className='w3-button w3-light-grey w3-padding-large' type='submit'>
-                Sign In
+              <button className='w3-button w3-light-grey w3-padding-large' >
+                Sign Up
               </button>
             </form>
             {/* End Contact Section*/}
           </div>
           {/* Footer */}
           <footer
-              id="poweredBy"
-              className=" w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge ">
-            <p className="w3-medium ">
+              id="poweredBy" className=" w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge ">
+              <p className="w3-medium">
               Powered by <a>Or Nasri &amp; Noa Benita</a>
-            </p>
+              </p>
             {/* End footer */}
           </footer>
         </div>  

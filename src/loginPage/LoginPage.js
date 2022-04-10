@@ -6,24 +6,21 @@ import {useState} from 'react';
 import ChatPage from '../chatPage/ChatPage';
 
 
-function LoginPage({db, lg, ng}) {
+
+function LoginPage({db, current}) {
+    console.log(db.lenght);
     const [usersArray,setUserArray] = useState({username:'', password:''});
     var nav = useNavigate();
     
-    function ifSubmit() {
+    function ifSubmit(x) {
         if(db.find((e) => e.UserName == usersArray.username && e.Password == usersArray.password)) {
-            for (var i =0; i <db.length; i++) {
-                if(db[i].UserName == usersArray.username) {
-                    lg(db[i].UserName);
-                    // lg =Object.assign({}, db[i]);
-                    // lg = db[i].UserName;
-                    alert(ng);
-                    nav("/ChatPage");
-                }
-            }
+            current.nowOnline = usersArray.username;   
+            nav("/ChatPage");
         } else {
-            alert('failed');
+            alert('username or password is incorrect');
+            x.preventDefault();
         }
+       
     }
         
     function ifChange(event) {
@@ -42,16 +39,16 @@ function LoginPage({db, lg, ng}) {
 
             <div id="headDec">
                 <header className="w3-container w3-center" id="home">
-                    <h1 className="w3-jumbo">
+                    <h1 className="onChat w3-jumbo">
                         <b>O-N Chat</b>
                     </h1>
-                    <p> Fast, Simple and Secure Messaging.</p>
+                    <p className="secHeadLine"> Fast, Simple and Secure Messaging.</p>
                 </header>
             </div>
 
-            <div container id = "loginPageHeadline">
+            <div className = "loginPageHeadline  w3-container w3-light-grey w3-center w3-opacity">
                 <label>
-                    <div className ="w3-light-grey w3-container w3-center w3-large" > 
+                    <div className =" loginText w3-light-grey w3-container w3-center w3-large" > 
                         Login
                     </div>            
                 </label>
@@ -67,32 +64,32 @@ function LoginPage({db, lg, ng}) {
 
             <div id="loginInfo">
                 <form>
-                    <label>               
+                    <label>      
                         <input type="password" name="password" className='w3-container w3-xlarge' onChange={ifChange} placeholder='Password'  />
                     </label>
                 </form>
             </div>
                 
             <form onSubmit={ifSubmit}> 
-                <button className='w3-button w3-center w3-light-grey w3-padding-large' type='submit' id='button2'>
+                <button className='w3-button w3-center w3-light-grey w3-padding-large' id='button2'>
                     Sign In
                 </button>   
             </form>
 
             <p >
-                <button className='w3-button w3-center w3-light-grey w3-padding-large' type='submit' id='button1'>
+                <button className='w3-button w3-center w3-light-grey w3-padding-large' id='button1'>
                     <Link to="/SignUpPage">Sign Up</Link>
                 </button>
             </p>
-            <p>
-                <footer
-                    id="poweredBy"
-                    className=" w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge ">
-                    <p className="w3-medium">
-                        Powered by <a>Or Nasri &amp; Noa Benita</a>
-                    </p>
-                </footer>
-            </p>  
+           
+            <footer
+              className="poweredBy w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge ">
+              <p className="w3-medium">
+              Powered by <a>Or Nasri &amp; Noa Benita</a>
+              </p>
+            {/* End footer */}
+          </footer>
+           
         </>
     );
     
