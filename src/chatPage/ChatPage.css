@@ -324,8 +324,9 @@ body{
    
 }
 
-.borderrr {
+.borderOfSendLine {
     margin-right: 4%;
+   
 }
 
 .mark {
@@ -343,6 +344,17 @@ body{
 
 .icons{
     margin-left: 9%;
-    margin-right:0%;
-    background-color:white;
+  
+}
+
+label{
+    margin-bottom: 2%;
+    font-family: sans-serif;
+
+    cursor: pointer;
+}
+
+.messegeTypes{
+    margin-left: 9%;
+    background-color: #cbcccd;
 }

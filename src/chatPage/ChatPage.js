@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 
 function ChatPage({current}){
- 
+
+   
     return (
       <>
       
@@ -166,10 +167,6 @@ function ChatPage({current}){
                 <li className="clearfix">
                   <div className="message-data text-right">
                     <span className="message-data-time">10:10 AM, Today</span>
-                    <img
-                      src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                      alt="avatar"
-                    />
                   </div>
                   <div className="message other-message float-right">
                     {" "}
@@ -200,7 +197,7 @@ function ChatPage({current}){
                 <div className="input-group-prepend">
                     <button className="fa fa-send" id='sendButton' type='submit' />        
                 </div>
-                <div border className='borderrr'>
+                <div border className='borderOfSendLine'>
                 <form action="/action_page.php" target="_blank">
               <p>
                   <input className="form-control w3-input" type="text" name="username" 
@@ -215,10 +212,23 @@ function ChatPage({current}){
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   </button>
 
-                  <div className="dropdown-menu w3-light-grey" aria-labelledby="dropdownMenuButton">                
-                    <button className="fa fa-picture-o icons w3-light-grey"></button>               
-                    <button className="fa fa-video-camera icons w3-light-grey"></button>
-                    <button className="fa fa-microphone icons w3-light-grey"></button>
+                  <div className="dropdown-menu w3-light-grey" aria-labelledby="dropdownMenuButton">  
+                              
+                   <button  className='messegeTypes' >
+                    <input type="file" id="actual-btn" hidden/>
+                    <label className="fa fa-picture-o icons" for="actual-btn" ></label>
+                  </button>
+                  
+                  <button  className='messegeTypes' >
+                    <input type="file" id="actual-btn" hidden/>
+                    <label className="fa fa-video-camera icons" for="actual-btn"></label>
+                  </button>
+
+                  <button  className='messegeTypes' >
+                    <input type="file" id="actual-btn" hidden/>
+                    <label className="fa fa-microphone icons" for="actual-btn"></label>
+                  </button>
+                     
                   </div>
               </div>
             </div>
