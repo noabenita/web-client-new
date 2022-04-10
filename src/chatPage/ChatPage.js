@@ -105,32 +105,17 @@ function ChatPage({db,current}){
               </ul>
             </div>
             {/* message box */}
-            <div className="chat-message clearfix">
-                <div className="input-group-prepend">
-                    <button className="fa fa-send" id='sendButton' type='submit' />        
-                </div>
-                <div border className='borderOfSendLine'>
-                <form action="/action_page.php" target="_blank">
-              <p>
-                  <input className="form-control w3-input" type="text" name="username" 
-                  placeholder="Enter text here..." />
-              </p>
-              </form>
-              </div>
-                 
-                
-                <div class="dropdown">
-                  <button class="btn btn-secondary fa fa-paperclip w3-xlarge" type="button" id="dropdownMenuButton" 
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  </button>
+            <div class="dropdown">
+                <button class="btn btn-secondary fa fa-paperclip w3-xlarge" type="button" id="dropdownMenuButton" 
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </button>
 
-                  <div className="dropdown-menu w3-light-grey" aria-labelledby="dropdownMenuButton">  
-                              
-                   <button  className='messegeTypes' >
+                <div className="dropdown-menu w3-light-grey" aria-labelledby="dropdownMenuButton">            
+                  <button  className='messegeTypes' >
                     <input type="file" id="actual-btn" hidden/>
                     <label className="fa fa-picture-o icons" for="actual-btn" ></label>
                   </button>
-                  
+                
                   <button  className='messegeTypes' >
                     <input type="file" id="actual-btn" hidden/>
                     <label className="fa fa-video-camera icons" for="actual-btn"></label>
@@ -139,10 +124,24 @@ function ChatPage({db,current}){
                   <button  className='messegeTypes' >
                     <input type="file" id="actual-btn" hidden/>
                     <label className="fa fa-microphone icons" for="actual-btn"></label>
-                  </button>
-                     
+                  </button> 
+                </div>  
+            </div>
+            <div className="chat-message clearfix">
+                <div border className='borderOfSendLine'>
+                  <form action="/action_page.php" target="_blank">
+                    <p>
+                        <input className="form-control w3-input" type="text"
+                        placeholder="Enter text here..." />
+                    </p>
+                  </form>
+                  <div className="input-group-prepend">
+                    <button className="fa fa-send" id='sendButton' type='submit' />        
                   </div>
-              </div>
+                </div>
+                 
+                
+                
             </div>
           </div>
         </div>
