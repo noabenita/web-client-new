@@ -164,6 +164,6 @@ function SignUpPage({db}) {
 
   );
 }
-}
+
 
 export default SignUpPage

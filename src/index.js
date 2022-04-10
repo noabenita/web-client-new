@@ -6,6 +6,9 @@ import LoginPage from './loginPage/LoginPage';
 import reportWebVitals from './reportWebVitals';
 import SignUpPage from './signUpPage/SignUpPage';
 
+
+
+
 class User{
   constructor(username, nickname, img, password, confirmpassword){
     this.UserName = username;
@@ -23,12 +26,21 @@ class Chat{
   }
 }
 
+class Message {
+  constructor(time, data, flag){
+    this.time = time;
+    this.data = data;
+    this.flag = flag; // 1 - if i send , 0- else
+  }
+
+}
 
 
-const dataStracture= [{name:'or', nickname: 'orush', img:'photo.jpg', password: 12345, confirmPassword : 12345, 
-                    chats: [{data:"hey",time: '12:10',flag:true},{data:"?",time: '12:15',flag:false}, {data:"what",time: "12:17",flag:false}],
-                     friends: ["noa", "mor"]}]
-                     
+
+const currentUser = {nowOnline:"null"}; 
+
+const dataStracture= [new User(null)];
+
 ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter>

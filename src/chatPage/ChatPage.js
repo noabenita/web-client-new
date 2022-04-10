@@ -1,10 +1,25 @@
 import './ChatPage.css';
 import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
+import User from '../index';
+import {useState} from 'react';
+import Message from '../message/Message';
+import chats from '../DB';
+import friends from '../Friends';
+import ChatFriends from '../chatsFriends/ChatFriends';
 
 
 function ChatPage({current}){
  
+  const chatFriendsList = friends.map((frd, key)=>{
+    return <ChatFriends {... frd} key={key}/>
+  })
+
+  const messageList = chats.map((msg, key)=> {
+    return <Message{... msg} key={key}/>
+  });
+
+
     return (
       <>
       
@@ -69,72 +84,7 @@ function ChatPage({current}){
             </div>
             
             <ul className="list-unstyled chat-list mt-2 mb-0 w3-border">
-              <li className="clearfix">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                  alt="avatar"
-                />
-                <div className="about">
-                  <div className="name">Vincent Porter</div>
-                  <div className="status">
-                    {" "}
-                    <i className="fa fa-circle offline" /> left 7 mins ago{" "}
-                  </div>
-                </div>
-              </li>
-              
-              <li className="clearfix">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                  alt="avatar"
-                />
-                <div className="about">
-                  <div className="name">Mike Thomas</div>
-                  <div className="status">
-                    {" "}
-                    <i className="fa fa-circle online" /> online{" "}
-                  </div>
-                </div>
-              </li>
-              <li className="clearfix">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                  alt="avatar"
-                />
-                <div className="about">
-                  <div className="name">Christian Kelly</div>
-                  <div className="status">
-                    {" "}
-                    <i className="fa fa-circle offline" /> left 10 hours ago{" "}
-                  </div>
-                </div>
-              </li>
-              <li className="clearfix">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar8.png"
-                  alt="avatar"
-                />
-                <div className="about">
-                  <div className="name">Monica Ward</div>
-                  <div className="status">
-                    {" "}
-                    <i className="fa fa-circle online" /> online{" "}
-                  </div>
-                </div>
-              </li>
-              <li className="clearfix">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                  alt="avatar"
-                />
-                <div className="about">
-                  <div className="name">Dean Henry</div>
-                  <div className="status">
-                    {" "}
-                    <i className="fa fa-circle offline" /> offline since Oct 28{" "}
-                  </div>
-                </div>
-              </li>
+            {chatFriendsList}
             </ul>
           </div>
           <div className="chat">
