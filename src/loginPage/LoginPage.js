@@ -5,7 +5,7 @@ import {useState} from 'react';
 
 
 function LoginPage({db, current}) {
-    console.log(db.lenght);
+    // console.log(db.lenght);
     const [usersArray,setUserArray] = useState({username:'', password:''});
     var nav = useNavigate();
     

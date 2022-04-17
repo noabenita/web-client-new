@@ -1,4 +1,5 @@
 function Message({data, time, flag}){
+    
     if (flag){
         return(
          <li className="clearfix">
