@@ -1,29 +1,27 @@
-import {Link, useNavigate} from 'react-router-dom';
 import './LoginPage.css';
-import {useState} from 'react';
+import React from 'react';
 
-
-
-function LoginPage({db, current}) {
-    console.log(db.lenght);
-    const [usersArray,setUserArray] = useState({username:'', password:''});
-    var nav = useNavigate();
+function LoginPage({db, setMode, setCurrent}) {
     
-    function ifSubmit(x) {
-        console.log(db);
-        if(db.find((e) => e.UserName == usersArray.username && e.Password == usersArray.password)) {
-            current.nowOnline = usersArray.username;
-            for (var i =0; i <db.length; i++) {
-                 if(db[i].UserName == current.nowOnline) {
-                    current ={nowOnline:db[i]};                    
-                }  
+    const [usersArray,setUserArray] = React.useState({username:'', password:''});
+    
+    function ifSubmit(e) {            
+        for (var i =0; i <db.length; i++) {
+            if(db[i].UserName == usersArray.username && db[i].Password == usersArray.password){
+                
+                setCurrent({
+                    UserName: db[i].UserName,
+                    NickName: db[i].NickName,
+                    Img: db[i].Img,
+                    Password: db[i].Password, 
+                    Chats: db[i].Chats
+                })
+                setMode(2);
+                return
+                } 
             }
-            nav("/ChatPage");
-        } else {
-            alert('username or password is incorrect');
-            x.preventDefault();
-        }
-       
+        alert('username or password is incorrect'); 
+        e.preventDefault();
     }
         
     function ifChange(event) {
@@ -33,12 +31,14 @@ function LoginPage({db, current}) {
             [name]:value
         })
     }
-        
+    function changemode(){
+        setMode(1);
+    }
     return ( 
-        <>        
-            <nav id="mainImage" className="w3-sidebar w3-hide-medium w3-hide-small">
-                <div className="bgimg" ></div>               
-            </nav>
+        <>   
+        <nav className="mainImage w3-sidebar ">
+            <div className="bgimg" ></div>               
+        </nav>
 
             <div id="headDec">
                 <header className="w3-container w3-center" id="home">
@@ -49,13 +49,10 @@ function LoginPage({db, current}) {
                 </header>
             </div>
 
-            <div className = "loginPageHeadline w3-container w3-light-grey w3-center w3-opacity">
-                <label>
-                    <div className ="loginText w3-light-grey w3-container w3-center w3-large" > 
+            <div className ="loginText w3-light-grey w3-container w3-center w3-large w3-opacity" > 
                         Login
-                    </div>            
-                </label>
-            </div>        
+                    </div> 
+                   
                 
             <div id="loginInfo">
                 <form >
@@ -74,14 +71,16 @@ function LoginPage({db, current}) {
             </div>
                 
             <form onSubmit={ifSubmit}> 
-                <button className='w3-button w3-center w3-light-grey w3-padding-large' id='button2'>
+                <button className='w3-button w3-center w3-light-grey w3-padding-large' 
+                id='button2'>
                     Sign In
                 </button>   
             </form>
 
             <p >
-                <button className='w3-button w3-center w3-light-grey w3-padding-large' id='button1'>
-                    <Link to="/SignUpPage">Sign Up</Link>
+                <button className='w3-button w3-center w3-light-grey w3-padding-large'
+                 id='button1' onClick={changemode}>
+                    Sign Up
                 </button>
             </p>
            
@@ -91,9 +90,9 @@ function LoginPage({db, current}) {
               Powered by <a>Or Nasri &amp; Noa Benita</a>
               </p>
             {/* End footer */}
-          </footer>
+           </footer>
            
-        </>
+         </>
     );
     
 }

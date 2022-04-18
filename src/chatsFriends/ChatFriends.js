@@ -1,6 +1,5 @@
 function ChatFriends({name, img}){
  return(
-    <button >
       <li className="clearfix">
     <img 
       src={img}
@@ -13,7 +12,8 @@ function ChatFriends({name, img}){
       </div>
     </div>
   </li>
-  </button>
+
+  
 
  );   
 }

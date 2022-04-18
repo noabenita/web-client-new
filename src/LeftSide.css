@@ -1,12 +1,8 @@
-
-/* * {
-    font-family: "Montserrat", sans-serif
+.friends-list{
+    position: absolute;
+    z-index: 7;
+    
 }
-
-.poweredBy {
-    margin: 680px;
-    position: fixed;
-}*/
 
 .bgimg {
     width: 100%;
@@ -17,49 +13,18 @@
     margin-left:0%;
     min-height: 100%;
     
-} 
-
-#mainImage {
-    width: 2%;
-} 
+}
 
 
-
-#button {
-    margin-left: 94.5%;
-    margin-top: 0.5%;
+.logoutButton{
+    margin-left: 95.5%;
+    margin-top: 1%;
     position: absolute;
     z-index: 7;
-} 
-
-.semiTrans {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: rgba(1, 1, 1, 0.5);
-    margin-left:0.5% ;
-    margin-right:1% ;
-    margin-top: 0.5%;
-    width: 99%;
-    height: 99%;
-    position: absolute;
-    z-index:1;
 }
 
-body{
-    font-family: "Montserrat", sans-serif;
-    background-color: #f4f7f6;  
-    
-}
-.card {
-    background: #fff;
-    transition: .5s;
-    margin-top: 1%;
-    margin-left: -0.5%;
-    position: absolute;
-    z-index: 4;
-    width: 100%;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
-}
+
+
 
 .chat-app .people-list {
     margin-left: 10%;
@@ -67,15 +32,15 @@ body{
     position: absolute;
     z-index: 7;
     left: 0;
-    top: -3%;
-   margin-top: 1%;
+    margin-top: 2%;
+    margin-left: 8%;
    
 }
 
 .chat-app .chat {
     margin-left: 46%;
     width: 50%;
-    border-left: 1px solid #eaeaea;
+   
     position: absolute;
     z-index: 7;
     
@@ -86,8 +51,17 @@ body{
     -moz-transition: .5s;
     -o-transition: .5s;
     -webkit-transition: .5s;
-    transition: .5s
+    transition: .5s;
+    margin-left: -20%;
+
 }
+
+.column{
+    width: 83.7%;  
+    margin-top: 1%;
+
+}
+
 
 
 .people-list .chat-list li {
@@ -105,31 +79,36 @@ body{
 
 
 /*list of friends in chat*/
-.people-list .chat-list li:hover {
-    background: lightblue;
-    cursor: pointer
-}
+/* .people-list .chat-list li:hover {
+    background: rgb(74, 92, 0);
+    
+} */
+
 
 /*current chat*/
 .people-list .chat-list li.active {
     background: gray
 }
 
-.people-list .chat-list li .name {
-    font-size: 100%
-}
+
 
 .people-list .chat-list img {
-    width: 45px;
-    margin-left:2%;
-    margin-right:2%;
-    border-radius: 50%
+    width: 20%;
+    margin-left:-39%;
+    margin-right:45%;
+    border-radius: 50%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    
 }
 
-.people-list img {
-    float: left;
-    border-radius: 50%
-}
+/* .people-list img {
+    
+    border-radius: 20%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+   
+} */
 
 .people-list .about {
     float: left;
@@ -141,19 +120,19 @@ body{
     font-size: 13px
 }
 
+/* line under the current friend chat */
 .chat .chat-header {
-    padding: 15px 20px;
+    margin-top: 2%;
     border-bottom: 2px solid #f4f7f6;
-    border-top: 2px solid #f4f7f6;
-    margin-top: -0.1%;
-    margin-right:-45% ;
+    margin-right:-50% ;
 }
-
+/* 
 .chat .chat-header img {
     float: left;
     border-radius: 40%;
     width: 18%;
-}
+    margin-bottom: 3%;
+} */
 
 .chat .chat-header .chat-about {
     float: left;
@@ -161,6 +140,7 @@ body{
     margin-top: 2%;
 }
 
+/* the conversetion */
 .chat .chat-history {
     padding: 4%;
     border-bottom: 2px solid #fff;
@@ -188,16 +168,16 @@ body{
     border-radius: 40px;
     width: 40px
 }
-
+/* 
 .chat .chat-history .message-data-time {
     color: #434651;
     padding-left: 6px
-}
+} */
 
-.message-data-time-right {
+/* .message-data-time-right {
     color: #434651;
     padding-left: 87%;
-}
+} */
 
 .chat .chat-history .message {
     color: #444;
@@ -254,123 +234,7 @@ body{
     padding: 2%;
 }
 
-.online, 
-.offline,
-.me {
-    margin-right: 2px;
-    font-size: 8px;
-    vertical-align: middle
+.container{
+    width:90%;
+    height: 30%;
 }
-
-.online {
-    color: #7ee412
-}
-
-.offline {
-    color: #f30404
-}
-
-.me {
-    color: #009cf0
-}
-
-.float-right {
-    float: right
-}
-
-.clearfix:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0
-}
-
-.myPic{
-    margin-top: -15%;
-    margin-right: 10%;
-    margin-left: 10%;
-  
-}
-.myName{
-    margin-left: 50%;
-    margin-right: -60%;
-    margin-top: 4%;
-    position: absolute;
-    z-index: 2;
-    color: white;
-
-}
-
-.about {
-    color: white;
-}
-
-.input-group1{
-    margin-left: 83%;
-    margin-top: 3%;
-
-}
-.input-group-text{
-    margin-left: 20%;
-    margin-right:3%;
-    margin-top: 3%;
-}
-
-.addCon{
-
-    margin-left: -1%;
-}
-
-#sendButton {
-    margin-left: 102%;
-    margin-top: -9%;
-    position: absolute;
-    z-index: 7;
-}
-
-.form-control {
-    margin-left:9%;
-    margin-top: -10%;
-    position: absolute;
-    z-index: 7;
-}
-
-.borderOfSendLine {
-    margin-right: 4%;
-   
-}
-
-.mark {
-    margin-left: -2%;
-}
-
-.dropdown{
-    margin-left:2%;
-    margin-bottom:0% ;
-    position: absolute;
-    z-index: 7;
-    margin-top: 3%;
-    
-    
-}
-
-
-.icons{
-    margin-left: 9%;
-  
-}
-
-label{
-    margin-bottom: 2%;
-    font-family: sans-serif;
-
-    cursor: pointer;
-}
-
-.messegeTypes{
-    margin-left: 9%;
-    background-color: #cbcccd;
-}
-
