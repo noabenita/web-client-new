@@ -45,8 +45,7 @@ function LeftSide({current, setState, setUser, setChat}){
                             {current.Chats.map((user)=>
                             <li className="clearfix">
                                 <button type="button" onClick={clicked} id={user.contact}>
-                                    <img src={user.imgContact}  // img of current chat
-                                    alt="avatar"/>  {user.contact}
+                                    <img src={user.imgContact} alt="avatar"/>  {user.contact}
                                 </button>    
                             </li> 
                             )}  

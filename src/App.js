@@ -48,53 +48,6 @@ function App() {
       console.log(dataStructure);
     }
 
-    // function signUpCheck(username, nickname, img, password, confirmpassword){
-    //   console.log('ifSubmit of signup');
-    //     if (!(((username.length == 0) || (nickname.length == 0) || (img.length == 0) ||
-    //     (password.length == 0) || (confirmpassword.length == 0)))) {
-    //         if(img != ' '){
-    //             if ((/[a-z]/.test(password)) && (/[A-Z]/.test(password))
-    //             && (/[0-9]/.test(password)) && (password.length >= 8)){
-    //                 if ((confirmpassword == password)){
-    //                     if (!(dataStructure.find((e) => e.UserName == username))){
-    //                       setUser({
-    //                         UserName:username,
-    //                         NickName:nickname,
-    //                         Img: img,
-    //                         Password : password,
-    //                         Chats: []
-    //                       });
-    //                       // insertNewUser(user);
-    //                       dataStructure(user);
-    //                       console.log(user);
-    //                         console.log('in signup');
-    //                         console.log(dataStructure);
-    //                         setMode(0);
-    //                         return;
-    //                     } else {
-    //                         alert("Username is already exist.");
-    //                         // x.preventDefault();
-    //                     }
-    //                 } else {
-    //                     alert ("Passwords do not match.");
-    //                     // x.preventDefault();
-    //                 }
-    //             } else {
-    //                 alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters.");
-    //                 // x.preventDefault();
-    //             }
-    //         } else {
-    //         alert ("Image format do not match.");
-    //         // x.preventDefault();
-    //       }
-    //     } else {
-    //       alert("Please fill all fields.");
-    //       // x.preventDefault();
-    //     }
-    // }
-    
-    
-  // console.log(dataStructure);
 if(mode == 0){
   console.log('in login');
   console.log(dataStructure);
