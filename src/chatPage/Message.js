@@ -3,6 +3,7 @@ function Message({data, time, flag}){
     
     if (flag){
         console.log('right')
+        console.log(data)
         return(
          <li className="clearfix">
              <div className="message-data">
@@ -15,7 +16,7 @@ function Message({data, time, flag}){
         );
     } else {
         console.log('left')
-
+        console.log(data)
         return(
             <li className="clearfix">
              <div className="message-data text-right">

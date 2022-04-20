@@ -8,11 +8,23 @@
 .first-row{
     position: absolute;
     z-index: 7;
+    border-radius: 70%;
+    margin-right : 80%;
+    margin-top: 1%;
     
 }
+ .second-row{
+     margin-top: 8%;
+     
+     
+ }
+ .friends-list{
+     position: absolute;
+     z-index: 7;
+ }
 .current-img{
     border-radius: 70%;
-    margin-left: 50%;
+    margin-right : 10%;
 }
 .send-button{
     margin-left: 5%;
