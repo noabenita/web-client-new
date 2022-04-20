@@ -10,13 +10,22 @@
     margin-left: 5%;
     position: absolute;
     z-index: 7;
-    margin-left: 52%;
+    margin-left: 85%;
+    margin-top: 40%;
 }
 
 .send-text{
     position: absolute;
     z-index: 7;
     margin-left: 55%;
+    margin-top: 40%;
+    
+
+}
+.text-line{
+    width: 300%;
+    margin-left: -56%;
+   
 }
 
 
