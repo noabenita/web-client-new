@@ -78,21 +78,23 @@ function LoginPage({db, setMode, setCurrent, newUser}) {
                 
             
             
+
+               <div>
+            <form > 
             {/* <input id= 'button2' value="Sign-In" type="radio" name="tab" className="sign-in" 
                  onClick={ifSubmited}> </input>
                     <label htmlFor='button2' className='tab'> Sign In</label> */}
-               <div>
-            <form > 
-                {/* <button className='w3-button w3-center w3-light-grey w3-padding-large' 
-              onClick={ifSubmited}  id='button2'>
+                <button id='button1' className='w3-button w3-center w3-light-grey w3-padding-large' 
+                    onClick={ifSubmited}  >
                     Sign In
-                </button>    */}
-                <button id='button1' value="Sign-Up" type="radio" name="tab" className="sign-up" 
+                </button>
+                 <p>  
+                <button id='button2' className='w3-button w3-center w3-light-grey w3-padding-large' 
                  onClick={changeMode}> Sign Up</button>
-                <p>
-                <button id='button2' value="Sign-In" type="radio" name="tab" className="sign-in" 
-                 onClick={ifSubmited}> Sign In</button>
-                 </p>
+               </p>
+                {/* <button value="Sign-In" type="radio" name="tab" className="sign-in" 
+                 onClick={ifSubmited}> Sign In</button> */}
+                 
             {/* </p> */}
            </form>
            </div>

@@ -1,6 +1,5 @@
 // import './LoginPage.css';
 import React from 'react';
-import LoginPage from '../loginPage/LoginPage';
 
 
 function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
@@ -52,13 +51,7 @@ function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
                                  {data:"♥",time: '14:11',flag:true},
                                  {data:"fine, honey",time: "14:40",flag:false}]}]
                           });
-                          // insertNewUser(createUser.username,createUser.nickname,createUser.img,createUser.password,[]);
-                            // console.log('in signup1');
-                            // console.log(db);
                             setMode(0)
-                            // console.log('in signup2');
-                            // console.log(db);
-                            // return <LoginPage db={db} setMode={setMode} setCurrent={setCurrent}/>
                         } else {
                             alert("Username is already exist.");
                             x.preventDefault();
@@ -91,7 +84,7 @@ function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
     return(
         <div className='container'>
         <div className='row'>
-          <div className='col'>
+          {/* <div className='col'> */}
             {/* Sidebar with image */}
             {/* <nav id="mainImage" className="w3-sidebar w3-hide-medium w3-hide-small">
               <div className="bgimg" />
@@ -156,7 +149,7 @@ function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
             </footer>
           </div>  
           {/* END PAGE CONTENT */}
-        </div>
+        {/* </div> */}
         
       </div>
     );
