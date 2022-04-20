@@ -54,8 +54,12 @@ function LeftSide({db ,current, setState, setUser, setChat}){
                             {current.Chats.map((user)=>
                             <li className="clearfix">
                                 <button type="button" onClick={clicked} id={user.contact}>
-                                    <img src={user.imgContact} alt="avatar"/>  {user.contact} 
-                                </button>    
+                                    <img src={user.imgContact} alt="avatar"/> 
+                                    
+                                </button> 
+                                <div className='contactName'>  {user.contact}</div> 
+                                <div className='lastMsg '>  {lastMsg(user.contact)} ...</div>   
+                                <div className='lastMsgTime '>  {user.message[0].time}</div> 
                             </li> 
                             )}  
                         </ul>
