@@ -1,8 +1,18 @@
 .message-data-righ{
-   
-    margin-left: 165%;
+    padding: auto;
 }
 
 .message-data-left{
-    margin-left: -21%
+    padding: auto;
+}
+
+.col1{
+    width: 50%;
+    margin-left: 0%;
+    margin-right: 100%;
+}
+.col2{
+    width: 50%;
+    margin-right: 0%;
+    margin-left: 100%;
 }
