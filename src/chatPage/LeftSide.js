@@ -40,7 +40,7 @@ function LeftSide({current, setState, setUser, setChat}){
                         <img className='myImg' src={current.Img}  // img of current chat
                             alt="avatar"/> {current.NickName}
                     </div>
-                    <ul className=" chat-list  ">
+                    <ul className=" chat-list">
                         <ul className="friends-list">
                             {current.Chats.map((user)=>
                             <li className="clearfix">

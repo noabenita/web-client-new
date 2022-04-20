@@ -39,7 +39,7 @@
 
 
 .logoutButton{
-    margin-left: 94.5%;
+    margin-left: 94.7%;
     margin-top: 1%;
     position: absolute;
     z-index: 7;
@@ -175,9 +175,7 @@
     margin-right: -44%;
 }
 
-.chat .chat-history ul {
-    padding: 0
-}
+
 
 .chat .chat-history ul li {
     list-style: none;
