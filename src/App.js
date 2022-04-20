@@ -15,19 +15,19 @@ function App() {
       message:[
         {data:"hey",time: '12:10',flag:true},
         {data:"?",time: '12:15',flag:false},
-        {data:"what",time: "12:17",flag:false}]}, 
+        {data:"what are u doing ?",time: "12:17",flag:false}]}, 
       {contact :"hen",
       imgContact: "https://bootdey.com/img/Content/avatar/avatar3.png",
       message:[
-        {data:"how are u??",time: '14:10',flag:true},
+        {data:"how are u?? i want to tell you about my friend",time: '14:10',flag:true},
         {data:"♥",time: '14:11',flag:true},
-        {data:"fine, honey",time: "14:40",flag:false}]},
+        {data:"Im fine love, how are you ?",time: "14:40",flag:false}]},
       {contact :"noa",
-       imgContact: "https://bootdey.com/img/Content/avatar/avatar3.png",
+       imgContact: "https://bootdey.com/img/Content/avatar/avatar8.png",
        message:[
-         {data:"how are u??",time: '14:10',flag:true},
-         {data:"♥",time: '14:11',flag:true},
-         {data:"fine, honey",time: "14:40",flag:false}]}]}];
+         {data:"hii",time: '10:32',flag:true},
+         {data:"♥",time: '10:33',flag:true},
+         {data:"hii! how are you?",time: "10:45",flag:false}]}]}];
      
   const[mode,setMode]=React.useState(0);
   const[newUser, setNewUser]= React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
@@ -64,7 +64,7 @@ if(mode == 1){
 }
 if(mode == 2){
   return (
-    <Chat current = {current}/>
+    <Chat db={dataStructure} current = {current}/>
   );
   }
 }

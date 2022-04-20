@@ -1,7 +1,7 @@
 import './LeftSide.css';
 import {Link, useNavigate} from 'react-router-dom';
 
-function LeftSide({current, setState, setUser, setChat}){
+function LeftSide({db ,current, setState, setUser, setChat}){
     function clicked(e){
         for(var i = 0; i<current.Chats.length;i++){
             if(e.target.id == current.Chats[i].contact){
@@ -19,6 +19,15 @@ function LeftSide({current, setState, setUser, setChat}){
         setState(0)
     }
 
+    function lastMsg (currentCon){
+        for(var i = 0; i<current.Chats.length;i++){
+            if (current.Chats[i].contact == currentCon) {
+                var j = current.Chats[i].message.length;
+                return current.Chats[i].message[j-1].data
+            }
+        }
+    }
+
    
     return(
         <>
@@ -28,7 +37,7 @@ function LeftSide({current, setState, setUser, setChat}){
 
             <div  className="semiTrans w3-hide-medium w3-hide-small" ></div>
             <div id="button">            
-                <button className=" logoutButton w3-button w3-light-grey w3-padding-small" type="submit"
+                <button className=" logoutButton w3-button w3-padding-small" type="submit"
                  onClick={logout}> 
                     logout
                 </button>
@@ -45,8 +54,12 @@ function LeftSide({current, setState, setUser, setChat}){
                             {current.Chats.map((user)=>
                             <li className="clearfix">
                                 <button type="button" onClick={clicked} id={user.contact}>
-                                    <img src={user.imgContact} alt="avatar"/>  {user.contact}
-                                </button>    
+                                    <img src={user.imgContact} alt="avatar"/> 
+                                    
+                                </button> 
+                                <div className='contactName'>  {user.contact}</div> 
+                                <div className='lastMsg '>  {lastMsg(user.contact)} ...</div>   
+                                <div className='lastMsgTime '>  {user.message[0].time}</div> 
                             </li> 
                             )}  
                         </ul>

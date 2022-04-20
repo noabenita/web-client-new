@@ -17,11 +17,10 @@ function RightSide({current,user,chat, setChat}){
     }
     return(
         <>
-        <div className="boxo w3-container">
-        <div container className=' first-row w3-border'>   {/* current user */}
+        <div className="boxo w3-container first-row">
+          {/* current user */}
             <img className='userImg' src={user.imgContact}  // img of current chat
                 alt="avatar"/> {user.contact}
-        </div>
         </div>
 
 

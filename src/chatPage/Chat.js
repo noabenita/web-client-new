@@ -3,7 +3,7 @@ import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";
 
 
-function Chat({current}){
+function Chat({dataStructure, current}){
 
     const[state,setState]=React.useState(0);
     const[user,setUser]=React.useState({contact: "", imgContact:"", message:""})
@@ -11,7 +11,7 @@ function Chat({current}){
     if(state == 0){
         return(
            
-            <LeftSide current={current} setState = {setState} setUser={setUser} setChat={setChat}/>
+            <LeftSide db={dataStructure} current={current} setState = {setState} setUser={setUser} setChat={setChat}/>
             
 
         );
@@ -20,7 +20,7 @@ function Chat({current}){
         return(
             <>
              
-            <LeftSide current={current} setState = {setState} setUser={setUser} setChat={setChat}/>
+            <LeftSide db={dataStructure} current={current} setState = {setState} setUser={setUser} setChat={setChat}/>
             <RightSide current={current} user={user} chat={chat} setChat={setChat} />
             
             </>

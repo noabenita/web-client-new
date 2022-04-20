@@ -10,9 +10,8 @@
 .first-row{
     width: 35%;
     position: absolute;
-    z-index: 7;
+    z-index: 2;
     margin-left: 45%;
-    margin-right: 13%;
     margin-top: 1%;
     background-color: rgb(243, 243, 243);
     
@@ -23,20 +22,13 @@
     width: 10%;
     margin-top: 1%;
     margin-bottom: 1%;
-    margin-left: 2%;
-    margin-right: 3%;
-
-
-
-
-    
+    margin-left: 1%;
+    margin-right: 3%;  
 }
 
 .boxo{
-    width: 125%;
-    position: absolute;
-    z-index: 7;
-    margin-left:-15%;
+    width:58%;
+    margin-left:41%;
  
 }
 
