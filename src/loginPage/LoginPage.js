@@ -40,22 +40,20 @@ function LoginPage({db, setMode, setCurrent, newUser}) {
     }
     return ( 
         <>   
-        <div className="mainImage w3-sidebar ">
+        <div className="w3-sidebar ">
             <div className="bgimg" ></div>               
         </div>
 
-            <div id="headDec">
                 <header className="w3-container w3-center" id="home">
                     <h1 className="onChat w3-jumbo">
                         <b>O-N Chat</b>
                     </h1>
                     <p className="secHeadLine"> Fast, Simple and Secure Messaging.</p>
                 </header>
-            </div>
 
             <div className ="loginText w3-light-grey w3-container w3-center w3-large w3-opacity" > 
                         Login
-                    </div> 
+            </div> 
                    
                 
             <div id="loginInfo">
@@ -76,14 +74,8 @@ function LoginPage({db, setMode, setCurrent, newUser}) {
                 </form>
             </div>
                 
-            
-            
-
                <div>
             <form > 
-            {/* <input id= 'button2' value="Sign-In" type="radio" name="tab" className="sign-in" 
-                 onClick={ifSubmited}> </input>
-                    <label htmlFor='button2' className='tab'> Sign In</label> */}
                 <button id='button1' className='w3-button w3-center w3-light-grey w3-padding-large' 
                     onClick={ifSubmited}  >
                     Sign In
@@ -92,10 +84,6 @@ function LoginPage({db, setMode, setCurrent, newUser}) {
                 <button id='button2' className='w3-button w3-center w3-light-grey w3-padding-large' 
                  onClick={changeMode}> Sign Up</button>
                </p>
-                {/* <button value="Sign-In" type="radio" name="tab" className="sign-in" 
-                 onClick={ifSubmited}> Sign In</button> */}
-                 
-            {/* </p> */}
            </form>
            </div>
             <footer
