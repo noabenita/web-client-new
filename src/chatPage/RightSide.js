@@ -29,8 +29,10 @@ function RightSide({current,user,chat, setChat}){
         )}  
         </ul>
         </div>
-        <div className="send-text">
-        <input type="input" id = "msg" name ="msg" value = {msg.msg} onChange={ifChange}></input>
+        <div className="send-text ">
+        <input className="text-line" type="input" placeholder="Enter your text here ..." id = "msg" name ="msg" value = {msg.msg} onChange={ifChange}>
+
+        </input>
         </div>
         <button className="send-button" type="button" onClick={submit} >send</button>
         

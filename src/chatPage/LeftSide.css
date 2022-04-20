@@ -16,29 +16,53 @@
 }
 
 
+.container{
+    width:90%;
+    height: 30%;
+}
+
+.semiTrans {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(1, 1, 1, 0.14);
+    margin-left:0.5% ;
+    margin-right:1% ;
+    margin-top: 0.5%;
+    width: 99%;
+    height: 98%;
+    position: absolute;
+    z-index:1;
+}
+
+
 .logoutButton{
-    margin-left: 95.5%;
+    margin-left: 94.5%;
     margin-top: 1%;
     position: absolute;
     z-index: 7;
 }
 
-
-
+.addCon{
+    position: absolute;
+    z-index: 7;
+    margin-left: 5%;
+    margin-top: 0%;
+    
+}
 
 .chat-app .people-list {
-    margin-left: 10%;
-    width: 30%;
+
+    width: 28%;
     position: absolute;
     z-index: 7;
     left: 0;
     margin-top: 2%;
-    margin-left: 8%;
+    margin-left: 5%;
    
 }
 
 .chat-app .chat {
-    margin-left: 46%;
+    margin-left: 40%;
     width: 50%;
    
     position: absolute;
@@ -59,6 +83,8 @@
 .column{
     width: 83.7%;  
     margin-top: 1%;
+    width: 100%;
+    margin-left: -4%;
 
 }
 
@@ -94,30 +120,29 @@
 
 .people-list .chat-list img {
     width: 20%;
-    margin-left:-39%;
-    margin-right:45%;
+    margin-left:-20%;
+    margin-right:10%;
     border-radius: 50%;
     margin-bottom: 2%;
     margin-top: 2%;
     
 }
 
-/* .people-list img {
-    
-    border-radius: 20%;
-    margin-bottom: 2%;
-    margin-top: 2%;
-   
-} */
+.myImg{
+    width: 18%;
+    border-radius: 50%;
+    margin-left: 4%;
+}
+
 
 .people-list .about {
     float: left;
-    padding-left: 8px
+    
 }
 
 .people-list .status {
 
-    font-size: 13px
+    font-size: 4%
 }
 
 /* line under the current friend chat */
@@ -234,21 +259,5 @@
     padding: 2%;
 }
 
-.container{
-    width:90%;
-    height: 30%;
-}
 
-.semiTrans {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: rgba(1, 1, 1, 0.14);
-    margin-left:0.5% ;
-    margin-right:1% ;
-    margin-top: 0.5%;
-    width: 99%;
-    height: 98%;
-    position: absolute;
-    z-index:1;
-}
 
