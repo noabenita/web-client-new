@@ -10,14 +10,19 @@ function Chat({current}){
     const[chat,setChat]=React.useState([])
     if(state == 0){
         return(
+           
             <LeftSide current={current} setState = {setState} setUser={setUser} setChat={setChat}/>
+            
+
         );
     }
     else{
         return(
             <>
+             
             <LeftSide current={current} setState = {setState} setUser={setUser} setChat={setChat}/>
-            <RightSide current={current} user={user} chat={chat} setChat={setChat}/>
+            <RightSide current={current} user={user} chat={chat} setChat={setChat} />
+            
             </>
         );
     }
