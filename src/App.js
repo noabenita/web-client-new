@@ -28,59 +28,70 @@ function App() {
          {data:"how are u??",time: '14:10',flag:true},
          {data:"♥",time: '14:11',flag:true},
          {data:"fine, honey",time: "14:40",flag:false}]}]}];
-
-         
+     
   const[mode,setMode]=React.useState(0);
-  const[user, setUser]= React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
+  const[newUser, setNewUser]= React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
   const[current,setCurrent]=React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
 
-    function insertNewUser(user){
-      // user
-      dataStructure.push(user);
+
+    function insertNewUser(username,nickname,img, password,chats){
+      // console.log(user);
+      // setUser({
+      //     UserName:username,
+      //     NickName:nickname,
+      //     Img: img,
+      //     Password : password,
+      //     Chats: chats
+      //   });
+      // dataStructure.push(user);
+      // console.log(user);
+      console.log(dataStructure);
     }
-    function ifSubmit(username, nickname, img, password, confirmpassword, x){
-      console.log('ifSubmit of signup');
-        if (!(((username.length == 0) || (nickname.length == 0) || (img.length == 0) ||
-        (password.length == 0) || (confirmpassword.length == 0)))) {
-            if(img != ' '){
-                if ((/[a-z]/.test(password)) && (/[A-Z]/.test(password))
-                && (/[0-9]/.test(password)) && (password.length >= 8)){
-                    if ((confirmpassword == password)){
-                        if (!(dataStructure.find((e) => e.UserName == username))){
-                          setUser({
-                            UserName:username,
-                            NickName:nickname,
-                            Img: img,
-                            Password : password,
-                            Chats: []
-                          });
-                          insertNewUser(user);
-                          console.log(user);
-                            console.log('in signup');
-                            console.log(dataStructure);
-                            setMode(0);
-                            return;
-                        } else {
-                            alert("Username is already exist.");
-                            // x.preventDefault();
-                        }
-                    } else {
-                        alert ("Passwords do not match.");
-                        // x.preventDefault();
-                    }
-                } else {
-                    alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters.");
-                    // x.preventDefault();
-                }
-            } else {
-            alert ("Image format do not match.");
-            // x.preventDefault();
-          }
-        } else {
-          alert("Please fill all fields.");
-          // x.preventDefault();
-        }
-    }
+
+    // function signUpCheck(username, nickname, img, password, confirmpassword){
+    //   console.log('ifSubmit of signup');
+    //     if (!(((username.length == 0) || (nickname.length == 0) || (img.length == 0) ||
+    //     (password.length == 0) || (confirmpassword.length == 0)))) {
+    //         if(img != ' '){
+    //             if ((/[a-z]/.test(password)) && (/[A-Z]/.test(password))
+    //             && (/[0-9]/.test(password)) && (password.length >= 8)){
+    //                 if ((confirmpassword == password)){
+    //                     if (!(dataStructure.find((e) => e.UserName == username))){
+    //                       setUser({
+    //                         UserName:username,
+    //                         NickName:nickname,
+    //                         Img: img,
+    //                         Password : password,
+    //                         Chats: []
+    //                       });
+    //                       // insertNewUser(user);
+    //                       dataStructure(user);
+    //                       console.log(user);
+    //                         console.log('in signup');
+    //                         console.log(dataStructure);
+    //                         setMode(0);
+    //                         return;
+    //                     } else {
+    //                         alert("Username is already exist.");
+    //                         // x.preventDefault();
+    //                     }
+    //                 } else {
+    //                     alert ("Passwords do not match.");
+    //                     // x.preventDefault();
+    //                 }
+    //             } else {
+    //                 alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters.");
+    //                 // x.preventDefault();
+    //             }
+    //         } else {
+    //         alert ("Image format do not match.");
+    //         // x.preventDefault();
+    //       }
+    //     } else {
+    //       alert("Please fill all fields.");
+    //       // x.preventDefault();
+    //     }
+    // }
     
     
   // console.log(dataStructure);
@@ -88,14 +99,14 @@ if(mode == 0){
   console.log('in login');
   console.log(dataStructure);
   return (
-    <LoginPage db={dataStructure} setMode={setMode} setCurrent={setCurrent}/>
+    <LoginPage db={dataStructure} setMode={setMode} setCurrent={setCurrent} newUser={newUser}/>
     
   );
 }
 if(mode == 1){
   console.log('im sign up mode');
   return (
-    <SignUpPage db={dataStructure} setMode={setMode} ifSubmit={ifSubmit}/>
+    <SignUpPage db={dataStructure} setMode={setMode} insertNewUser={insertNewUser} setNewUser={setNewUser}/>
   );
 }
 if(mode == 2){

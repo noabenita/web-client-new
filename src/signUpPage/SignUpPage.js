@@ -1,8 +1,9 @@
 // import './LoginPage.css';
 import React from 'react';
+import LoginPage from '../loginPage/LoginPage';
 
 
-function SignUpPage({db, setMode, ifSubmit}) {
+function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
   // const[user, setUser]= React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
   const [createUser, setCreateUser]= React.useState({username:'', nickname:'', img:'', password:'', confirmpassword:''});
   function checkPhoto(e){
@@ -17,48 +18,68 @@ function SignUpPage({db, setMode, ifSubmit}) {
         }
     }
 
-    // function ifSubmit(x){
-    //   console.log('ifSubmit of signup');
-    //     if (!(((createUser.username.length == 0) || (createUser.nickname.length == 0) || (createUser.img.length == 0) ||
-    //     (createUser.password.length == 0) || (createUser.confirmpassword.length == 0)))) {
-    //         if(createUser.img != ' '){
-    //             if ((/[a-z]/.test(createUser.password)) && (/[A-Z]/.test(createUser.password))
-    //             && (/[0-9]/.test(createUser.password)) && (createUser.password.length >= 8)){
-    //                 if ((createUser.confirmpassword == createUser.password)){
-    //                     if (!(db.find((e) => e.UserName == createUser.username))){
-    //                       setUser({
-    //                         UserName:createUser.username,
-    //                         NickName:createUser.nickname,
-    //                         Img: createUser.img,
-    //                         Password : createUser.password,
-    //                         Chats: []
-    //                       });
-    //                       insertNewUser(user);
-    //                         console.log('in signup');
-    //                         console.log(db);
-    //                         setMode(0);
-    //                         return;
-    //                     } else {
-    //                         alert("Username is already exist.");
-    //                         x.preventDefault();
-    //                     }
-    //                 } else {
-    //                     alert ("Passwords do not match.");
-    //                     x.preventDefault();
-    //                 }
-    //             } else {
-    //                 alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters.");
-    //                 x.preventDefault();
-    //             }
-    //         } else {
-    //         alert ("Image format do not match.");
-    //         x.preventDefault();
-    //       }
-    //     } else {
-    //       alert("Please fill all fields.");
-    //       x.preventDefault();
-    //     }
-    // }
+    function ifSubmit(x){
+      console.log('ifSubmit of signup');
+        if (!(((createUser.username.length == 0) || (createUser.nickname.length == 0) || (createUser.img.length == 0) ||
+        (createUser.password.length == 0) || (createUser.confirmpassword.length == 0)))) {
+            if(createUser.img != ' '){
+                if ((/[a-z]/.test(createUser.password)) && (/[A-Z]/.test(createUser.password))
+                && (/[0-9]/.test(createUser.password)) && (createUser.password.length >= 8)){
+                    if ((createUser.confirmpassword == createUser.password)){
+                        if (!(db.find((e) => e.UserName == createUser.username))){
+                          setNewUser({
+                            UserName:createUser.username,
+                            NickName:createUser.nickname,
+                            Img: createUser.img,
+                            Password : createUser.password,
+                            Chats: [
+                              {contact: 'ron',
+                              imgContact: "https://bootdey.com/img/Content/avatar/avatar2.png",
+                              message:[
+                                {data:"hey",time: '12:10',flag:true},
+                                {data:"?",time: '12:15',flag:false},
+                                {data:"what",time: "12:17",flag:false}]}, 
+                              {contact :"hen",
+                              imgContact: "https://bootdey.com/img/Content/avatar/avatar3.png",
+                              message:[
+                                {data:"how are u??",time: '14:10',flag:true},
+                                {data:"♥",time: '14:11',flag:true},
+                                {data:"fine, honey",time: "14:40",flag:false}]},
+                              {contact :"noa",
+                               imgContact: "https://bootdey.com/img/Content/avatar/avatar3.png",
+                               message:[
+                                 {data:"how are u??",time: '14:10',flag:true},
+                                 {data:"♥",time: '14:11',flag:true},
+                                 {data:"fine, honey",time: "14:40",flag:false}]}]
+                          });
+                          // insertNewUser(createUser.username,createUser.nickname,createUser.img,createUser.password,[]);
+                            // console.log('in signup1');
+                            // console.log(db);
+                            setMode(0)
+                            // console.log('in signup2');
+                            // console.log(db);
+                            // return <LoginPage db={db} setMode={setMode} setCurrent={setCurrent}/>
+                        } else {
+                            alert("Username is already exist.");
+                            x.preventDefault();
+                        }
+                    } else {
+                        alert ("Passwords do not match.");
+                        x.preventDefault();
+                    }
+                } else {
+                    alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters.");
+                    x.preventDefault();
+                }
+            } else {
+            alert ("Image format do not match.");
+            x.preventDefault();
+          }
+        } else {
+          alert("Please fill all fields.");
+          x.preventDefault();
+        }
+    }
     function ifChange(event){
       const {name, value} = event.target;
       setCreateUser({
@@ -72,9 +93,9 @@ function SignUpPage({db, setMode, ifSubmit}) {
         <div className='row'>
           <div className='col'>
             {/* Sidebar with image */}
-            <nav id="mainImage" className="w3-sidebar w3-hide-medium w3-hide-small">
+            {/* <nav id="mainImage" className="w3-sidebar w3-hide-medium w3-hide-small">
               <div className="bgimg" />
-            </nav>
+            </nav> */}
           </div> 
   
           <div className='col1'>
@@ -118,8 +139,7 @@ function SignUpPage({db, setMode, ifSubmit}) {
                 <input className="w3-input w3-padding-16 w3-border" name="confirmpassword" type="password"                
                   placeholder="Confirm Password" onChange={ifChange}/>
               </p>
-              <form onClick={ifSubmit(createUser.username, createUser.nickname, createUser.img,
-                 createUser.password, createUser.confirmpassword)}>
+              <form onClick={ifSubmit}>
                 <button className='w3-button w3-light-grey w3-padding-large' >
                   Sign Up
                 </button>
