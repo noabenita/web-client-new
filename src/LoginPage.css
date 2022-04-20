@@ -1,0 +1,74 @@
+* {
+    font-family: "Montserrat", sans-serif
+}
+
+.bgimg {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('photo.jpg');
+    margin-left:0%;
+    min-height: 100%;
+}
+
+.w3-sidebar{
+    margin-left: 0%;
+    width: 40%;
+}
+
+.onChat{
+    margin-top: 5%;
+    margin-left: 30%;
+    margin-right: -4%;
+}
+
+.secHeadLine{
+    margin-top: 1%;
+    margin-left: 30%;
+    margin-right: -4%;
+}
+
+#button1 {
+    margin-left: 68%;
+    margin-top: 1%;
+    margin-bottom: 3%;  
+
+
+}
+
+#button2 {
+    z-index: 2;
+    position: absolute;
+    margin-left: 60%;
+    margin-top: 1%;  
+    margin-bottom: 3%;  
+}
+
+
+.poweredBy {
+   margin-bottom: 0%;
+    margin-right: -35%;
+}
+
+
+.loginText {
+    width: 70%;
+    margin-left: 32%;
+    margin-top: 3%;
+    margin-bottom: 1%;
+   
+}
+
+#loginInfo {
+    width:auto;
+    height: 30%;
+    margin-left: 35%;
+    text-align:center;
+    margin-top: 0.5%;
+    margin-bottom: -0.8%;
+}
+
+
+
+
