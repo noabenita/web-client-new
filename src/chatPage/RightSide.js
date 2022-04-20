@@ -6,16 +6,6 @@ function RightSide({current,user,chat, setChat}){
 
     function submit(e){
         chat.push({data:msg,time:new Date(),flag:false});
-    const[msg,setMsg] = React.useState("");
-    const[render, setRender] = React.useState(0);
-
-    // insert to chat array of contact chat
-    function submit(event, data){
-    // check that msg is not empty message
-        if(msg!=""){
-          chat.push({data:data,time:(new Date().toString()), flag:false});
-          console.log('insert to chat');
-        }      
         console.log({chat});
         setChat(chat);
         setMsg("");
