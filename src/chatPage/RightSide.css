@@ -36,15 +36,15 @@
     margin-left: 5%;
     position: absolute;
     z-index: 7;
-    margin-left: 85%;
-    margin-top: 20%;
+    margin-left: 88%;
+    margin-top: 42%;
 }
 
 .send-text{
     position: absolute;
     z-index: 7;
     margin-left: 55%;
-    margin-top: 20%;
+    margin-top: 42%;
     
 
 }
@@ -82,5 +82,95 @@
    
 }
 
+.second-row{
+    margin-left: 41%;
+    position: absolute;
+    z-index:9;
+    display: block;
+    white-space: nowrap;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    text-overflow: ellipsis;
+    margin-top: 10%; 
+    height:65%;
+    width: 58%;
+    background-color: rgb(243, 243, 243);
+   
+}
 
+
+
+.dropdown{
+    margin-left:44%;
+    margin-bottom:0% ;
+    position: absolute;
+    z-index: 9;
+    margin-top: 42%;  
+}
+
+
+.borderOfSendLine {
+    margin-right: 4%;
+   
+}
+
+.mark {
+    margin-left: -2%;
+}
+
+
+
+.icons{
+    margin-left: 9%;
+  
+}
+
+label{
+    margin-bottom: 6%;
+    font-family: sans-serif;
+
+    cursor: pointer;
+}
+
+.dropdown-menu{
+    margin-left: -120%;
+    margin-top: -5%;
+}
+
+.messegeTypes{
+    margin-left: 2%;
+    margin-right: 1%;
+    margin-top: -0.5%;
+    width: 30%;
+    background-color: #d2d5d8;
+}
+
+.messegeTypesMic{
+    margin-left: 2%;
+    margin-top: -0.5%;
+
+    background-color: #d2d5d8;
+    position: absolute;
+    z-index: 7;
+    height: 67%;
+    width: 30%;
+    margin-bottom: 22%;
+
+}
+
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.icons1{
+    margin-top:0.5%;
+}
+
+.hhhh{
+    position: absolute;
+    z-index: 7;
+}
+
+audio#audioPlay1::-webkit-media-controls-play-button{display:none;}
 
