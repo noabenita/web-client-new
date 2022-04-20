@@ -8,8 +8,6 @@ function RightSide({current,user,chat, setChat}){
 
     // insert to chat array of contact chat
     function submit(event, data){
-        const d = new Date();
-
     // check that msg is not empty message
         if(msg!=""){
           chat.push({data:data,time:(new Date().toString()), flag:false});
