@@ -2,26 +2,69 @@
 import React from 'react';
 
 
-function SignUpPage({ifSubmit}) {
-    const [createUser, setCreateUser]= React.useState({username:'', nickname:'', img:'', password:'', confirmpassword:''});
-     function checkPhoto(e){
-        if (e.target.files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
-          const {name, value} = e.target;
-          setCreateUser({
-            ...createUser,
-            [name]:value
-          })
-        }
-        else{
-          createUser.img =' ';
+function SignUpPage({db, setMode, ifSubmit}) {
+  // const[user, setUser]= React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
+  const [createUser, setCreateUser]= React.useState({username:'', nickname:'', img:'', password:'', confirmpassword:''});
+  function checkPhoto(e){
+    if (e.target.files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+      const {name, value} = e.target;
+      setCreateUser({
+        ...createUser,
+        [name]:value
+      })
+    } else{
+      createUser.img =' ';
         }
     }
+
+    // function ifSubmit(x){
+    //   console.log('ifSubmit of signup');
+    //     if (!(((createUser.username.length == 0) || (createUser.nickname.length == 0) || (createUser.img.length == 0) ||
+    //     (createUser.password.length == 0) || (createUser.confirmpassword.length == 0)))) {
+    //         if(createUser.img != ' '){
+    //             if ((/[a-z]/.test(createUser.password)) && (/[A-Z]/.test(createUser.password))
+    //             && (/[0-9]/.test(createUser.password)) && (createUser.password.length >= 8)){
+    //                 if ((createUser.confirmpassword == createUser.password)){
+    //                     if (!(db.find((e) => e.UserName == createUser.username))){
+    //                       setUser({
+    //                         UserName:createUser.username,
+    //                         NickName:createUser.nickname,
+    //                         Img: createUser.img,
+    //                         Password : createUser.password,
+    //                         Chats: []
+    //                       });
+    //                       insertNewUser(user);
+    //                         console.log('in signup');
+    //                         console.log(db);
+    //                         setMode(0);
+    //                         return;
+    //                     } else {
+    //                         alert("Username is already exist.");
+    //                         x.preventDefault();
+    //                     }
+    //                 } else {
+    //                     alert ("Passwords do not match.");
+    //                     x.preventDefault();
+    //                 }
+    //             } else {
+    //                 alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters.");
+    //                 x.preventDefault();
+    //             }
+    //         } else {
+    //         alert ("Image format do not match.");
+    //         x.preventDefault();
+    //       }
+    //     } else {
+    //       alert("Please fill all fields.");
+    //       x.preventDefault();
+    //     }
+    // }
     function ifChange(event){
-        const {name, value} = event.target;
-        setCreateUser({
-          ...createUser,
-          [name]:value
-        })
+      const {name, value} = event.target;
+      setCreateUser({
+        ...createUser,
+        [name]:value
+      })
     }
 
     return(
@@ -75,8 +118,8 @@ function SignUpPage({ifSubmit}) {
                 <input className="w3-input w3-padding-16 w3-border" name="confirmpassword" type="password"                
                   placeholder="Confirm Password" onChange={ifChange}/>
               </p>
-              <form onSubmit={ifSubmit(createUser.username,createUser.nickname,createUser.img,
-                                createUser.password, createUser.confirmpassword)}>
+              <form onClick={ifSubmit(createUser.username, createUser.nickname, createUser.img,
+                 createUser.password, createUser.confirmpassword)}>
                 <button className='w3-button w3-light-grey w3-padding-large' >
                   Sign Up
                 </button>

@@ -4,7 +4,7 @@ import React from 'react';
 function LoginPage({db, setMode, setCurrent}) {
     const [usersArray,setUserArray] = React.useState({username:'', password:''});          
     function ifSubmited(e) {  
-        console.log('if submit im login');
+        console.log('ifsubmit in login');
         for (var i =0; i <db.length; i++) {
             if(db[i].UserName == usersArray.username && db[i].Password == usersArray.password){
                 setCurrent({
@@ -29,7 +29,7 @@ function LoginPage({db, setMode, setCurrent}) {
         })
     }
     function changeMode(){
-        setMode(1);
+        setMode(1)
         return
     }
     return ( 
@@ -38,14 +38,14 @@ function LoginPage({db, setMode, setCurrent}) {
             <div className="bgimg" ></div>               
         </nav> */}
 
-            {/* <div id="headDec">
+            <div id="headDec">
                 <header className="w3-container w3-center" id="home">
                     <h1 className="onChat w3-jumbo">
                         <b>O-N Chat</b>
                     </h1>
                     <p className="secHeadLine"> Fast, Simple and Secure Messaging.</p>
                 </header>
-            </div> */}
+            </div>
 
             {/* <div className = "loginPageHeadline w3-container w3-light-grey w3-center w3-opacity"> */}
                 {/* <label> */}
@@ -76,18 +76,18 @@ function LoginPage({db, setMode, setCurrent}) {
                  onClick={ifSubmited}> </input>
                     <label htmlFor='button2' className='tab'> Sign In</label> */}
                
-            <form > 
-                <button className='w3-button w3-center w3-light-grey w3-padding-large' 
+            {/* <form >  */}
+                {/* <button className='w3-button w3-center w3-light-grey w3-padding-large' 
               onClick={ifSubmited}  id='button2'>
                     Sign In
-                </button>   
-            </form>
-
-            {/* <p > */}
+                </button>    */}
                 <button id='button1' value="Sign-Up" type="radio" name="tab" className="sign-up" 
                  onClick={changeMode}> Sign Up</button>
-                     {/* <label htmlFor='button1' className='tab'> Sign Up</label> */}
                 
+                <button id='button2' value="Sign-In" type="radio" name="tab" className="sign-in" 
+                 onClick={ifSubmited}> Sign In</button>
+
+   
             {/* </p> */}
            </form>
            </div>
