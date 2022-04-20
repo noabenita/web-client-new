@@ -1,4 +1,5 @@
 import React from "react";
+import './RightSide.css';
 
 function RightSide({current,user,chat, setChat}){
     const[msg,setMsg] = React.useState("")
@@ -12,10 +13,13 @@ function RightSide({current,user,chat, setChat}){
     }
     function ifChange(e) {
         setMsg(e.target.value)
-        // console.log(e.target.value)
+        console.log(e.target.value)
     }
     return(
         <>
+
+
+        <div className="chat-messeges" >
         <ul className="friends-list">
          {chat.map((message)=>
              <li className="clearfix">
@@ -24,8 +28,12 @@ function RightSide({current,user,chat, setChat}){
                     </li>    
         )}  
         </ul>
+        </div>
+        <div className="send-text">
         <input type="input" id = "msg" name ="msg" value = {msg.msg} onChange={ifChange}></input>
-        <button type="button" onClick={submit} >send</button>
+        </div>
+        <button className="send-button" type="button" onClick={submit} >send</button>
+        
         </>
     );
 
