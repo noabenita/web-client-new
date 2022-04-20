@@ -15,7 +15,7 @@ function App() {
       message:[
         {data:"hey",time: '12:10',flag:true},
         {data:"?",time: '12:15',flag:false},
-        {data:"what are u doing ?",time: "12:17",flag:false}]}, 
+        {data:"what",time: "12:17",flag:false}]}, 
       {contact :"hen",
       imgContact: "https://bootdey.com/img/Content/avatar/avatar3.png",
       message:[
@@ -64,7 +64,7 @@ if(mode == 1){
 }
 if(mode == 2){
   return (
-    <Chat db={dataStructure} current = {current}/>
+    <Chat db={dataStructure}current = {current}/>
   );
   }
 }
