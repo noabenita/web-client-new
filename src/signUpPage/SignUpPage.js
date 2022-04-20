@@ -98,7 +98,7 @@ function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
                     <p className="secHeadLineS"> Fast, Simple and Secure Messaging.</p>
                 </header>
 
-                <div className ="signupText w3-light-grey w3-container w3-center w3-large w3-opacity" > 
+                <div className ="signupPageHeadline w3-light-grey w3-container w3-center w3-large w3-opacity" > 
                   Sign Up </div> 
             <div id ='put'>
               <form action="/action_page.php" target="_blank">
@@ -133,8 +133,8 @@ function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
             </div>
             {/* Footer */}
             <footer
-              className="poweredByS w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge ">
-              <p className="w3-medium">
+              className="poweredByS w3-container w3-padding-64 w3-light-grey w3-opacity w3-xlarge ">
+              <p className="powerdByText w3-medium">
                 Powered by <a>Or Nasri &amp; Noa Benita</a>
                 </p>
               {/* End footer */}

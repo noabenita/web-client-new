@@ -51,7 +51,7 @@ function LoginPage({db, setMode, setCurrent, newUser}) {
                     <p className="secHeadLine"> Fast, Simple and Secure Messaging.</p>
                 </header>
 
-            <div className ="loginText w3-light-grey w3-container w3-center w3-large w3-opacity" > 
+            <div className ="loginPageHeadline w3-light-grey w3-container w3-center w3-large w3-opacity" > 
                         Login
             </div> 
                    
