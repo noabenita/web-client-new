@@ -11,14 +11,21 @@ function SignUpPage({db}) {
 
   // add new user to DB
   function ifSubmit(x){
-    if (chackEmpty()) {
-      
+    if (!(((createUser.username.length == 0) || (createUser.nickname.length == 0) || (createUser.img.length == 0) ||
+    (createUser.password.length == 0) || (createUser.confirmpassword.length == 0)))) {
       if(createUser.img != ' '){
-        if (validatePassword()){
-          if (passwordConfirmation()){
-            if (ifExist()){
-              var newUser = new User(createUser.username, createUser.nickname, createUser.img, createUser.password, createUser.confirmpassword);
-              db.push(newUser);
+        if ((/[a-z]/.test(createUser.password)) && (/[A-Z]/.test(createUser.password))
+        && (/[0-9]/.test(createUser.password)) && (createUser.password.length >= 8)){
+          if ((createUser.confirmpassword == createUser.password)){
+            if (!(db.find((e) => e.UserName == createUser.username))){
+              db.push({
+                UserName: createUser.username,
+                NickName: createUser.nickname,
+                Img: createUser.img,
+                Password : createUser.password,
+                Chats: []
+              });
+              console.log(db);
               nav("/LoginPage");
             }
             else{
@@ -49,25 +56,25 @@ function SignUpPage({db}) {
   }
   
 
-  // check if user is already exist
-  function ifExist(){
-    if(db.find((e) => e.UserName == createUser.username)){
-      return false;     
-    } else {
-      return true;
-    }
-  }
+  // // check if user is already exist
+  // function ifExist(){
+  //   if(db.find((e) => e.UserName == createUser.username)){
+  //     return false;     
+  //   } else {
+  //     return true;
+  //   }
+  // }
 
   // check empty fields
-  function chackEmpty(){
-    if (((createUser.username.length == 0) || (createUser.nickname.length == 0) || (createUser.img.length == 0) ||
-    (createUser.password.length == 0) || (createUser.confirmpassword.length == 0))){ 
-      return false;
-    }
-    else{
-      return true; 
-    }
-  }
+  // function chackEmpty(){
+  //   if (((createUser.username.length == 0) || (createUser.nickname.length == 0) || (createUser.img.length == 0) ||
+  //   (createUser.password.length == 0) || (createUser.confirmpassword.length == 0))){ 
+  //     return false;
+  //   }
+  //   else{
+  //     return true; 
+  //   }
+  // }
 
   function checkPhoto(e){
     if (e.target.files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
@@ -83,12 +90,12 @@ function SignUpPage({db}) {
   }
 
   // check validation of confirm password
-  function passwordConfirmation(){
-    if (!(createUser.confirmpassword == createUser.password)){
-      return false;
-    }
-    return true;
-  }
+  // function passwordConfirmation(){
+  //   if (!(createUser.confirmpassword == createUser.password)){
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
   function ifChange(event){
     const {name, value} = event.target;
@@ -99,15 +106,15 @@ function SignUpPage({db}) {
   }
 
   // validation of password
-  function validatePassword(){
-    if ((/[a-z]/.test(createUser.password)) && (/[A-Z]/.test(createUser.password))
-    && (/[0-9]/.test(createUser.password)) && (createUser.password.length >= 8)){
-      return true;
-    }
-    else {      
-      return false;
-    }
-  }
+  // function validatePassword(){
+  //   if ((/[a-z]/.test(createUser.password)) && (/[A-Z]/.test(createUser.password))
+  //   && (/[0-9]/.test(createUser.password)) && (createUser.password.length >= 8)){
+  //     return true;
+  //   }
+  //   else {      
+  //     return false;
+  //   }
+  // }
 
  
 

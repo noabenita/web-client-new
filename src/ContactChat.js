@@ -1,3 +1,4 @@
+
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import Message from './message/Message';
@@ -5,7 +6,7 @@ import Chats from './chats/Chats';
 import MyChat from './MyChat';
 import {useState} from 'react';
 
-function ContactChat({db, current}){
+function ContactChat({db, current, setRender}){
     const x = useLocation();
     const [chatsArray,setChatsArray] = useState({data:''});
     const [mesArray, setMesArray] = useState();
@@ -20,7 +21,10 @@ function ContactChat({db, current}){
             time: new Date(),
             flag: false
           });
-          // x.state.setRender(1);
+          console.log(db);
+          setRender(render => render + 1);
+
+                    // x.state.setRender(1);
         }
       }
       y.preventDefault();
@@ -52,7 +56,7 @@ function ContactChat({db, current}){
   });
 
   const chatsList = findMe.Chats.map((frd, key)=>{
-    return <Chats name= {frd.contact} img = {frd.imgContact} messages= {frd.message} key={key}/>
+    return <Chats name= {frd.contact} img = {frd.imgContact} messages= {frd.message} setRender= {x.state.setRender()} key={key}/>
   })
 
   const messageList = x.state.message.map((msg, key)=> {
@@ -60,6 +64,7 @@ function ContactChat({db, current}){
   });
     return(
         <>
+        {x.state.setRender()}
         <nav id="mainImage" className="w3-sidebar w3-hide-small">
          <div className="bgimg" ></div>
        </nav>

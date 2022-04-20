@@ -1,16 +1,17 @@
 import {Link, useNavigate} from 'react-router-dom';
 import './LoginPage.css';
 import {useState} from 'react';
+import ChatPage from '../chatPage/ChatPage';
 
 
 
 function LoginPage({db, current}) {
-    // console.log(db.lenght);
+    console.log(db);
     const [usersArray,setUserArray] = useState({username:'', password:''});
     var nav = useNavigate();
     
     function ifSubmit(x) {
-        console.log(db);
+    
         if(db.find((e) => e.UserName == usersArray.username && e.Password == usersArray.password)) {
             current.nowOnline = usersArray.username;
             for (var i =0; i <db.length; i++) {
