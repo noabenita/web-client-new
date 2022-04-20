@@ -2,11 +2,10 @@
 function Message({data, time, flag}){
     
     if (flag){
-        console.log('right')
         return(
          <li className="clearfix">
              <div className="message-data">
-                 <span className="message-data-time"> <p>{time}</p> </span>
+                 <span className="message-data-time message"> <p>{time}</p> </span>
              </div>
              <div className="message my-message">
                     {" "} {data} {" "}
@@ -14,8 +13,6 @@ function Message({data, time, flag}){
          </li>
         );
     } else {
-        console.log('left')
-
         return(
             <li className="clearfix">
              <div className="message-data text-right">

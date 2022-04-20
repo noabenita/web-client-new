@@ -12,17 +12,18 @@ function RightSide({current,user,chat, setChat}){
     const time = now.getHours() + ':' + now.getMinutes();
         if(msg!=""){
           chat.push({data:data,time:(time), flag:false});
-          console.log('insert to chat');
         }      
-        console.log({chat});
         setChat(chat);
         setMsg("");
         document.getElementById("msg").value = ("");
     }
     function ifChange(e) {
         setMsg(e.target.value)
-        console.log(e.target.value)
     }
+
+    const messageList = chat.map((message)=> {
+        return <Message data ={message.data} time ={message.time} flag={message.flag}/>
+      });
     return(
         <>
         <div className="boxo w3-container first-row">
@@ -31,24 +32,24 @@ function RightSide({current,user,chat, setChat}){
                 alt="avatar"/> {user.contact}
         </div>
 
-
-        <div className="chat-messeges" >
-        <ul className="friends-list">
-         {chat.map((message)=>
-             <li className="clearfix">
-                    {message.data}
-                    </li>    
-        )}  
-        </ul>
+        <div className="second-row chat-messeges">
+            <ul className="friends-list">
+                {chat.map((message)=>
+                <li className="clearfix">
+                    <Message data = {message.data} time={message.time} flag={message.flag}/>
+                </li>)}  
+            </ul>
         </div>
-        <div className="send-text ">
-        <input className="text-line" type="input" placeholder="Enter your text here ..." 
-        id = "msg" name ="msg" value = {msg.msg} onChange={ifChange}>
 
-        </input>
+        <div className="third-row">               
+        <th className="input-text send-text ">
+           <input type="text" className="text-line form-control" name="msg" id="msg" 
+           placeholder="Enter your message here" onChange={ifChange} value={msg.msg}></input>
+        </th>
+
+        <button onClick={(event, data) => submit(event, msg)} 
+        type="button" className="send-button butn btn btn-light"> send </button>
         </div>
-        <button className="send-button" type="button" onClick={submit} >send</button>
-        
         </>
     );
 
