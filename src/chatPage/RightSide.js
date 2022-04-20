@@ -1,5 +1,6 @@
 import React from "react";
 import './RightSide.css';
+import Message from "./Message";
 
 
 function RightSide({current,user,chat, setChat}){
@@ -9,8 +10,10 @@ function RightSide({current,user,chat, setChat}){
     // insert to chat array of contact chat
     function submit(event, data){
     // check that msg is not empty message
+    const now = new Date();
+    const time = now.getHours() + ':' + now.getMinutes();
         if(msg!=""){
-          chat.push({data:data,time:(new Date().toString()), flag:false});
+          chat.push({data:data,time:(time), flag:false});
           console.log('insert to chat');
         }      
         console.log({chat});
