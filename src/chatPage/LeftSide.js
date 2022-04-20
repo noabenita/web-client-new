@@ -28,16 +28,17 @@ function LeftSide({current, setState, setUser, setChat}){
 
             <div  className="semiTrans w3-hide-medium w3-hide-small" ></div>
             <div id="button">            
-                <button className=" logoutButton w3-button w3-light-grey w3-padding-small" type="submit" onClick={logout}> 
+                <button className=" logoutButton w3-button w3-light-grey w3-padding-small" type="submit"
+                 onClick={logout}> 
                     logout
                 </button>
             </div> 
 
             <div className=" card chat-app ">
                 <div id="plist" className="people-list ">                   
-                    <div container className='w3-border w3-padding-16'>   {/* current user */}
+                    <div container className='w3-border w3-padding-16 myname'>   {/* current user */}
                         <img className='myImg' src={current.Img}  // img of current chat
-                            alt="avatar"/>  {current.Username}
+                            alt="avatar"/> {current.NickName}
                     </div>
                     <ul className=" chat-list  ">
                         <ul className="friends-list">
