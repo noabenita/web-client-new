@@ -28,6 +28,15 @@ function LeftSide({db ,current, setState, setUser, setChat}){
         }
     }
 
+    function lastMsgTime (currentCon){
+        for(var i = 0; i<current.Chats.length;i++){
+            if (current.Chats[i].contact == currentCon) {
+                var j = current.Chats[i].message.length;
+                return current.Chats[i].message[j-1].time
+            }
+        }
+    }
+
    
     return(
         <>
@@ -53,13 +62,13 @@ function LeftSide({db ,current, setState, setUser, setChat}){
                         <ul className="friends-list">
                             {current.Chats.map((user)=>
                             <li className="clearfix">
-                                <button type="button" onClick={clicked} id={user.contact}>
+                                <button type="button" className='chatListButton' onClick={clicked} id={user.contact}>
                                     <img src={user.imgContact} alt="avatar"/> 
-                                    
+                                    <div className='contactName'>  {user.contact}</div> 
+                                    <div className='lastMsg '>  {lastMsg(user.contact)} ...</div>   
+                                    <div className='lastMsgTime '>  {lastMsgTime(user.contact)}</div> 
                                 </button> 
-                                <div className='contactName'>  {user.contact}</div> 
-                                <div className='lastMsg '>  {lastMsg(user.contact)} ...</div>   
-                                <div className='lastMsgTime '>  {user.message[0].time}</div> 
+                               
                             </li> 
                             )}  
                         </ul>
