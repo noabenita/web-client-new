@@ -1,7 +1,5 @@
-// import './LoginPage.css';
+import './SignUpPage.css';
 import React from 'react';
-import LoginPage from '../loginPage/LoginPage';
-
 
 function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
   // const[user, setUser]= React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
@@ -52,13 +50,7 @@ function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
                                  {data:"♥",time: '14:11',flag:true},
                                  {data:"fine, honey",time: "14:40",flag:false}]}]
                           });
-                          // insertNewUser(createUser.username,createUser.nickname,createUser.img,createUser.password,[]);
-                            // console.log('in signup1');
-                            // console.log(db);
                             setMode(0)
-                            // console.log('in signup2');
-                            // console.log(db);
-                            // return <LoginPage db={db} setMode={setMode} setCurrent={setCurrent}/>
                         } else {
                             alert("Username is already exist.");
                             x.preventDefault();
@@ -93,30 +85,21 @@ function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
         <div className='row'>
           <div className='col'>
             {/* Sidebar with image */}
-            {/* <nav id="mainImage" className="w3-sidebar w3-hide-medium w3-hide-small">
+            <nav id="mainImage" className="w3-sidebar w3-hide-medium w3-hide-small">
               <div className="bgimg" />
-            </nav> */}
+            </nav>
           </div> 
   
-          <div className='col1'>
-            <div id = "headDec">
-              {/* Header */}
-              <header className="w3-container w3-center" id="home">
-                <h1 className="w3-jumbo">
-                  <b>O-N Chat</b>
-                </h1>
-                <p> Fast, Simple and Secure Messaging.</p>
-              </header>
-            </div>
-  
-            <div className = "signupPageHeadline w3-container w3-light-grey w3-center w3-opacity">
-                  <label>
-                      <div className ="SignUpText w3-center w3-large" > 
-                          SignUp
-                      </div>            
-                  </label>
-              </div>
-  
+
+          <header className="w3-container w3-center" id="home">
+                    <h1 className="onChatS w3-jumbo">
+                        <b>O-N Chat</b>
+                    </h1>
+                    <p className="secHeadLineS"> Fast, Simple and Secure Messaging.</p>
+                </header>
+
+                <div className ="signupText w3-light-grey w3-container w3-center w3-large w3-opacity" > 
+                  Sign Up </div> 
             <div id ='put'>
               <form action="/action_page.php" target="_blank">
                 <p>
@@ -139,16 +122,18 @@ function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
                 <input className="w3-input w3-padding-16 w3-border" name="confirmpassword" type="password"                
                   placeholder="Confirm Password" onChange={ifChange}/>
               </p>
-              <form onClick={ifSubmit}>
-                <button className='w3-button w3-light-grey w3-padding-large' >
-                  Sign Up
+
+              <form > 
+                <button id='button3' className='w3-button w3-center w3-light-grey w3-padding-large' 
+                    onClick={ifSubmit}  >
+                    Sign Up
                 </button>
               </form>
               {/* End Contact Section*/}
             </div>
             {/* Footer */}
             <footer
-                id="poweredBy" className=" w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge ">
+                className="poweredByS w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge ">
                 <p className="w3-medium">
                 Powered by <a>Or Nasri &amp; Noa Benita</a>
                 </p>
@@ -158,7 +143,7 @@ function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
           {/* END PAGE CONTENT */}
         </div>
         
-      </div>
+      // </div>
     );
 }
 
