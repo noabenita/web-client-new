@@ -29,12 +29,12 @@ function LeftSide({current, setState, setUser, setChat}){
             <div  className="semiTrans w3-hide-medium w3-hide-small" ></div>
           
             <div id="button">
-            <p>
-            <button className=" logotButtonw3-button w3-light-grey w3-padding-small" type="submit" onClick={logout}> 
-            logoutz
+            
+            <button className=" logoutButton w3-button w3-light-grey w3-padding-small" type="submit" onClick={logout}> 
+            logout
             </button>
-            </p>
-      </div> 
+            
+            </div> 
         
             <ul className="friends-list">
                 {current.Chats.map((user)=>
