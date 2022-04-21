@@ -1,25 +1,34 @@
 import './Message.css';
 
 function Message({data, time, flag}){
+
+
     
     if (flag){
         return(
-            <div className='container'>
-            <ul className='message-data-left width="220'>
-         <ul className='clearfix'>
+
+            
+<div class="talk-bubble tri-right round left-in ">
+  <div class="talktext ">
+    <p className='message-data-left'>           
+         <ul className='clearfix '>
              <div className='message-data width="220 '>
-                 <span className="message-data-time"> <p>{time}</p> </span>
+                 <span className="message-data-time"> <p>{time}</p>  <p>{" "} {data} {" "}</p></span>
              </div>
-             <div className="message my-message">
-                    {" "} {data} {" "}
-            </div>
+            
          </ul>
-         </ul>
-         </div>
+       
+         </p>
+  </div>
+</div>
+
+            
+            
+           
         );
     } else {
         return(
-            <ul className='message-data-righ'>
+            <ul className='round left-in message-data-righ'>
             <ul className="clearfix">
              <div className=" text-right">
                  <span className="message-data-time-right"> <p>{time}</p> </span>

@@ -290,14 +290,7 @@ body{
     float: right
 }
 
-.clearfix:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0
-}
+
 
 .myPic{
     margin-top: -15%;
