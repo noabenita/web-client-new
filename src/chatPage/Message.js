@@ -1,10 +1,9 @@
 import './Message.css';
 
-function Message({data, time, flag}){
-    
-    if (flag){
+function Message({data, time, flag,type}){
+    if(type == "text"){
+        if (flag){
         return(
-         
          <ul className="clearfix">
              <div className="message-data">
                  <span className="message-data-time message"> <p>{time}</p> </span>
@@ -29,6 +28,28 @@ function Message({data, time, flag}){
             </ul>
         );    
     }
+}
+    if(type == 'img'){
+        if(flag){
+
+        } else {
+
+        }
+    }
+    if(type == 'video'){
+        if(flag){
+
+        } else {
+            
+        }
+    }
+    if(type == 'audio'){
+        if(flag){
+
+        } else {
+            
+        }
+    }            
 }
 
 export default Message
