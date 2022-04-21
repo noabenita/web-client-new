@@ -3,7 +3,6 @@ import './Message.css';
 function Message({data, time, flag}){
     
     if (flag){
-        console.log('right')
         return(
             <div className='container'>
             <ul className='message-data-left width="220'>
@@ -19,8 +18,6 @@ function Message({data, time, flag}){
          </div>
         );
     } else {
-        console.log('left')
-
         return(
             <ul className='message-data-righ'>
             <ul className="clearfix">
