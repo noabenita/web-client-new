@@ -41,5 +41,27 @@ function Message({data, time, flag}){
         );    
     }
 }
+    if(type == 'img'){
+        if(flag){
+
+        } else {
+
+        }
+    }
+    if(type == 'video'){
+        if(flag){
+
+        } else {
+            
+        }
+    }
+    if(type == 'audio'){
+        if(flag){
+
+        } else {
+            
+        }
+    }            
+}
 
 export default Message

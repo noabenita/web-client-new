@@ -13,21 +13,21 @@ function App() {
       {contact: 'ron',
       imgContact: "https://bootdey.com/img/Content/avatar/avatar2.png",
       message:[
-        {data:"heyy how r u?",time: '12:10',flag:true},
-        {data:"?",time: '12:15',flag:true},
-        {data:"hi :) what are you doing??",time: "12:17",flag:false}]}, 
+        {data:"hey",time: '12:10',flag:true, type:'text'},
+        {data:"?",time: '12:15',flag:false, type:'text'},
+        {data:"what are u doing ?",time: "12:17",flag:false, type:'text'}]}, 
       {contact :"hen",
       imgContact: "https://bootdey.com/img/Content/avatar/avatar3.png",
       message:[
-        {data:"how are u?? i want to tell you about my friend",time: '14:10',flag:true},
-        {data:"♥",time: '14:11',flag:true},
-        {data:"Im fine love, how are you ?",time: "14:40",flag:false}]},
+        {data:"how are u?? i want to tell you about my friend",time: '14:10',flag:true, type:'text'},
+        {data:"♥",time: '14:11',flag:true, type:'text'},
+        {data:"Im fine love, how are you ?",time: "14:40",flag:false, type:'text'}]},
       {contact :"noa",
        imgContact: "https://bootdey.com/img/Content/avatar/avatar8.png",
        message:[
-         {data:"hii",time: '10:32',flag:true},
-         {data:"♥",time: '10:33',flag:true},
-         {data:"hii! how are you?",time: "10:45",flag:false}]}]}];
+         {data:"hii",time: '10:32',flag:true, type:'text'},
+         {data:"♥",time: '10:33',flag:true, type:'text'},
+         {data:"hii! how are you?",time: "10:45",flag:false, type:'text'}]}]}];
      
   const[mode,setMode]=React.useState(0);
   const[newUser, setNewUser]= React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});

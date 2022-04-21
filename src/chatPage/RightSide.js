@@ -105,12 +105,12 @@ function RightSide({current,user,chat, setChat}){
     const[msg,setMsg] = React.useState("")
 
     // insert to chat array of contact chat
-    function submit(event, data){
+    function submit(event, data, type){
     // check that msg is not empty message
     const now = new Date();
     const time = now.getHours() + ':' + now.getMinutes();
         if(msg!=""){
-          chat.push({data:data,time:(time), flag:false});
+          chat.push({data:data,time:(time), flag:false, type:type});
         }      
         setChat(chat);
         setMsg("");
@@ -120,9 +120,9 @@ function RightSide({current,user,chat, setChat}){
         setMsg(e.target.value)
     }
 
-    const messageList = chat.map((message)=> {
-        return <Message data ={message.data} time ={message.time} flag={message.flag}/>
-      });
+    // const messageList = chat.map((message)=> {
+    //     return <Message data ={message.data} time ={message.time} flag={message.flag} type={type}/>
+    //   });
     return(
         <>
         <div className="boxo w3-container first-row">
@@ -135,7 +135,7 @@ function RightSide({current,user,chat, setChat}){
             <ul className="friends-list">
                 {chat.map((message)=>
                 <li className="clearfix ">
-                    <Message data = {message.data} time={message.time} flag={message.flag}/>
+                    <Message data = {message.data} time={message.time} flag={message.flag} type={message.type}/>
                 </li>)}  
             </ul>
         </div>
@@ -148,7 +148,7 @@ function RightSide({current,user,chat, setChat}){
            placeholder="Enter your message here" onChange={ifChange} value={msg.msg}></input>
         </th>
 
-        <button onClick={(event, data) => submit(event, msg)} 
+        <button onClick={(event, data, type) => submit(event, msg, "text")} 
         type="button" className="send-button butn btn btn-light"> send </button>
         </div>
 
