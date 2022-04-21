@@ -1,6 +1,7 @@
 .friends-list{
     position: absolute;
     z-index: 7;
+    width: 210%;
     
 }
 
@@ -47,13 +48,14 @@
 }
 
 
+
 .contactName{
     position: absolute;
     z-index:9;
     font-weight: bold;
     font-size: large;
-    margin-top: -15%;
-    margin-left: 28%;
+    margin-top: -6%;
+    margin-left: 12%;
 }
 
 .lastMsg{
@@ -65,16 +67,16 @@
     text-overflow: ellipsis;
 
     height: 10%;
-    width: 45%;
-    margin-top: -6%;
-    margin-left: 23%;
+    width: 40%;
+    margin-top: -2.4%;
+    margin-left: 1%;
 }
 
 .lastMsgTime {
     position: absolute;
     z-index:9;
-    margin-top: -6%;
-    margin-left: 73%;
+    margin-top: -5%;
+    margin-left: 32%;
 
 }
 
@@ -177,10 +179,6 @@
     
 }
 
-.people-list .status {
-
-    font-size: 4%
-}
 
 /* line under the current friend chat */
 .chat .chat-header {

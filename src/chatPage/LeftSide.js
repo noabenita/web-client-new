@@ -59,9 +59,9 @@ function LeftSide({db ,current, setState, setUser, setChat}){
                             /> {current.NickName}
                     </div>
                     <ul className=" chat-list">
-                        <ul className="friends-list">
+                        <li className='friends-list '>
                             {current.Chats.map((user)=>
-                            <li className="clearfix">
+                            <ul className="">
                                 <button type="button" className='chatListButton' onClick={clicked} id={user.contact}>
                                     <img src={user.imgContact} alt="avatar"/> 
                                     <div className='contactName'>  {user.contact}</div> 
@@ -69,9 +69,9 @@ function LeftSide({db ,current, setState, setUser, setChat}){
                                     <div className='lastMsgTime '>  {lastMsgTime(user.contact)}</div> 
                                 </button> 
                                
-                            </li> 
+                            </ul> 
                             )}  
-                        </ul>
+                        </li>
                         {/* {chatFriendsList}  */}
                     </ul>
                    

@@ -4,8 +4,26 @@ import React from 'react';
 function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
   // const[user, setUser]= React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
   const [createUser, setCreateUser]= React.useState({username:'', nickname:'', img:'', password:'', confirmpassword:''});
+
+  // var checkPhoto = function(event) {
+  //   if (event.target.files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+  //   var image = document.getElementById('output');
+  //   image.src = URL.createObjectURL(event.target.files[0]);
+  //   const {name, value} = event.target;
+  //     setCreateUser({
+  //       ...createUser,
+  //       [name]:value
+  //     })
+  //   }
+  //   else{
+  //     createUser.img =' ';
+  //   }
+  // };
+  
   function checkPhoto(e){
     if (e.target.files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+
+      console.log(e.target.files[0].name)
       const {name, value} = e.target;
       setCreateUser({
         ...createUser,

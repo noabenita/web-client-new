@@ -13,9 +13,9 @@ function App() {
       {contact: 'ron',
       imgContact: "https://bootdey.com/img/Content/avatar/avatar2.png",
       message:[
-        {data:"hey",time: '12:10',flag:true},
-        {data:"?",time: '12:15',flag:false},
-        {data:"what",time: "12:17",flag:false}]}, 
+        {data:"heyy how r u?",time: '12:10',flag:true},
+        {data:"?",time: '12:15',flag:true},
+        {data:"hi :) what are you doing??",time: "12:17",flag:false}]}, 
       {contact :"hen",
       imgContact: "https://bootdey.com/img/Content/avatar/avatar3.png",
       message:[
