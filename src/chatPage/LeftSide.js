@@ -56,12 +56,12 @@ function LeftSide({db ,current, setState, setUser, setChat}){
                 <div id="plist" className="people-list ">                   
                     <div container className='w3-border w3-padding-16 myname'>   {/* current user */}
                         <img className='myImg' src={current.Img}  // img of current chat
-                            alt="avatar"/> {current.NickName}
+                            /> {current.NickName}
                     </div>
                     <ul className=" chat-list">
-                        <ul className="friends-list">
+                        <li className='friends-list '>
                             {current.Chats.map((user)=>
-                            <li className="clearfix">
+                            <ul className="">
                                 <button type="button" className='chatListButton' onClick={clicked} id={user.contact}>
                                     <img src={user.imgContact} alt="avatar"/> 
                                     <div className='contactName'>  {user.contact}</div> 
@@ -69,9 +69,9 @@ function LeftSide({db ,current, setState, setUser, setChat}){
                                     <div className='lastMsgTime '>  {lastMsgTime(user.contact)}</div> 
                                 </button> 
                                
-                            </li> 
+                            </ul> 
                             )}  
-                        </ul>
+                        </li>
                         {/* {chatFriendsList}  */}
                     </ul>
                    

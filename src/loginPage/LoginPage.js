@@ -56,7 +56,7 @@ function LoginPage({db, setMode, setCurrent, newUser}) {
             </div> 
                    
                 
-            <div id="loginInfo">
+            <div id="loginInfo1">
                 <form >
                     <label>               
                         <input type="text" name="username" className='w3-container w3-xlarge' 
@@ -65,7 +65,7 @@ function LoginPage({db, setMode, setCurrent, newUser}) {
                 </form>
                 </div>
 
-            <div id="loginInfo">
+            <div id="loginInfo2">
                 <form>
                     <label>      
                         <input type="password" name="password" className='w3-container w3-xlarge' 
@@ -76,12 +76,12 @@ function LoginPage({db, setMode, setCurrent, newUser}) {
                 
                <div>
             <form > 
-                <button id='button1' className='w3-button w3-center w3-light-grey w3-padding-large' 
+                <button id='button1Log' className='w3-button w3-center w3-light-grey w3-padding-large' 
                     onClick={ifSubmited}  >
                     Sign In
                 </button>
                  <p>  
-                <button id='button2' className='w3-button w3-center w3-light-grey w3-padding-large' 
+                <button id='button2Log' className='w3-button w3-center w3-light-grey w3-padding-large' 
                  onClick={changeMode}> Sign Up</button>
                </p>
            </form>

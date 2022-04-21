@@ -64,7 +64,7 @@ if(mode == 1){
 }
 if(mode == 2){
   return (
-    <Chat db={dataStructure} current = {current}/>
+    <Chat db={dataStructure}current = {current}/>
   );
   }
 }

@@ -4,15 +4,18 @@ function Message({data, time, flag,type}){
     if(type == "text"){
         if (flag){
         return(
-         <ul className="clearfix">
-             <div className="message-data">
-                 <span className="message-data-time message"> <p>{time}</p> </span>
+            <div className='container'>
+            <ul className='message-data-left width="220'>
+         <ul className='clearfix'>
+             <div className='message-data width="220 '>
+                 <span className="message-data-time"> <p>{time}</p> </span>
              </div>
              <div className="message my-message">
                     {" "} {data} {" "}
             </div>
          </ul>
-        
+         </ul>
+         </div>
         );
     } else {
         return(
