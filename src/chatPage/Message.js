@@ -8,12 +8,12 @@ function Message({data, time, flag}){
         return(
 
             
-<div class="talk-bubble tri-right round left-in ">
-  <div class="talktext ">
-    <p className='message-data-left'>           
+<div class="talk-bubble tri-right round left-in  ">
+  <div class="talktext">
+    <p className='message-data-left '>           
          <ul className='clearfix '>
              <div className='message-data width="220 '>
-                 <span className="message-data-time"> <p>{time}</p>  <p>{" "} {data} {" "}</p></span>
+                 <span className="message-data-time "> <p>{time}</p>  <p>{" "} {data} {" "}</p></span>
              </div>
             
          </ul>
@@ -26,18 +26,18 @@ function Message({data, time, flag}){
             
            
         );
+
     } else {
         return(
-            <ul className='round left-in message-data-righ'>
-            <ul className="clearfix">
-             <div className=" text-right">
-                 <span className="message-data-time-right"> <p>{time}</p> </span>
+            <div  class='mine messages round right-in ' >
+            <ul className='message-data-righ '>
+            <ul className='clearfix message last'>
+             <div className='text-right'>
+                 <span className="message-data-time-right  other-message float-right"> <p>{time}</p> <p> {" "} {data} {" "} </p> </span>
              </div>
-             <div className="message other-message float-right">
-                    {" "} {data} {" "}
+            </ul>
+            </ul>
             </div>
-            </ul>
-            </ul>
         );    
     }
 }
