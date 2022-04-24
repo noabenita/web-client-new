@@ -1,1 +1,4 @@
-/* / */
+.noaModal{
+    position: absolute;
+    z-index: 700;
+}

@@ -3,6 +3,8 @@ import './RightSide.css';
 import Message from "./Message";
 
 function RightSide({current,user,chat, setChat}){
+    const[msg,setMsg] = React.useState("")
+    const[img, setImg] = React.useState("")
     function recordFunc(){
         let audioIN = { audio: true };
         //  audio is true, for recording
@@ -100,29 +102,45 @@ function RightSide({current,user,chat, setChat}){
           });
     
       }
-
-      
-    const[msg,setMsg] = React.useState("")
-
+    function validPhoto(e){
+        if (e.target.files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+            console.log(e.target.files[0].name)
+            const {name, value} = e.target;
+            setImg({
+              ...img,
+              [name]:value
+            })
+          } else{
+            img =' ';
+        }
+    }
     // insert to chat array of contact chat
     function submit(event, data, type){
-    // check that msg is not empty message
-    const now = new Date();
-    const time = now.getHours() + ':' + now.getMinutes();
-        if(msg!=""){
-          chat.push({data:data,time:(time), flag:false, type:type});
-        }      
-        setChat(chat);
-        setMsg("");
-        document.getElementById("msg").value = ("");
+        const now = new Date();
+        const time = now.getHours() + ':' + now.getMinutes();
+        if(type=="img"|| type=='video'){
+            data = URL.createObjectURL(event.target.files[0]);
+
+        }
+        if(type == "text"){
+        // check that msg is not empty message
+        
+            if(msg!=""){
+            chat.push({data:data,time:(time), flag:false, type:type});
+            }      
+            setChat(chat);
+            setMsg("");
+            document.getElementById("msg").value = ("");
+        }
+        if(type=='audio'){
+
+        }
     }
     function ifChange(e) {
         setMsg(e.target.value)
     }
 
-    // const messageList = chat.map((message)=> {
-    //     return <Message data ={message.data} time ={message.time} flag={message.flag} type={type}/>
-    //   });
+
     return(
         <>
         <div className="boxo w3-container first-row">
@@ -140,9 +158,7 @@ function RightSide({current,user,chat, setChat}){
             </ul>
         </div>
 
-        <div className="third-row">   
-                 {console.log('done with array')}
-            
+        <div className="third-row">               
         <th className="input-text send-text ">
            <input type="text" className="text-line form-control" name="msg" id="msg" 
            placeholder="Enter your message here" onChange={ifChange} value={msg.msg}></input>
@@ -156,17 +172,20 @@ function RightSide({current,user,chat, setChat}){
             <button class="btn btn-secondary fa fa-paperclip w3-xlarge" type="button" id="dropdownMenuButton" 
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             </button>
+             {/* image button */}
             <div className="dropdown-menu w3-light-grey" aria-labelledby="dropdownMenuButton">            
                 <button  className='messegeTypes' >
-                    <input type="file" id="actual-btn" hidden/>
+                    <input type="file" accept = "image/png, image/jpeg" id="actual-btn"
+                    //  onChange={submit(e,data,"img")} 
+                     name="img" hidden/>
                     <label className="fa fa-picture-o icons1 w3-large" for="actual-btn" ></label>
                 </button>
-                
+                 {/* video button */}
                 <button  className='messegeTypes' >
-                    <input type="file" id="actual-btn" hidden/>
+                    <input type="file" accept="video/*" id="actual-btn" hidden/>
                     <label className="fa fa-video-camera icons w3-large" for="actual-btn"></label>
                 </button>
-
+                {/* record button */}
                 <button 
                     className="messegeTypesMic fa fa-microphone icons w3-large" data-toggle="modal" 
                         for="actual-btn" data-target="#exampleModal" onClick={recordFunc}
