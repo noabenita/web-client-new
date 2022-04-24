@@ -2,7 +2,7 @@ import React from "react";
 import './RightSide.css';
 import Message from "./Message";
 
-function RightSide({current,user,chat, setChat}){
+function RightSide({db, current,user,chat, setChat}){
     const[msg,setMsg] = React.useState("")
     const[img, setImg] = React.useState("")
     function recordFunc(){
@@ -102,18 +102,7 @@ function RightSide({current,user,chat, setChat}){
           });
     
       }
-    function validPhoto(e){
-        if (e.target.files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
-            console.log(e.target.files[0].name)
-            const {name, value} = e.target;
-            setImg({
-              ...img,
-              [name]:value
-            })
-          } else{
-            img =' ';
-        }
-    }
+
     // insert to chat array of contact chat
     function submit(event, data, type){
         const now = new Date();
@@ -126,7 +115,7 @@ function RightSide({current,user,chat, setChat}){
         // check that msg is not empty message
         
             if(msg!=""){
-            chat.push({data:data,time:(time), flag:false, type:type});
+            chat.push({data:data,time:(time), flag:false, type:"text"});
             }      
             setChat(chat);
             setMsg("");
@@ -135,6 +124,8 @@ function RightSide({current,user,chat, setChat}){
         if(type=='audio'){
 
         }
+        console.log(db);
+        console.log(chat);
     }
     function ifChange(e) {
         setMsg(e.target.value)

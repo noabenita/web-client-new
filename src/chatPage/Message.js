@@ -40,28 +40,28 @@ function Message({data, time, flag}){
             </div>
         );    
     }
-}
-    if(type == 'img'){
-        if(flag){
 
-        } else {
+    // if(type == 'img'){
+    //     if(flag){
 
-        }
-    }
-    if(type == 'video'){
-        if(flag){
+    //     } else {
 
-        } else {
+    //     }
+    // }
+    // if(type == 'video'){
+    //     if(flag){
+
+    //     } else {
             
-        }
-    }
-    if(type == 'audio'){
-        if(flag){
+    //     }
+    // }
+    // if(type == 'audio'){
+    //     if(flag){
 
-        } else {
+    //     } else {
             
-        }
-    }            
+    //     }
+    // }            
 }
 
 export default Message
