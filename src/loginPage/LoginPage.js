@@ -4,9 +4,8 @@ import React from 'react';
 function LoginPage({db, setMode, setCurrent, newUser}) {
     const [usersArray,setUserArray] = React.useState({username:'', password:''});          
     function ifSubmited(e) {  
-        console.log('ifsubmit in login');
-        if(newUser.UserName.length >0){
-            console.log('add new user')
+        if(newUser.UserName.length > 0){
+            console.log(newUser);
             db.push(newUser);
             console.log(db);
         }

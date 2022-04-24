@@ -32,39 +32,24 @@ function App() {
   const[mode,setMode]=React.useState(0);
   const[newUser, setNewUser]= React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
   const[current,setCurrent]=React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
+  const[img, setImg]=React.useState("");
 
 
-    function insertNewUser(username,nickname,img, password,chats){
-      // console.log(user);
-      // setUser({
-      //     UserName:username,
-      //     NickName:nickname,
-      //     Img: img,
-      //     Password : password,
-      //     Chats: chats
-      //   });
-      // dataStructure.push(user);
-      // console.log(user);
-      console.log(dataStructure);
-    }
 
 if(mode == 0){
-  console.log('in login');
-  console.log(dataStructure);
   return (
     <LoginPage db={dataStructure} setMode={setMode} setCurrent={setCurrent} newUser={newUser}/>
     
   );
 }
 if(mode == 1){
-  console.log('im sign up mode');
   return (
-    <SignUpPage db={dataStructure} setMode={setMode} insertNewUser={insertNewUser} setNewUser={setNewUser}/>
+    <SignUpPage db={dataStructure} setMode={setMode} setNewUser={setNewUser} setImg={setImg} img={img}/>
   );
 }
 if(mode == 2){
   return (
-    <Chat db={dataStructure}current = {current}/>
+    <Chat db={dataStructure} current = {current} />
   );
   }
 }

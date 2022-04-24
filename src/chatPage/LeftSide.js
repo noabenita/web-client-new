@@ -55,7 +55,7 @@ function LeftSide({db ,current, setState, setUser, setChat}){
             <div className=" card chat-app ">
                 <div id="plist" className="people-list ">                   
                     <div container className='w3-border w3-padding-16 myname'>   {/* current user */}
-                        <img className='myImg' src={current.Img}  // img of current chat
+                        <img className='myImg' src={current.Img} alt="img" // img of current chat
                             /> {current.NickName}
                     </div>
                     <ul className=" chat-list">

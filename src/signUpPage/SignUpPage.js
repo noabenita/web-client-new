@@ -1,42 +1,23 @@
 import './SignUpPage.css';
 import React from 'react';
 
-function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
-  // const[user, setUser]= React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
+function SignUpPage({db, setMode, setNewUser, setImg, img}) {
   const [createUser, setCreateUser]= React.useState({username:'', nickname:'', img:'', password:'', confirmpassword:''});
-
-  // var checkPhoto = function(event) {
-  //   if (event.target.files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
-  //   var image = document.getElementById('output');
-  //   image.src = URL.createObjectURL(event.target.files[0]);
-  //   const {name, value} = event.target;
-  //     setCreateUser({
-  //       ...createUser,
-  //       [name]:value
-  //     })
-  //   }
-  //   else{
-  //     createUser.img =' ';
-  //   }
-  // };
   
   function checkPhoto(e){
-    if (e.target.files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
-
-      console.log(e.target.files[0].name)
-      const {name, value} = e.target;
-      setCreateUser({
-        ...createUser,
-        [name]:value
-      })
-    } else{
-      createUser.img =' ';
-        }
+    if(e.target.files[0].name.match(/.(jpg|jpeg|png|gif)$/i) && e.target.name == 'img'){
+      setImg(URL.createObjectURL(e.target.files[0]))
+      createUser.img = img;
+      console.log(img)
+      console.log(createUser.img)
+    }
+    else{
+          createUser.img =' ';
+    }
     }
 
     function ifSubmit(x){
-      console.log('ifSubmit of signup');
-        if (!(((createUser.username.length == 0) || (createUser.nickname.length == 0) || (createUser.img.length == 0) ||
+        if (!(((createUser.username.length == 0) || (createUser.nickname.length == 0) || 
         (createUser.password.length == 0) || (createUser.confirmpassword.length == 0)))) {
             if(createUser.img != ' '){
                 if ((/[a-z]/.test(createUser.password)) && (/[A-Z]/.test(createUser.password))
@@ -46,7 +27,7 @@ function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
                           setNewUser({
                             UserName:createUser.username,
                             NickName:createUser.nickname,
-                            Img: createUser.img,
+                            Img: img,
                             Password : createUser.password,
                             Chats: [
                               {contact: 'ron',
@@ -81,10 +62,10 @@ function SignUpPage({db, setMode,insertNewUser, setNewUser}) {
                     alert("Password must conatain : lowercase letter, uppercase letter, number and minimum 8 charcters.");
                     x.preventDefault();
                 }
-            } else {
-            alert ("Image format do not match.");
-            x.preventDefault();
-          }
+          } else {
+            alert("Image format do not match.");
+            x.preventDefault();  
+                }
         } else {
           alert("Please fill all fields.");
           x.preventDefault();
