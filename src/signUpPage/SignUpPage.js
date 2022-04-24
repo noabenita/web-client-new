@@ -8,8 +8,6 @@ function SignUpPage({db, setMode, setNewUser, setImg, img}) {
     if(e.target.files[0].name.match(/.(jpg|jpeg|png|gif)$/i) && e.target.name == 'img'){
       setImg(URL.createObjectURL(e.target.files[0]))
       createUser.img = img;
-      console.log(img)
-      console.log(createUser.img)
     }
     else{
           createUser.img =' ';
@@ -33,21 +31,21 @@ function SignUpPage({db, setMode, setNewUser, setImg, img}) {
                               {contact: 'ron',
                               imgContact: "https://bootdey.com/img/Content/avatar/avatar2.png",
                               message:[
-                                {data:"hey",time: '12:10',flag:true},
-                                {data:"?",time: '12:15',flag:false},
-                                {data:"what",time: "12:17",flag:false}]}, 
+                                {data:"hey",time: '12:10',flag:true, type:'text'},
+                                {data:"?",time: '12:15',flag:false, type:'text'},
+                                {data:"what",time: "12:17",flag:false, type:'text'}]}, 
                               {contact :"hen",
                               imgContact: "https://bootdey.com/img/Content/avatar/avatar3.png",
                               message:[
-                                {data:"how are u??",time: '14:10',flag:true},
-                                {data:"♥",time: '14:11',flag:true},
-                                {data:"fine, honey",time: "14:40",flag:false}]},
+                                {data:"how are u??",time: '14:10',flag:true,  type:'text'},
+                                {data:"♥",time: '14:11',flag:true,  type:'text'},
+                                {data:"fine, honey",time: "14:40",flag:false, type:'text'}]},
                               {contact :"noa",
                                imgContact: "https://bootdey.com/img/Content/avatar/avatar3.png",
                                message:[
-                                 {data:"how are u??",time: '14:10',flag:true},
-                                 {data:"♥",time: '14:11',flag:true},
-                                 {data:"fine, honey",time: "14:40",flag:false}]}]
+                                 {data:"how are u??",time: '14:10',flag:true, type:'text'},
+                                 {data:"♥",time: '14:11',flag:true, type:'text'},
+                                 {data:"fine, honey",time: "14:40",flag:false, type:'text'}]}]
                           });
                             setMode(0)
                         } else {

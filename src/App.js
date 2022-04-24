@@ -27,7 +27,13 @@ function App() {
        message:[
          {data:"hii",time: '10:32',flag:true, type:'text'},
          {data:"♥",time: '10:33',flag:true, type:'text'},
-         {data:"hii! how are you?",time: "10:45",flag:false, type:'text'}]}]}];
+         {data:"hii! how are you?",time: "10:45",flag:false, type:'text'}]}]},
+        {UserName:'niv',
+        NickName:'nivush',
+        Img:"https://bootdey.com/img/Content/avatar/avatar2.png",
+        Password: 1,
+        Chats:[]
+        }];
      
   const[mode,setMode]=React.useState(0);
   const[newUser, setNewUser]= React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});

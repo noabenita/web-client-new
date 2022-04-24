@@ -1,7 +1,42 @@
 import './LeftSide.css';
 import {Link, useNavigate} from 'react-router-dom';
+import React from 'react';
+import {Modal} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 
-function LeftSide({db ,current, setState, setUser, setChat}){
+function LeftSide({db ,current, setState, setUser, setChat, setAddButton}){
+    const [show, setShow] = React.useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const[userAdd, setUserAdd]=React.useState({contact:""})
+
+    function addUserChat(){
+        console.log("im in the adduser chat")
+        var member;
+        debugger
+        // for(var i=0; i<2; i++){
+        //     if(db[i].UserName==userAdd.contact){
+        //         member = db[i];
+        //     }
+        // }
+        for(var i=0; i<current.Chats.length; i++){
+            if(current.Chats[i].contact === userAdd.contact){
+                alert("you already have this chat")
+                return
+            }
+        }
+        if(member.length == 0){
+            alert("The user you enterd is not in the database ")
+            return
+        }
+        else if(current.UserName === userAdd.contact){
+            alert("you can't add yourself to chats")
+            return
+        }
+        else {
+            current.Chats.push({contact: userAdd.contact,imgContact:member.Img,message:[]})
+        }
+    }
     function clicked(e){
         for(var i = 0; i<current.Chats.length;i++){
             if(e.target.id == current.Chats[i].contact){
@@ -13,6 +48,14 @@ function LeftSide({db ,current, setState, setUser, setChat}){
                 setChat(current.Chats[i].message);
             }
         }
+    }
+
+    function ifChange(event) {
+        const {name, value} = event.target;
+        setUserAdd({
+            ...userAdd,
+            [name]:value
+        })
     }
 
     function logout(){
@@ -27,7 +70,7 @@ function LeftSide({db ,current, setState, setUser, setChat}){
             }
         }
     }
-
+  
     function lastMsgTime (currentCon){
         for(var i = 0; i<current.Chats.length;i++){
             if (current.Chats[i].contact == currentCon) {
@@ -36,6 +79,7 @@ function LeftSide({db ,current, setState, setUser, setChat}){
             }
         }
     }
+
 
    
     return(
@@ -76,7 +120,32 @@ function LeftSide({db ,current, setState, setUser, setChat}){
                     </ul>
                    
                     <div className="input-group-prepend">
-                        <button className="addCon fa fa-user-circle w3-xlarge" />         
+                        {/* <button className="addCon fa fa-user-circle w3-xlarge" onClick={()=> {setAddButton(true)}}/>          */}
+
+
+  
+    <>
+      <Button className="addCon fa fa-user-circle w3-xlarge" variant="primary" onClick={handleShow}/>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title> Add new chat </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <input placeholder="Enter Username" id="newUser" name="contact" onChange={ifChange}></input>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={()=> {addUserChat();setShow(false)}}>
+            Add User
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  
+
+
                     </div>
                 </div> 
           </div>

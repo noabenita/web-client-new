@@ -116,15 +116,25 @@ function RightSide({current,user,chat, setChat}){
     }
     // insert to chat array of contact chat
     function submit(event, data, type){
-    // check that msg is not empty message
-    const now = new Date();
-    const time = now.getHours() + ':' + now.getMinutes();
-        if(msg!=""){
-          chat.push({data:data,time:(time), flag:false, type:type});
-        }      
-        setChat(chat);
-        setMsg("");
-        document.getElementById("msg").value = ("");
+        const now = new Date();
+        const time = now.getHours() + ':' + now.getMinutes();
+        if(type=="img"|| type=='video'){
+            data = URL.createObjectURL(event.target.files[0]);
+
+        }
+        if(type == "text"){
+        // check that msg is not empty message
+        
+            if(msg!=""){
+            chat.push({data:data,time:(time), flag:false, type:type});
+            }      
+            setChat(chat);
+            setMsg("");
+            document.getElementById("msg").value = ("");
+        }
+        if(type=='audio'){
+
+        }
     }
     function ifChange(e) {
         setMsg(e.target.value)
@@ -165,12 +175,14 @@ function RightSide({current,user,chat, setChat}){
              {/* image button */}
             <div className="dropdown-menu w3-light-grey" aria-labelledby="dropdownMenuButton">            
                 <button  className='messegeTypes' >
-                    <input type="file" id="actual-btn" onChange={validPhoto} name="img" hidden/>
+                    <input type="file" accept = "image/png, image/jpeg" id="actual-btn"
+                    //  onChange={submit(e,data,"img")} 
+                     name="img" hidden/>
                     <label className="fa fa-picture-o icons1 w3-large" for="actual-btn" ></label>
                 </button>
                  {/* video button */}
                 <button  className='messegeTypes' >
-                    <input type="file" id="actual-btn" hidden/>
+                    <input type="file" accept="video/*" id="actual-btn" hidden/>
                     <label className="fa fa-video-camera icons w3-large" for="actual-btn"></label>
                 </button>
                 {/* record button */}

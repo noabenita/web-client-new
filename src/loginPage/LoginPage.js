@@ -5,11 +5,9 @@ function LoginPage({db, setMode, setCurrent, newUser}) {
     const [usersArray,setUserArray] = React.useState({username:'', password:''});          
     function ifSubmited(e) {  
         if(newUser.UserName.length > 0){
-            console.log(newUser);
             db.push(newUser);
-            console.log(db);
         }
-        for (var i =0; i <db.length; i++) {
+        for (var i=0; i <db.length; i++) {
             if(db[i].UserName == usersArray.username && db[i].Password == usersArray.password){
                 setCurrent({
                     UserName: db[i].UserName,
