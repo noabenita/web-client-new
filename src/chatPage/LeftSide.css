@@ -130,15 +130,11 @@
 
 
 .chatListButtons{
-    margin-left: 20%;    
+    margin-left: 20%;
+    position: absolute; 
+    z-index: 7;   
 }
 
-
-/*list of friends in chat*/
-/* .people-list .chat-list li:hover {
-    background: rgb(74, 92, 0);
-    
-} */
 
 
 /*current chat*/

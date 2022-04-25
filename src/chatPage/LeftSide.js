@@ -9,16 +9,24 @@ function LeftSide({db ,current, setState, setUser, setChat, setAddButton}){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const[userAdd, setUserAdd]=React.useState({contact:""})
+    /**function for add user in button */
+    function addUserChat(x){
+        var member=0;
+        var index;
+        var flag=true;
+        for(var i=0; i<db.length; i++){
+            // save the user we wnat to add
+            if(db[i].UserName == userAdd.contact){
+                member = db[i];
+            }
+            // save the index of the user that login - to add for him
+            if(current.UserName == db[i].UserName){
+                index=i;
+                flag=false;
+            }
+        }
 
-    function addUserChat(){
-        console.log("im in the adduser chat")
-        var member;
-        debugger
-        // for(var i=0; i<2; i++){
-        //     if(db[i].UserName==userAdd.contact){
-        //         member = db[i];
-        //     }
-        // }
+        // valid checks
         for(var i=0; i<current.Chats.length; i++){
             if(current.Chats[i].contact === userAdd.contact){
                 alert("you already have this chat")
@@ -34,12 +42,18 @@ function LeftSide({db ,current, setState, setUser, setChat, setAddButton}){
             return
         }
         else {
-            current.Chats.push({contact: userAdd.contact,imgContact:member.Img,message:[]})
+            if(flag){
+                db.push(current);
+                index=(db.length-1);
+            } 
+                current.Chats.push({contact: userAdd.contact,imgContact:member.Img,message:[]})
         }
     }
+
     function clicked(e){
         for(var i = 0; i<current.Chats.length;i++){
             if(e.target.id == current.Chats[i].contact){
+                /**save the user we click on his chat */
                 setUser(
                     {contact: current.Chats[i].contact,
                     imgContact: current.Chats[i].imgContact,
@@ -58,11 +72,8 @@ function LeftSide({db ,current, setState, setUser, setChat, setAddButton}){
         })
     }
 
-    function logout(){
-        setState(0)
-    }
-
-    function lastMsg (currentCon){
+    /** function to find the last massege to show on left chats */
+    function lastMsg(currentCon){
         for(var i = 0; i<current.Chats.length;i++){
             if (current.Chats[i].contact == currentCon) {
                 var j = current.Chats[i].message.length;
@@ -70,8 +81,9 @@ function LeftSide({db ,current, setState, setUser, setChat, setAddButton}){
             }
         }
     }
-  
-    function lastMsgTime (currentCon){
+}
+   /** function to find the time of the last massege to show on left chats */
+    function lastMsgTime(currentCon){
         for(var i = 0; i<current.Chats.length;i++){
             if (current.Chats[i].contact == currentCon) {
                 var j = current.Chats[i].message.length;
@@ -97,54 +109,53 @@ function LeftSide({db ,current, setState, setUser, setChat, setAddButton}){
             </div> 
 
             <div className=" card chat-app ">
-                <div id="plist" className="people-list ">                   
-                    <div container className='w3-border w3-padding-16 myname'>   {/* current user */}
-                        <img className='myImg' src={current.Img} alt="img" // img of current chat
+                <div id="plist" className="people-list ">  
+                    {/* show current user */}                 
+                    <div className='w3-border w3-padding-16 myname'>   
+                        <img className='myImg' src={current.Img} alt="img" 
                             /> {current.NickName}
                     </div>
                     <ul className=" chat-list">
                         <li className='friends-list '>
-                            {current.Chats.map((user)=>
-                            <ul className="">
-                                <button type="button" className='chatListButton' onClick={clicked} id={user.contact}>
-                                    <img src={user.imgContact} alt="avatar"/> 
-                                    <div className='contactName'>  {user.contact}</div> 
-                                    <div className='lastMsg '>  {lastMsg(user.contact)} ...</div>   
-                                    <div className='lastMsgTime '>  {lastMsgTime(user.contact)}</div> 
-                                </button> 
+                            {/* show the lisst chats in left side */}
+                            {current.Chats.map((user, key)=>
+                            <ul className="" key={user.contact}>
+                               
+                                <button className='chatListButton' onClick={clicked} id={user.contact}>
+                                    <img onClick={clicked} id={user.contact} src={user.imgContact} alt="avatar"/> 
+                                    <div onClick={clicked} id={user.contact} className='contactName'>  {user.contact}</div> 
+                                    <div onClick={clicked} id={user.contact} className='lastMsg '>  {lastMsg(user.contact)} ...</div>   
+                                    <div onClick={clicked} id={user.contact} className='lastMsgTime '>  {lastMsgTime(user.contact)}</div> 
+                                </button>   
+                              
+                                
                                
                             </ul> 
                             )}  
                         </li>
-                        {/* {chatFriendsList}  */}
-                    </ul>
-                   
+                       
+                    </ul>                   
                     <div className="input-group-prepend">
-                        {/* <button className="addCon fa fa-user-circle w3-xlarge" onClick={()=> {setAddButton(true)}}/>          */}
-
-
-  
-    <>
-      <Button className="addCon fa fa-user-circle w3-xlarge" variant="primary" onClick={handleShow}/>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title> Add new chat </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <input placeholder="Enter Username" id="newUser" name="contact" onChange={ifChange}></input>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={()=> {addUserChat();setShow(false)}}>
-            Add User
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
-  
-
+                     {/* modal of add new chat to list */}
+                    <Button className="addCon fa fa-user-circle w3-xlarge" variant="primary" onClick={handleShow}/>
+                        <Modal show={show} onHide={handleClose}>
+                            <Modal.Header closeButton>
+                                <Modal.Title> Add new chat </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <input placeholder="Enter Username" id="newUser" name="contact"
+                                     onChange={ifChange}></input>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={handleClose}>
+                                    Close
+                                </Button>
+                                <Button variant="primary" onClick={(x)=> {addUserChat(x);
+                                    handleClose();setRender(render+1)}}>
+                                    Add User
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
 
                     </div>
                 </div> 
