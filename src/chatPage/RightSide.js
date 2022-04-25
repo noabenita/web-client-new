@@ -96,7 +96,7 @@ function RightSide({db, current,user,chat, setChat}){
         const now = new Date();
         const mins = now.getMinutes() < 10 ? "0"+now.getMinutes() : now.getMinutes();
         const hrs = now.getHours() < 10 ? now.getHours()+"0" : now.getHours();
-        const time = now.getHours() + ':' + mins; 
+        const time = hrs + ':' + mins; 
         if(type=="video"){
             data = URL.createObjectURL(event.target.files[0]);
             chat.push({data:data,time:(time), flag:false, type:type});
@@ -110,7 +110,6 @@ function RightSide({db, current,user,chat, setChat}){
             setChat(chat);
             setRender(render+1)
             event.target.value = null
-
         }
         if(type == "text"){
         // check that msg is not empty message
