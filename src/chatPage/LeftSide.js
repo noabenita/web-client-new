@@ -156,6 +156,7 @@ function LeftSide({db ,current, setState, setUser, setChat}){
                                 </Button>
                             </Modal.Footer>
                         </Modal>
+
                     </div>
                 </div> 
           </div>
