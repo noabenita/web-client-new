@@ -1,149 +1,103 @@
 .message-data-righ{
-   display: inline-block;
-   width: 45%;
-}
-
-
-.message-data-left{
-    margin-left: 8%;
-    margin-top: 8%;
-    float: left;
-    
+  display: inline-block;
+  width: 45%;
+  align-self: flex-start;
+   text-align: right;text-align-last: right;
+   max-width: 50%;
   
 }
 
-.col1{
-    width: 50%;
-    margin-left: 0%;
-    margin-right: 100%;
+.message-data-left{
+   margin-left: 8%;
+   margin-top: -8%;
+   float: left; 
 }
+
+.col1{
+   width: 50%;
+   margin-left: 0%;
+   margin-right: 100%;
+}
+
 .col2{
-    width: 50%;
-    margin-right: 0%;
-    margin-left: 100%;
+   width: 50%;
+   margin-right: 0%;
+   margin-left: 100%;
 }
 
 ul {
-    list-style-type: none;
+   list-style-type: none;
 }
-
-
-
-/* CSS talk bubble */
-.talk-bubble {
-    display: inline-block;
-    position: absolute;
-	width: 200%;
-	background-color: lightyellow;
-}
-
 
 
 /* talk bubble contents */
 .talktext{
-    margin-top: 1%;
-    margin-left:-15%;
-    padding: 1em;
-    text-align: left;
-  line-height: 1.5em;
+   margin-top: -1.5%;
+   margin-left:-15%;
+   padding: 1em;
+   text-align: left;
+   line-height: 1.5em;
 
 }
 
-
-/* CSS talk bubble */
-.talk-bubble {
-    margin-top: 2%;
-    margin-bottom: 2%;
-    display: inline-block;
-    position: relative;
-
-    height: 20%;
-    background-color: lightyellow;
-    width:auto 
-}
-
-.talk-bubble-right{
-    margin-top: 2%;
-    margin-bottom: 2%;
-    position: relative;
-    display: inline-block;
-    width:auto ;
-    height: 20%;
-    background-color: lightyellow;
-    align-items: flex-end;
-
-
-}
-
-  
-  
-  
+ 
 .round{
-    border-radius: 30%;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30%;
+   border-radius: 30%;
+   -webkit-border-radius: 30px;
+   -moz-border-radius: 30%;
 }
 
- 
 .tri-right.left-in:after{
-    content: ' ';
-    position: absolute;
-    margin-left: -95%;
-    margin-top: -4.5%; 
-    border: 12px solid;
-    border-color: lightyellow lightyellow transparent transparent;
+   content: ' ';
+   position: absolute;
+   margin-left: -95%;
+   margin-top: -4.5%; 
+   border: 12px solid;
+   border-color: lightyellow lightyellow transparent transparent;
 }
-  
-
-.tri-right.right-in:after{
-      content: ' ';
-      position: absolute;
-      margin-right: -95%;
-      margin-top: -20%; 
-      border: 12px solid;
-      border-color: lightyellow transparent transparent lightyellow;
-  }
  
+.tri-right.right-in:after{
+     content: ' ';
+     position: absolute;
+     margin-right: -95%;
+     margin-top: -20%; 
+     border: 12px solid;
+     border-color: lightyellow transparent transparent lightyellow;
+}
 
-  .talktext p{
-    /* remove webkit p margins */
-    -webkit-margin-before: 0em;
-    -webkit-margin-after: 0em;
-  }
 
+.talktext p{
+   /* remove webkit p margins */
+   -webkit-margin-before: 0em;
+   -webkit-margin-after: 0em;
+}
 
-
-
-  
 .messages {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    
-  }
-  
-  .message {
-    border-radius: 20px;
-    padding: 8px 15px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    display: inline-block;
-  }
+   margin-top: 30px;
+   display: flex;
+   flex-direction: column;
+   
+}
+ 
+.message {
+   border-radius: 20px;
+   padding: 8px 15px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   display: inline-block;
+}
 
-  .mine {
-    width: 100%;
-  }
-  
-  .mine .message {
-    float: right;
-    background: linear-gradient(to bottom, #f8f8f8 0%, #42b6fe 100%);
-    background-attachment: fixed;
+.mine {
+   width: 100%;
+}
+ 
+.mine .message {
+   float: right;
+   background: linear-gradient(to bottom, #f8f8f8 0%, #42b6fe 100%);
+   background-attachment: fixed;
 
-  }
+}
 
 .leftSide{
-    margin-left: 5.5%;
+   margin-left: 5.5%;
 }
-  
-  
-   

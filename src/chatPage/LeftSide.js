@@ -10,7 +10,7 @@ function LeftSide({db ,current, setState, setUser, setChat}){
     const handleShow = () => setShow(true);
     const[userAdd, setUserAdd]=React.useState({contact:""})
     /**function for add user in button */
-    function addUserChat(x){
+    function addUserChat(){
         var member=0;
         var index;
         var flag=true;
@@ -25,35 +25,33 @@ function LeftSide({db ,current, setState, setUser, setChat}){
                 flag=false;
             }
         }
-
         // valid checks
+        if(member == 0){
+            alert("The user you entered is not in the database ")
+            return;
+        }
         for(var i=0; i<current.Chats.length; i++){
-            if(db[index].Chats[i].contact === userAdd.contact){
+                if(current.Chats[i].contact === userAdd.contact){
                 alert("you already have this chat")
-                x.preventDefault();
                 return;
             }
         }
-        if(member == 0){
-            alert("The user you entered is not in the database ")
-            x.preventDefault();
-            return;
 
-            
-        }
-        else if(current.UserName == userAdd.contact){
+        if(current.UserName == userAdd.contact){
             alert("you can't add yourself to chats")
-            x.preventDefault();
             return;
-
-            
         }
         else {
             if(flag){
-                db.push(current);
-                index=(db.length-1);
-            } 
-                current.Chats.push({contact: userAdd.contact,imgContact:member.Img,message:[]})
+                if(flag){
+                    db.push(current);
+                    index=(db.length-1);
+                    flag=false
+                } else{
+                    db[index].Chats.push({contact: userAdd.contact,imgContact:member.Img,message:[]})
+                }
+            }
+            current.Chats.push({contact: userAdd.contact,imgContact:member.Img,message:[]})
         }
     }
 
@@ -109,66 +107,55 @@ function LeftSide({db ,current, setState, setUser, setChat}){
 
     return(
         <>
-            <nav className="mainImage w3-sidebar ">
-                <div className="bgimg" ></div>               
-            </nav>
-
-            <div className=" card chat-app ">
-                <div id="plist" className="people-list ">  
-                    {/* show current user */}                 
-                    <div className='w3-border w3-padding-16 myname'>   
-                        <img className='myImg' src={current.Img} alt="img" 
-                            /> {current.NickName}
-                    </div>
-                    <ul className=" chat-list">
-                        <li className='friends-list '>
-                            {/* show the lisst chats in left side */}
-                            {current.Chats.map((user, key)=>
-                            <ul className="" key={user.contact}>
-                               
-                                <button className='chatListButton' onClick={clicked} id={user.contact}>
-                                    <img onClick={clicked} id={user.contact} src={user.imgContact} alt="avatar"/> 
-                                    <div onClick={clicked} id={user.contact} className='contactName'>  {user.contact}</div> 
-                                    <div onClick={clicked} id={user.contact} className='lastMsg '>  {lastMsg(user.contact)} ...</div>   
-                                    <div onClick={clicked} id={user.contact} className='lastMsgTime '>  {lastMsgTime(user.contact)}</div> 
-                                </button>   
-                              
-                                
-                               
-                            </ul> 
-    
-                           )}  
-                        </li>
-                       
-                    </ul>                   
-                    <div className="input-group-prepend">
-                     {/* modal of add new chat to list */}
-                    <Button className="addCon fa fa-user-circle w3-xlarge" variant="primary" onClick={handleShow}/>
-                        <Modal show={show} onHide={handleClose}>
-                            <Modal.Header closeButton>
-                                <Modal.Title> Add new chat </Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <input placeholder="Enter Username" id="newUser" name="contact"
-                                     onChange={ifChange}></input>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose}>
-                                    Close
-                                </Button>
-                                <Button variant="primary" onClick={(x)=> {addUserChat(x);
-                                    handleClose();setRender(render+1)}}>
-                                    Add User
-                                </Button>
-                            </Modal.Footer>
-                        </Modal>
-
-                    </div>
-                </div> 
-          </div>
-
+    <nav className="mainImage w3-sidebar ">
+        <div className="bgimg" ></div>               
+    </nav>
+    <div  className="semiTrans w3-hide-medium w3-hide-small" ></div>
+    <div className=" card chat-app ">
+        <div id="plist" className="people-list ">  
+        {/* show current user */}                 
+            <div className='w3-border w3-padding-16 myname'>   
+                <img className='myImg' src={current.Img} alt="img"/> {current.NickName}
+            </div>
+            <ul className=" chat-list">
+                <li className='friends-list '>
+                {/* show the list chats in left side */}
+                {current.Chats.map((user, key)=>
+                    <ul className="" key={user.contact}>
+                        <button className='chatListButton' onClick={clicked} id={user.contact}>
+                            <img onClick={clicked} id={user.contact} src={user.imgContact} alt="avatar"/> 
+                            <div onClick={clicked} id={user.contact} className='contactName'>  {user.contact}</div> 
+                            <div onClick={clicked} id={user.contact} className='lastMsg '>  {lastMsg(user.contact)} ...</div>   
+                            <div onClick={clicked} id={user.contact} className='lastMsgTime '>  {lastMsgTime(user.contact)}</div> 
+                        </button>    
+                    </ul> 
+                    )}  
+                </li>
+            </ul>                   
+            {/* modal of add new chat to list */}
+            <Button className="addCon fa fa-user-circle w3-xlarge btn-secondary" 
+                variant="primary" onClick={handleShow}/>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title> Add new chat </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <input placeholder="Enter Username" id="newUser" name="contact"
+                            onChange={ifChange}></input>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                                Close
+                    </Button>
+                    <Button variant="primary" onClick={(x)=> {addUserChat(x);
+                            handleClose()}}>
+                                Add User
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </div> 
+    </div>
         </>
     )
-
 }
 export default LeftSide
