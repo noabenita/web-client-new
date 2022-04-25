@@ -2,13 +2,17 @@ import './LoginPage.css';
 import React from 'react';
 
 function LoginPage({db, setMode, setCurrent, newUser}) {
-    const [usersArray,setUserArray] = React.useState({username:'', password:''});          
+    const [usersArray,setUserArray] = React.useState({username:'', password:''});    
+
     function ifSubmited(e) {  
         if(newUser.UserName.length > 0){
             db.push(newUser);
+
         }
+        // check if user is exist in database
         for (var i=0; i <db.length; i++) {
             if(db[i].UserName == usersArray.username && db[i].Password == usersArray.password){
+                // save the user that login
                 setCurrent({
                     UserName: db[i].UserName,
                     NickName: db[i].NickName,
@@ -32,6 +36,7 @@ function LoginPage({db, setMode, setCurrent, newUser}) {
         })
     }
     function changeMode(){
+        // go to signup page 
         setMode(1)
         return
     }
@@ -52,7 +57,7 @@ function LoginPage({db, setMode, setCurrent, newUser}) {
                         Login
             </div> 
                    
-                
+                {/* text box  */}
             <div id="loginInfo1">
                 <form >
                     <label>               
@@ -73,22 +78,24 @@ function LoginPage({db, setMode, setCurrent, newUser}) {
                 
                <div>
             <form > 
+                {/* signIn button */}
                 <button id='button1Log' className='w3-button w3-center w3-light-grey w3-padding-large' 
                     onClick={ifSubmited}  >
                     Sign In
                 </button>
                  <p>  
+                {/* signUp button */}
                 <button id='button2Log' className='w3-button w3-center w3-light-grey w3-padding-large' 
                  onClick={changeMode}> Sign Up</button>
                </p>
            </form>
            </div>
+            {/* End footer */}           
             <footer
               className="poweredBy w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge ">
               <p className="w3-medium">
               Powered by <a>Or Nasri &amp; Noa Benita</a>
               </p>
-            {/* End footer */}
            </footer>
            
          </>

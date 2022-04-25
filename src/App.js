@@ -4,6 +4,11 @@ import Chat from './chatPage/Chat';
 import SignUpPage from './signUpPage/SignUpPage';
 
 function App() {
+  const[mode,setMode]=React.useState(0);
+  const[newUser, setNewUser]= React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
+  const[current,setCurrent]=React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
+  const[img, setImg]=React.useState("");
+  
   const dataStructure= [
     {UserName:'or',
     NickName:'orush',
@@ -19,7 +24,7 @@ function App() {
         time: '12:15',flag:false, type:'video'},
         {data:"what are u doing ?",time: "12:17",flag:false, type:'text'}]}, 
       {contact :"hen",
-      imgContact: "https://bootdey.com/img/Content/avatar/avatar8.png",
+      imgContact: "https://bootdey.com/img/Content/avatar/avatar1.png",
       message:[
         {data:"how are u?? i want to tell you about my friend",time: '14:10',flag:true, type:'text'},
         {data:"♥",time: '14:11',flag:true, type:'text'},
@@ -71,7 +76,7 @@ function App() {
             {data:"hii",time: '10:32',flag:false, type:'text'}]}]},
         {UserName:'hen',
         NickName:'henhen',
-        Img:"https://bootdey.com/img/Content/avatar/avatar8.png",
+        Img:"https://bootdey.com/img/Content/avatar/avatar1.png",
         Password: 'Nn123456',
         Chats:[{contact :"or",
         imgContact: "https://bootdey.com/img/Content/avatar/avatar3.png",
@@ -86,14 +91,8 @@ function App() {
             {data:"want to eat pizza?",time: '14:11',flag:false, type:'text'},
             {data:"Im fine",time: "14:40",flag:true, type:'text'}]}]
         }];
-     
-  const[mode,setMode]=React.useState(0);
-  const[newUser, setNewUser]= React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
-  const[current,setCurrent]=React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
-  const[img, setImg]=React.useState("");
 
-
-
+// navigate between pages     
 if(mode == 0){
   return (
     <LoginPage db={dataStructure} setMode={setMode} setCurrent={setCurrent} newUser={newUser}/>

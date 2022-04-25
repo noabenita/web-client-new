@@ -4,6 +4,7 @@ import React from 'react';
 function SignUpPage({db, setMode, setNewUser, setImg, img}) {
   const [createUser, setCreateUser]= React.useState({username:'', nickname:'', img:'', password:'', confirmpassword:''});
   
+  // check if photo is valid
   function checkPhoto(e){
     if(e.target.files[0].name.match(/.(jpg|jpeg|png|gif)$/i) && e.target.name == 'img'){
       setImg(URL.createObjectURL(e.target.files[0]))
@@ -14,6 +15,7 @@ function SignUpPage({db, setMode, setNewUser, setImg, img}) {
     }
     }
 
+    // checks in signup form
     function ifSubmit(x){
         if (!(((createUser.username.length == 0) || (createUser.nickname.length == 0) || 
         (createUser.password.length == 0) || (createUser.confirmpassword.length == 0)))) {
@@ -27,25 +29,7 @@ function SignUpPage({db, setMode, setNewUser, setImg, img}) {
                             NickName:createUser.nickname,
                             Img: img,
                             Password : createUser.password,
-                            Chats: [
-                              {contact: 'ron',
-                              imgContact: "https://bootdey.com/img/Content/avatar/avatar2.png",
-                              message:[
-                                {data:"hey",time: '12:10',flag:true, type:'text'},
-                                {data:"?",time: '12:15',flag:false, type:'text'},
-                                {data:"what",time: "12:17",flag:false, type:'text'}]}, 
-                              {contact :"hen",
-                              imgContact: "https://bootdey.com/img/Content/avatar/avatar3.png",
-                              message:[
-                                {data:"how are u??",time: '14:10',flag:true,  type:'text'},
-                                {data:"♥",time: '14:11',flag:true,  type:'text'},
-                                {data:"fine, honey",time: "14:40",flag:false, type:'text'}]},
-                              {contact :"noa",
-                               imgContact: "https://bootdey.com/img/Content/avatar/avatar3.png",
-                               message:[
-                                 {data:"how are u??",time: '14:10',flag:true, type:'text'},
-                                 {data:"♥",time: '14:11',flag:true, type:'text'},
-                                 {data:"fine, honey",time: "14:40",flag:false, type:'text'}]}]
+                            Chats: []
                           });
                             setMode(0)
                         } else {
@@ -86,8 +70,6 @@ function SignUpPage({db, setMode, setNewUser, setImg, img}) {
               <div className="bgimg" />
             </nav>
           </div> 
-  
-
           <header className="w3-container w3-center" id="home">
                     <h1 className="onChatS w3-jumbo">
                         <b>O-N Chat</b>
@@ -97,6 +79,7 @@ function SignUpPage({db, setMode, setNewUser, setImg, img}) {
 
                 <div className ="signupPageHeadline w3-light-grey w3-container w3-center w3-large w3-opacity" > 
                   Sign Up </div> 
+                  {/* signup form */}
             <div id ='put'>
               <form action="/action_page.php" target="_blank">
                 <p>
@@ -139,9 +122,7 @@ function SignUpPage({db, setMode, setNewUser, setImg, img}) {
           </div>  
           {/* END PAGE CONTENT */}
         </div>
-        
-      // </div>
-    );
+  );
 }
 
 export default SignUpPage
