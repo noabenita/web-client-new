@@ -81,7 +81,7 @@ function LeftSide({db ,current, setState, setUser, setChat, setAddButton}){
             }
         }
     }
-}
+
    /** function to find the time of the last massege to show on left chats */
     function lastMsgTime(currentCon){
         for(var i = 0; i<current.Chats.length;i++){
@@ -100,13 +100,6 @@ function LeftSide({db ,current, setState, setUser, setChat, setAddButton}){
                 <div className="bgimg" ></div>               
             </nav>
 
-            <div  className="semiTrans w3-hide-medium w3-hide-small" ></div>
-            <div id="button">            
-                <button className=" logoutButton w3-button w3-padding-small" type="submit"
-                 onClick={logout}> 
-                    logout
-                </button>
-            </div> 
 
             <div className=" card chat-app ">
                 <div id="plist" className="people-list ">  
@@ -162,7 +155,8 @@ function LeftSide({db ,current, setState, setUser, setChat, setAddButton}){
           </div>
 
         </>
-    )
+    );
+                                }               
+                                
 
-}
 export default LeftSide
