@@ -13,27 +13,37 @@ function RightSide({db, current,user,chat, setChat}){
     const[render, setRender]=React.useState(1)
     
     function recordFunc(){
-        //  audio is true, for recording
         let audioIN = { audio: true };
-          
+        //  audio is true, for recording
+     
+        // Access the permission for use
+        // the microphone
         navigator.mediaDevices.getUserMedia(audioIN)
      
+          // 'then()' method returns a Promise
           .then(function (mediaStreamObj) {
-            let audio = document.querySelector('audio');
      
-            // 'srcObject' is a property that takes the media object
+            // Connect the media stream to the
+            // first audio element
+            let audio = document.querySelector('audio');
+            //returns the recorded audio via 'audio' tag
+     
+            // 'srcObject' is a property which
+            // takes the media object
+            // This is supported in the newer browsers
             if ("srcObject" in audio) {
               audio.srcObject = mediaStreamObj;
             }
-            else { 
-              audio.src = window.URL.createObjectURL(mediaStreamObj);
+            else {   // Old version
+              audio.src = window.URL
+                .createObjectURL(mediaStreamObj);
             }
             audio.onloadedmetadata = function (ev){};
           
-            // Start recording
+            // Start record
             let start = document.getElementById('btnStart');
      
-            // Stop recording
+            // Stop record
             let stop = document.getElementById('btnStop');
      
             // 2nd audio tag for play the audio
@@ -46,9 +56,9 @@ function RightSide({db, current,user,chat, setChat}){
      
             // Start event
             start.addEventListener('click', function (ev) {
-              audio.src = null;
-              mediaRecorder.start();
-            //   audio.play();
+                audio.src = null;
+                mediaRecorder.start();
+                audio.time()
             });
      
             // Stop event
@@ -68,7 +78,8 @@ function RightSide({db, current,user,chat, setChat}){
             // Chunk array to store the audio data
             let dataArray = [];
      
-            // Convert the audio data in to blob when press on the stop recording button
+            // Convert the audio data in to blob
+            // after stopping the recording
             mediaRecorder.onstop = function (ev) {
      
               // blob of type mp3
@@ -79,7 +90,8 @@ function RightSide({db, current,user,chat, setChat}){
               // array make it empty
               dataArray = [];
      
-              // Creating audio url
+              // Creating audio url with reference
+              // of created blob named 'audioData'
               let audioSrc = window.URL
                   .createObjectURL(audioData);
      
@@ -229,8 +241,13 @@ function RightSide({db, current,user,chat, setChat}){
                         <button id="btnStart">START RECORDING</button>                   
                         <button id="btnStop">STOP RECORDING</button>                    
                                                         
-                        {/* <audio id="audioPlay1"controls></audio> */}
-                        <audio id="audioPlay" controls></audio>
+
+                        <audio controls hidden>
+                        <source id="audioPlay" muted type="audio"></source>
+                       
+                        </audio>
+                        {/* <audio id="audioPlay "controls></audio> */}
+                        
             </Modal.Body>
             <Modal.Footer>
                         <Button type="button"  class="btn btn-secondary"  onClick={handleClose} data-dismiss="modal">Close</Button>
@@ -241,31 +258,7 @@ function RightSide({db, current,user,chat, setChat}){
             
 
 
-        {/* <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div classN="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">recording</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body"> 
-                        <p>                    
-                            <button id="btnStart">START RECORDING</button>                   
-                            <button id="btnStop">STOP RECORDING</button>                    
-                        </p>                                  
-                        <audio id="audioPlay1"controls></audio>
-                        <audio id="audioPlay" controls></audio>
-                    </div>
-                    <div class="modal-footer">
-                        <Button type="button" class="btn btn-secondary"  onClick={handleClose} data-dismiss="modal">Close</Button>
-                        <Button type="button" onChange={(e,data,type)=>{submit(e,rec,"audio")}}
-                          class="btn btn-primary">send</Button>
-                    </div>
-                </div>
-            </div>
-        </div> */}
+
 
         
 
