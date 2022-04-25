@@ -31,7 +31,25 @@ function App() {
         {UserName:'niv',
         NickName:'nivush',
         Img:"https://bootdey.com/img/Content/avatar/avatar2.png",
-        Password: 1,
+        Password: 'Nn123456',
+        Chats:[]
+        },
+        {UserName:'eden hason',
+        NickName:'edeni',
+        Img:"https://bootdey.com/img/Content/avatar/avatar2.png",
+        Password: 'Nn123456',
+        Chats:[]
+        },
+        {UserName:'noa',
+        NickName:'noeit',
+        Img:"https://bootdey.com/img/Content/avatar/avatar2.png",
+        Password: 'Nn123456',
+        Chats:[]
+        },
+        {UserName:'kim k',
+        NickName:'kimush',
+        Img:"https://bootdey.com/img/Content/avatar/avatar2.png",
+        Password: 'Nn123456',
         Chats:[]
         }];
      
@@ -45,7 +63,6 @@ function App() {
 if(mode == 0){
   return (
     <LoginPage db={dataStructure} setMode={setMode} setCurrent={setCurrent} newUser={newUser}/>
-    
   );
 }
 if(mode == 1){

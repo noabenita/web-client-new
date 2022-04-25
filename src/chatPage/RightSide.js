@@ -13,37 +13,27 @@ function RightSide({db, current,user,chat, setChat}){
     const[render, setRender]=React.useState(1)
     
     function recordFunc(){
-        let audioIN = { audio: true };
         //  audio is true, for recording
-     
-        // Access the permission for use
-        // the microphone
+        let audioIN = { audio: true };
+          
         navigator.mediaDevices.getUserMedia(audioIN)
      
-          // 'then()' method returns a Promise
           .then(function (mediaStreamObj) {
-     
-            // Connect the media stream to the
-            // first audio element
             let audio = document.querySelector('audio');
-            //returns the recorded audio via 'audio' tag
      
-            // 'srcObject' is a property which
-            // takes the media object
-            // This is supported in the newer browsers
+            // 'srcObject' is a property that takes the media object
             if ("srcObject" in audio) {
               audio.srcObject = mediaStreamObj;
             }
-            else {   // Old version
-              audio.src = window.URL
-                .createObjectURL(mediaStreamObj);
+            else { 
+              audio.src = window.URL.createObjectURL(mediaStreamObj);
             }
             audio.onloadedmetadata = function (ev){};
           
-            // Start record
+            // Start recording
             let start = document.getElementById('btnStart');
      
-            // Stop record
+            // Stop recording
             let stop = document.getElementById('btnStop');
      
             // 2nd audio tag for play the audio
@@ -78,8 +68,7 @@ function RightSide({db, current,user,chat, setChat}){
             // Chunk array to store the audio data
             let dataArray = [];
      
-            // Convert the audio data in to blob
-            // after stopping the recording
+            // Convert the audio data in to blob when press on the stop recording button
             mediaRecorder.onstop = function (ev) {
      
               // blob of type mp3
@@ -90,8 +79,7 @@ function RightSide({db, current,user,chat, setChat}){
               // array make it empty
               dataArray = [];
      
-              // Creating audio url with reference
-              // of created blob named 'audioData'
+              // Creating audio url
               let audioSrc = window.URL
                   .createObjectURL(audioData);
      
