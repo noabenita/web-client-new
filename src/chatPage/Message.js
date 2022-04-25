@@ -78,7 +78,7 @@ function Message({data, time, flag, type}){
                     <div class="talktext">
                         <p className='message-data-left '>           
                             <ul className='clearfix '>
-                                <div className='message-data width="220 '>
+                                <div className='message-data width=220 '>
                                     <span className="message-data-time "> <p>{time}</p>
                                     <audio src={data} controls  >  
                                     {/* <source src={data} alt="" />  */}

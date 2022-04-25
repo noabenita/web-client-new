@@ -89,7 +89,6 @@
     display: block;
     white-space: nowrap;
     overflow-y: scroll !important;
-    overflow-x: hidden !important;
     text-overflow: ellipsis;
     margin-top: 10%; 
     height:65%;
@@ -132,10 +131,6 @@ label{
     cursor: pointer;
 }
 
-.dropdown-menu{
-    margin-left: -120%;
-    margin-top: -5%;
-}
 
 .messegeTypes{
     margin-left: 2%;
