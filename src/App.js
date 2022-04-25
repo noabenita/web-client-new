@@ -13,7 +13,7 @@ function App() {
     {UserName:'or',
     NickName:'orush',
     Img:"https://bootdey.com/img/Content/avatar/avatar3.png",
-    Password: 1, 
+    Password: 'Nn123456', 
     Chats:[
       {contact: 'ron',
       imgContact: "https://bootdey.com/img/Content/avatar/avatar2.png",
