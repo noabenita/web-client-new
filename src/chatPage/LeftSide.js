@@ -1,49 +1,39 @@
 import './LeftSide.css';
+import {Link, useNavigate} from 'react-router-dom';
 import React from 'react';
 import {Modal} from "react-bootstrap";
 import {Button} from "react-bootstrap";
 
-function LeftSide({db ,current, setState, setUser, setChat}){
+function LeftSide({db ,current, setState, setUser, setChat, setAddButton}){
     const [show, setShow] = React.useState(false);
-    const[render, setRender]=React.useState(0);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const[userAdd, setUserAdd]=React.useState({contact:""})
 
-    function addUserChat(x){
-        var member=0;
-        var index;
-        for(var i=0; i<db.length; i++){
-            if(db[i].UserName == userAdd.contact){
-                member = db[i];
-            }
-            if(current.UserName == db[i].UserName){
-                index=i;
-            }
-        }
+    function addUserChat(){
+        console.log("im in the adduser chat")
+        var member;
+        debugger
+        // for(var i=0; i<2; i++){
+        //     if(db[i].UserName==userAdd.contact){
+        //         member = db[i];
+        //     }
+        // }
         for(var i=0; i<current.Chats.length; i++){
-            if(db[index].Chats[i].contact === userAdd.contact){
+            if(current.Chats[i].contact === userAdd.contact){
                 alert("you already have this chat")
-                x.preventDefault();
-                return;
+                return
             }
         }
-        if(member == 0){
-            alert("The user you entered is not in the database ")
-            x.preventDefault();
-            return;
-
-            
+        if(member.length == 0){
+            alert("The user you enterd is not in the database ")
+            return
         }
-        else if(current.UserName == userAdd.contact){
+        else if(current.UserName === userAdd.contact){
             alert("you can't add yourself to chats")
-            x.preventDefault();
-            return;
-
-            
+            return
         }
         else {
-            db[index].Chats.push({contact: userAdd.contact,imgContact:member.Img,message:[]})
             current.Chats.push({contact: userAdd.contact,imgContact:member.Img,message:[]})
         }
     }
@@ -72,29 +62,20 @@ function LeftSide({db ,current, setState, setUser, setChat}){
         setState(0)
     }
 
-    function lastMsg(currentCon){
+    function lastMsg (currentCon){
         for(var i = 0; i<current.Chats.length;i++){
             if (current.Chats[i].contact == currentCon) {
                 var j = current.Chats[i].message.length;
-                if (j > 0){
-                    if(current.Chats[i].message[j-1].data.startsWith("blob")){
-                        return "media"
-                    } else {
-                        return current.Chats[i].message[j-1].data
-                    }
-
+                return current.Chats[i].message[j-1].data
             }
         }
     }
-}
   
     function lastMsgTime (currentCon){
         for(var i = 0; i<current.Chats.length;i++){
             if (current.Chats[i].contact == currentCon) {
                 var j = current.Chats[i].message.length;
-                if(j>0){
                 return current.Chats[i].message[j-1].time
-                }
             }
         }
     }
@@ -106,6 +87,14 @@ function LeftSide({db ,current, setState, setUser, setChat}){
             <nav className="mainImage w3-sidebar ">
                 <div className="bgimg" ></div>               
             </nav>
+
+            <div  className="semiTrans w3-hide-medium w3-hide-small" ></div>
+            <div id="button">            
+                <button className=" logoutButton w3-button w3-padding-small" type="submit"
+                 onClick={logout}> 
+                    logout
+                </button>
+            </div> 
 
             <div className=" card chat-app ">
                 <div id="plist" className="people-list ">                   
@@ -125,33 +114,37 @@ function LeftSide({db ,current, setState, setUser, setChat}){
                                 </button> 
                                
                             </ul> 
-    
-                           )}  
+                            )}  
                         </li>
-                       
+                        {/* {chatFriendsList}  */}
                     </ul>
-                    {/* <div>{setRender(render+1)}</div> */}
                    
                     <div className="input-group-prepend">
-                    <Button className="addCon fa fa-user-circle w3-xlarge" variant="primary" onClick={handleShow}/>
-                        <Modal show={show} onHide={handleClose}>
-                            <Modal.Header closeButton>
-                                <Modal.Title> Add new chat </Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <input placeholder="Enter Username" id="newUser" name="contact"
-                                     onChange={ifChange}></input>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose}>
-                                    Close
-                                </Button>
-                                <Button variant="primary" onClick={(x)=> {addUserChat(x);
-                                    handleClose();setRender(render+1)}}>
-                                    Add User
-                                </Button>
-                            </Modal.Footer>
-                        </Modal>
+                        {/* <button className="addCon fa fa-user-circle w3-xlarge" onClick={()=> {setAddButton(true)}}/>          */}
+
+
+  
+    <>
+      <Button className="addCon fa fa-user-circle w3-xlarge" variant="primary" onClick={handleShow}/>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title> Add new chat </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <input placeholder="Enter Username" id="newUser" name="contact" onChange={ifChange}></input>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={()=> {addUserChat();setShow(false)}}>
+            Add User
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  
+
 
                     </div>
                 </div> 

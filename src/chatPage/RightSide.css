@@ -89,6 +89,7 @@
     display: block;
     white-space: nowrap;
     overflow-y: scroll !important;
+    overflow-x: hidden !important;
     text-overflow: ellipsis;
     margin-top: 10%; 
     height:65%;
@@ -131,6 +132,10 @@ label{
     cursor: pointer;
 }
 
+.dropdown-menu{
+    margin-left: -120%;
+    margin-top: -5%;
+}
 
 .messegeTypes{
     margin-left: 2%;
@@ -167,5 +172,5 @@ label{
     z-index: 7;
 }
 
-audio#audioPlay1::-webkit-media-controls-play-button{display:none;}
+audio#audioPlay::-webkit-media-controls-play-button{display:none;}
 
