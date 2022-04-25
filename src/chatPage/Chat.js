@@ -4,7 +4,7 @@ import RightSide from "./RightSide";
 import {Modal} from "react-bootstrap"
 
 
-function Chat({dataStructure, current}){
+function Chat({db, current}){
     const[addButton, setAddButton] = React.useState(false);
     const[state,setState]=React.useState(0);
     const[user,setUser]=React.useState({contact: "", imgContact:"", message:""})
@@ -20,7 +20,7 @@ function Chat({dataStructure, current}){
     }
 
     function addUserChat(){
-        var member = dataStructure.filter(function(x){
+        var member = db.filter(function(x){
             return x.UserName === userAdd.contact
         })
         for(var i=0; i<current.Chats.length; i++){
@@ -44,7 +44,7 @@ function Chat({dataStructure, current}){
     if(state == 0){
         return(
             <>
-            <LeftSide db={dataStructure} current={current} setState = {setState} setUser={setUser} setChat={setChat}
+            <LeftSide db={db} current={current} setState = {setState} setUser={setUser} setChat={setChat}
                          setAddButton={setAddButton}/>
                          {console.log(addButton)}
                     
@@ -73,9 +73,9 @@ function Chat({dataStructure, current}){
         return(
             <>
              
-             <LeftSide db={dataStructure} current={current} setState = {setState} setUser={setUser} setChat={setChat}
+             <LeftSide db={db} current={current} setState = {setState} setUser={setUser} setChat={setChat}
                         setAddButton={setAddButton}/>
-            <RightSide current={current} user={user} chat={chat} setChat={setChat} />
+            <RightSide db={db} current={current} user={user} chat={chat} setChat={setChat} />
             { addButton && <Modal addButton={addButton}>
                 <Modal.Header closeButton onClick={()=>setAddButton(false)}>
                     <Modal.Title id="contained-modal-title-vcenter"> Add new chat </Modal.Title>

@@ -1,10 +1,17 @@
 import React from "react";
 import './RightSide.css';
 import Message from "./Message";
+import {Button} from 'react-bootstrap'
+import { Modal } from "react-bootstrap";
 
-function RightSide({current,user,chat, setChat}){
+function RightSide({db, current,user,chat, setChat}){
     const[msg,setMsg] = React.useState("")
-    const[img, setImg] = React.useState("")
+    const[rec, setRec] = React.useState("")
+    const[show, setShow] = React.useState(false)
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true)
+    const[render, setRender]=React.useState(1)
+    
     function recordFunc(){
         let audioIN = { audio: true };
         //  audio is true, for recording
@@ -51,7 +58,7 @@ function RightSide({current,user,chat, setChat}){
             start.addEventListener('click', function (ev) {
               audio.src = null;
               mediaRecorder.start();
-              audio.play();
+            //   audio.play();
             });
      
             // Stop event
@@ -91,6 +98,7 @@ function RightSide({current,user,chat, setChat}){
               // Pass the audio url to the 2nd video tag
               playAudio.src = audioSrc;
               audioIN = { audio: false };
+              setRec(playAudio.src); 
             }
             
             
@@ -102,44 +110,73 @@ function RightSide({current,user,chat, setChat}){
           });
     
       }
-    function validPhoto(e){
-        if (e.target.files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
-            console.log(e.target.files[0].name)
-            const {name, value} = e.target;
-            setImg({
-              ...img,
-              [name]:value
-            })
-          } else{
-            img =' ';
+
+    function findMe(){
+        var index;
+        var index2;
+        for(var i=0;i<db.length;i++){
+            if(db[i].UserName == current.UserName){
+                index = i;
+            }
         }
+        for(var j=0;j<db[index].Chats.length;j++){
+            if(db[index].Chats[j].contact == user.contact){
+                index2 = j;
+            }
+        }
+        return (db[index].Chats[index2].contact)
     }
+    
     // insert to chat array of contact chat
     function submit(event, data, type){
+        var index;
+        var index2;
+        for(var i=0;i<db.length;i++){
+            if(db[i].UserName == current.UserName){
+                index = i;
+            }
+        }
+        for(var j=0;j<db[index].Chats.length;j++){
+            if(db[index].Chats[j].contact == user.contact){
+                index2 = j;
+            }
+        }
         const now = new Date();
-        const time = now.getHours() + ':' + now.getMinutes();
-        if(type=="img"|| type=='video'){
+        const time = now.getHours() + ':' + now.getMinutes(); 
+        if(type=="img"){
             data = URL.createObjectURL(event.target.files[0]);
+            chat.push({data:data,time:(time), flag:false, type:type});
+            db[index].Chats[index2].message.push({data:data,time:(time), flag:false, type:type});
+            setChat(chat);
+            setRender(render+1)
+            event.target.value = null
+
+        }
+        if(type=='video'){
 
         }
         if(type == "text"){
         // check that msg is not empty message
-        
+           
             if(msg!=""){
-            chat.push({data:data,time:(time), flag:false, type:type});
-            }      
+                db[index].Chats[index2].message.push({data:data,time:(time), flag:false, type:"text"});
+                chat.push({data:data,time:(time), flag:false, type:"text"});
+            }     
             setChat(chat);
             setMsg("");
             document.getElementById("msg").value = ("");
         }
         if(type=='audio'){
-
+            console.log(data)
+            db[index].Chats[index2].message.push({data:data,time:(time), flag:false, type:"audio"});
+            chat.push({data:data,time:(time), flag:false, type:"audio"});
+            setChat(chat);
         }
+      console.log(db)
     }
     function ifChange(e) {
         setMsg(e.target.value)
     }
-
 
     return(
         <>
@@ -176,7 +213,7 @@ function RightSide({current,user,chat, setChat}){
             <div className="dropdown-menu w3-light-grey" aria-labelledby="dropdownMenuButton">            
                 <button  className='messegeTypes' >
                     <input type="file" accept = "image/png, image/jpeg" id="actual-btn"
-                    //  onChange={submit(e,data,"img")} 
+                    onChange={(e,data,type)=>{submit(e,data,"img")}} 
                      name="img" hidden/>
                     <label className="fa fa-picture-o icons1 w3-large" for="actual-btn" ></label>
                 </button>
@@ -188,12 +225,35 @@ function RightSide({current,user,chat, setChat}){
                 {/* record button */}
                 <button 
                     className="messegeTypesMic fa fa-microphone icons w3-large" data-toggle="modal" 
-                        for="actual-btn" data-target="#exampleModal" onClick={recordFunc}
+                        for="actual-btn" data-target="#exampleModal" onClick={()=>{recordFunc(); handleShow(true) }}
                     >
                 </button>               
             </div>  
         </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+        <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+                    <Modal.Title> Recording </Modal.Title>
+
+            </Modal.Header>
+            <Modal.Body>
+                               
+                        <button id="btnStart">START RECORDING</button>                   
+                        <button id="btnStop">STOP RECORDING</button>                    
+                                                        
+                        {/* <audio id="audioPlay1"controls></audio> */}
+                        <audio id="audioPlay" controls></audio>
+            </Modal.Body>
+            <Modal.Footer>
+                        <Button type="button"  class="btn btn-secondary"  onClick={handleClose} data-dismiss="modal">Close</Button>
+                        <Button type="button"  onClick={(e,data,type)=>{submit(e,rec,"audio"); handleClose()}}
+                          class="btn btn-primary">send</Button>
+            </Modal.Footer>
+            </Modal>
+            
+
+
+        {/* <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div classN="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -211,12 +271,13 @@ function RightSide({current,user,chat, setChat}){
                         <audio id="audioPlay" controls></audio>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <Button type="button" class="btn btn-secondary"  onClick={handleClose} data-dismiss="modal">Close</Button>
+                        <Button type="button" onChange={(e,data,type)=>{submit(e,rec,"audio")}}
+                          class="btn btn-primary">send</Button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> */}
 
         
 
