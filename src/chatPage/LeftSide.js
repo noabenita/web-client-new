@@ -107,8 +107,6 @@ function LeftSide({db ,current, setState, setUser, setChat}){
         }
     }
 
-
-   
     return(
         <>
             <nav className="mainImage w3-sidebar ">
