@@ -13,8 +13,7 @@ function SignUpPage({db, setMode, setNewUser, setImg, img}) {
     else{
           createUser.img =' ';
     }
-    }
-
+  }
     // checks in signup form
     function ifSubmit(x){
         if (!(((createUser.username.length == 0) || (createUser.nickname.length == 0) || 
@@ -62,7 +61,7 @@ function SignUpPage({db, setMode, setNewUser, setImg, img}) {
     }
 
     return(
-        <div className='container'>
+      <div className='container'>
         <div className='row'>
           <div className='col'>
             {/* Sidebar with image */}
@@ -71,15 +70,14 @@ function SignUpPage({db, setMode, setNewUser, setImg, img}) {
             </nav>
           </div> 
           <header className="w3-container w3-center" id="home">
-                    <h1 className="onChatS w3-jumbo">
-                        <b>O-N Chat</b>
-                    </h1>
-                    <p className="secHeadLineS"> Fast, Simple and Secure Messaging.</p>
-                </header>
-
-                <div className ="signupPageHeadline w3-light-grey w3-container w3-center w3-large w3-opacity" > 
-                  Sign Up </div> 
-                  {/* signup form */}
+            <h1 className="onChatS w3-jumbo">
+              <b>O-N Chat</b>
+            </h1>
+            <p className="secHeadLineS"> Fast, Simple and Secure Messaging.</p>
+          </header>
+          <div className ="signupPageHeadline w3-light-grey w3-container w3-center w3-large w3-opacity" > 
+                Sign Up </div> 
+            {/* signup form */}
             <div id ='put'>
               <form action="/action_page.php" target="_blank">
                 <p>
@@ -92,7 +90,7 @@ function SignUpPage({db, setMode, setNewUser, setImg, img}) {
                     placeholder="NickName"  onChange={ifChange} />
                 </p>
                 <label>Select Image : </label>
-                <input className="addImage" accept='image/png, image/jpeg' name= "img" type="file" onChange={checkPhoto} name="img" />
+                <input className="addImage" accept='image/png, image/jpeg' name= "img" type="file" onChange={checkPhoto} />
               </form>
               <p>
                 <input className="w3-input w3-padding-16 w3-border" name="password" type="password"
@@ -102,7 +100,6 @@ function SignUpPage({db, setMode, setNewUser, setImg, img}) {
                 <input className="w3-input w3-padding-16 w3-border" name="confirmpassword" type="password"                
                   placeholder="Confirm Password" onChange={ifChange}/>
               </p>
-
               <form > 
                 <button id='button3' className='w3-button w3-center w3-light-grey w3-padding-large' 
                     onClick={ifSubmit}  >
@@ -116,7 +113,7 @@ function SignUpPage({db, setMode, setNewUser, setImg, img}) {
               className="poweredByS w3-container w3-padding-64 w3-light-grey w3-opacity w3-xlarge ">
               <p className="powerdByText w3-medium">
                 Powered by <a>Or Nasri &amp; Noa Benita</a>
-                </p>
+              </p>
               {/* End footer */}
             </footer>
           </div>  

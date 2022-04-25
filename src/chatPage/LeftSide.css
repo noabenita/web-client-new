@@ -47,7 +47,18 @@
     background-color: rgba(1, 1, 1, 0.14);
 }
 
-
+.semiTrans {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(1, 1, 1, 0.14);
+    margin-left:0.5% ;
+    margin-right:1% ;
+    margin-top: 0.5%;
+    width: 99%;
+    height: 98%;
+    position: absolute;
+    z-index:1;
+}
 
 .contactName{
     position: absolute;
@@ -65,11 +76,10 @@
     white-space: nowrap;
     overflow: hidden !important;
     text-overflow: ellipsis;
-
     height: 10%;
-    width: 40%;
+    width: 20%;
     margin-top: -2.4%;
-    margin-left: 1%;
+    margin-left: 7%;
 }
 
 .lastMsgTime {
@@ -84,6 +94,9 @@
     z-index: 7;
     margin-left: 5%;
     margin-top: 0%;
+    background-color:rgb(122, 121, 121);
+    background-repeat:no-repeat;
+    border-color: #dee6e8; 
 }
 
 .chat-app .people-list {
@@ -172,13 +185,6 @@
     border-bottom: 2px solid #f4f7f6;
     margin-right:-50% ;
 }
-/* 
-.chat .chat-header img {
-    float: left;
-    border-radius: 40%;
-    width: 18%;
-    margin-bottom: 3%;
-} */
 
 .chat .chat-header .chat-about {
     float: left;
@@ -212,16 +218,6 @@
     border-radius: 40px;
     width: 40px
 }
-/* 
-.chat .chat-history .message-data-time {
-    color: #434651;
-    padding-left: 6px
-} */
-
-/* .message-data-time-right {
-    color: #434651;
-    padding-left: 87%;
-} */
 
 .chat .chat-history .message {
     color: #444;
