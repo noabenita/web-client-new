@@ -110,23 +110,7 @@ function RightSide({db, current,user,chat, setChat}){
           });
     
       }
-
-    function findMe(){
-        var index;
-        var index2;
-        for(var i=0;i<db.length;i++){
-            if(db[i].UserName == current.UserName){
-                index = i;
-            }
-        }
-        for(var j=0;j<db[index].Chats.length;j++){
-            if(db[index].Chats[j].contact == user.contact){
-                index2 = j;
-            }
-        }
-        return (db[index].Chats[index2].contact)
-    }
-    
+     
     // insert to chat array of contact chat
     function submit(event, data, type){
         var index;
@@ -143,6 +127,14 @@ function RightSide({db, current,user,chat, setChat}){
         }
         const now = new Date();
         const time = now.getHours() + ':' + now.getMinutes(); 
+        if(type=="video"){
+            data = URL.createObjectURL(event.target.files[0]);
+            chat.push({data:data,time:(time), flag:false, type:type});
+            db[index].Chats[index2].message.push({data:data,time:(time), flag:false, type:"video"});
+            setChat(chat);
+            setRender(render+1)
+            event.target.value = null
+        }
         if(type=="img"){
             data = URL.createObjectURL(event.target.files[0]);
             chat.push({data:data,time:(time), flag:false, type:type});
@@ -152,12 +144,9 @@ function RightSide({db, current,user,chat, setChat}){
             event.target.value = null
 
         }
-        if(type=='video'){
-
-        }
+        
         if(type == "text"){
         // check that msg is not empty message
-           
             if(msg!=""){
                 db[index].Chats[index2].message.push({data:data,time:(time), flag:false, type:"text"});
                 chat.push({data:data,time:(time), flag:false, type:"text"});
@@ -167,12 +156,10 @@ function RightSide({db, current,user,chat, setChat}){
             document.getElementById("msg").value = ("");
         }
         if(type=='audio'){
-            console.log(data)
             db[index].Chats[index2].message.push({data:data,time:(time), flag:false, type:"audio"});
             chat.push({data:data,time:(time), flag:false, type:"audio"});
             setChat(chat);
         }
-      console.log(db)
     }
     function ifChange(e) {
         setMsg(e.target.value)
@@ -212,22 +199,27 @@ function RightSide({db, current,user,chat, setChat}){
              {/* image button */}
             <div className="dropdown-menu w3-light-grey" aria-labelledby="dropdownMenuButton">            
                 <button  className='messegeTypes' >
-                    <input type="file" accept = "image/png, image/jpeg" id="actual-btn"
+                    <input type="file" accept = "image/png, image/jpeg" id="actual-btn2"
                     onChange={(e,data,type)=>{submit(e,data,"img")}} 
                      name="img" hidden/>
-                    <label className="fa fa-picture-o icons1 w3-large" for="actual-btn" ></label>
+                    <label className="fa fa-picture-o icons1 w3-large" for="actual-btn2" ></label>
                 </button>
                  {/* video button */}
-                <button  className='messegeTypes' >
-                    <input type="file" accept="video/*" id="actual-btn" hidden/>
-                    <label className="fa fa-video-camera icons w3-large" for="actual-btn"></label>
-                </button>
+                <button className='messegeTypes' >
+                    <input type="file" accept="video/*" id="actual-btn1"
+                    onChange={(e,data,type)=>{submit(e,data,"video")}} 
+                     name="video" hidden/>
+                    <label className="fa fa-video-camera icons w3-large" for="actual-btn1" ></label>
+                </button>  
+     
                 {/* record button */}
                 <button 
                     className="messegeTypesMic fa fa-microphone icons w3-large" data-toggle="modal" 
                         for="actual-btn" data-target="#exampleModal" onClick={()=>{recordFunc(); handleShow(true) }}
                     >
-                </button>               
+                </button>  
+
+           
             </div>  
         </div>
 
@@ -255,12 +247,6 @@ function RightSide({db, current,user,chat, setChat}){
                           class="btn btn-primary">send</Button>
             </Modal.Footer>
             </Modal>
-            
-
-
-
-
-        
 
         </>
     );

@@ -72,13 +72,17 @@ function LeftSide({db ,current, setState, setUser, setChat}){
         setState(0)
     }
 
-    function lastMsg (currentCon){
+    function lastMsg(currentCon){
         for(var i = 0; i<current.Chats.length;i++){
             if (current.Chats[i].contact == currentCon) {
                 var j = current.Chats[i].message.length;
-                console.log(j)
                 if (j > 0){
-                    return current.Chats[i].message[j-1].data
+                    if(current.Chats[i].message[j-1].data.startsWith("blob")){
+                        return "media"
+                    } else {
+                        return current.Chats[i].message[j-1].data
+                    }
+
             }
         }
     }
@@ -103,14 +107,6 @@ function LeftSide({db ,current, setState, setUser, setChat}){
                 <div className="bgimg" ></div>               
             </nav>
 
-            <div  className="semiTrans w3-hide-medium w3-hide-small" ></div>
-            <div id="button">            
-                <button className=" logoutButton w3-button w3-padding-small" type="submit"
-                 onClick={logout}> 
-                    logout
-                </button>
-            </div> 
-
             <div className=" card chat-app ">
                 <div id="plist" className="people-list ">                   
                     <div container className='w3-border w3-padding-16 myname'>   {/* current user */}
@@ -129,13 +125,14 @@ function LeftSide({db ,current, setState, setUser, setChat}){
                                 </button> 
                                
                             </ul> 
-                            )}  
+    
+                           )}  
                         </li>
+                       
                     </ul>
+                    {/* <div>{setRender(render+1)}</div> */}
                    
                     <div className="input-group-prepend">
-                        {/* <button className="addCon fa fa-user-circle w3-xlarge" onClick={()=> {setAddButton(true)}}/>          */}
-
                     <Button className="addCon fa fa-user-circle w3-xlarge" variant="primary" onClick={handleShow}/>
                         <Modal show={show} onHide={handleClose}>
                             <Modal.Header closeButton>
@@ -151,11 +148,11 @@ function LeftSide({db ,current, setState, setUser, setChat}){
                                 </Button>
                                 <Button variant="primary" onClick={(x)=> {addUserChat(x);
                                     handleClose();setRender(render+1)}}>
-                                        {console.log(render)}
                                     Add User
                                 </Button>
                             </Modal.Footer>
                         </Modal>
+
                     </div>
                 </div> 
           </div>
