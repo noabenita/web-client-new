@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import './Message.css';
 
 function Message({data, time, flag, type}){
@@ -13,6 +14,7 @@ function Message({data, time, flag, type}){
                                     <div>{time}</div>  
                                     <div>{" "} {data} {" "}</div>
                                 </span>
+                                
                             </div>
                         </ul>
                     </p>
@@ -27,7 +29,7 @@ function Message({data, time, flag, type}){
                             <div className='text-right'>
                                 <span className="message-data-time-right  other-message float-right"> 
                                     <div>{time}</div>
-                                    <div> {" "} {data} {" "} </div> 
+                                    <div> {" "} {data} {" "} </div>                                    
                                 </span>
                             </div>
                         </ul>

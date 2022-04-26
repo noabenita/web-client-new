@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import LoginPage from './loginPage/LoginPage'
 import Chat from './chatPage/Chat';
 import SignUpPage from './signUpPage/SignUpPage';
-
+import videoplayback from './videoplayback.mp4';
+import myaudio from './myaudio.ogg'
 function App() {
   const[mode,setMode]=React.useState(0);
   const[newUser, setNewUser]= React.useState({UserName: "", NickName:"", Img:"", Password:"", Chats:""});
@@ -13,24 +14,27 @@ function App() {
     {UserName:'or',
     NickName:'orush',
     Img:"https://bootdey.com/img/Content/avatar/avatar3.png",
-    Password: 1, 
+    Password: 'Nn123456', 
     Chats:[
       {contact: 'ron',
       imgContact: "https://bootdey.com/img/Content/avatar/avatar2.png",
       message:[
         {data:"hey",time: '12:10',flag:true, type:'text'},
         {data:"?",time: '12:15',flag:false, type:'text'},
+        {data:"photo.jpg",time: '12:15',flag:true, type:'img'},
         {data:"what are u doing ?",time: "12:17",flag:false, type:'text'}]}, 
       {contact :"hen",
       imgContact: "https://bootdey.com/img/Content/avatar/avatar1.png",
       message:[
         {data:"how are u?? i want to tell you about my friend",time: '14:10',flag:true, type:'text'},
         {data:"♥",time: '14:11',flag:true, type:'text'},
+        {data:videoplayback, time:'14:30', flag:false, type:"video"},
         {data:"Im fine love, how are you ?",time: "14:40",flag:false, type:'text'}]},
       {contact :"noa",
        imgContact: "https://bootdey.com/img/Content/avatar/avatar8.png",
        message:[
          {data:"hii",time: '10:32',flag:true, type:'text'},
+         {data: myaudio, time: '10:33', flag:false, type:"audio"},
          {data:"https://bootdey.com/img/Content/avatar/avatar2.png",time: '10:33',flag:false, type:'img'},
          {data:"do you know Ron?",time: "10:34",flag:false, type:'text'}]}]},
         {UserName:'niv',
@@ -48,6 +52,7 @@ function App() {
         message:[
           {data:"hey",time: '12:10',flag:false, type:'text'},
           {data:"?",time: '12:15',flag:true, type:'text'},
+          {data:"photo.jpg",time: '12:15',flag:false, type:'img'},
           {data:"what are u doing ?",time: "12:17",flag:true, type:'text'}]},
           {contact :"hen",
           imgContact: "https://bootdey.com/img/Content/avatar/avatar8.png",
@@ -64,6 +69,7 @@ function App() {
         imgContact: "https://bootdey.com/img/Content/avatar/avatar3.png",
         message:[
           {data:"hii",time: '10:32',flag:false, type:'text'},
+          {data: myaudio, time: '10:33', flag:true, type:"audio"},
           {data:"https://bootdey.com/img/Content/avatar/avatar2.png",time: '10:33',flag:true, type:'img'},
           {data:"do you know Ron?",time: "10:34",flag:true, type:'text'}]},
           {contact :"niv",
@@ -79,6 +85,7 @@ function App() {
         message:[
           {data:"how are u?? i want to tell you about my friend",time: '14:10',flag:false, type:'text'},
           {data:"♥",time: '14:11',flag:false, type:'text'},
+          {data:videoplayback, time:'14:30', flag:true, type:"video"},
           {data:"Im fine love, how are you ?",time: "14:40",flag:true, type:'text'}]},
           {contact :"ron",
           imgContact: "https://bootdey.com/img/Content/avatar/avatar2.png",

@@ -1,9 +1,10 @@
 .message-data-righ{
   display: inline-block;
+  word-wrap: break-word;
   width: 45%;
   align-self: flex-start;
-   text-align: right;text-align-last: right;
-   max-width: 50%;
+
+   
   
 }
 
