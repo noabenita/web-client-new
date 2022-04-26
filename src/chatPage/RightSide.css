@@ -87,6 +87,8 @@
     display: block;
     white-space: nowrap;
     overflow-y: scroll !important;
+    display: flex;
+    flex-direction: column-reverse;
     overflow-x: hidden !important;
     text-overflow: ellipsis;
     margin-top: 10%; 

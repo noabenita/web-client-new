@@ -2,8 +2,11 @@ import './LeftSide.css';
 import React from 'react';
 import {Modal} from "react-bootstrap";
 import {Button} from "react-bootstrap";
+import { useEffect } from 'react';
+
 
 function LeftSide({db ,current, setState, setUser, setChat}){
+
     const [show, setShow] = React.useState(false);
     const[render, setRender]=React.useState(0);
     const handleClose = () => setShow(false);

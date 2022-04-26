@@ -5,6 +5,7 @@ import RightSide from "./RightSide";
 
 
 function Chat({db, current}){
+    
     const[state,setState]=React.useState(0);
     const[user,setUser]=React.useState({contact: "", imgContact:"", message:""})
     const[chat,setChat]=React.useState([])

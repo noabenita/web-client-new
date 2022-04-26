@@ -3,8 +3,12 @@ import './RightSide.css';
 import Message from "./Message";
 import {Button} from 'react-bootstrap'
 import { Modal } from "react-bootstrap";
+import { useEffect } from 'react';
+
 
 function RightSide({db, current,user,chat, setChat}){
+        // useEffect(()=>{var sc=document.getElementById('mm'); sc.scrollTo=sc.scrollHeight});
+
     const[msg,setMsg] = React.useState("")
     const[rec, setRec] = React.useState("")
     const[show, setShow] = React.useState(false)
